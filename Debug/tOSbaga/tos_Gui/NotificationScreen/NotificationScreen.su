@@ -1,0 +1,14 @@
+lv_disp.h:97:26:lv_scr_act	8	static
+lv_label.h:185:20:lv_label_set_style	24	static
+lv_cb.h:102:20:lv_cb_set_checked	16	static
+NotificationScreen.c:25:6:tos_NotificationScreen_Init	16	static
+NotificationScreen.c:48:6:NotificationScreen_ButtonController	24	static
+NotificationScreen.c:92:6:NotificationScreen_Items	48	static
+NotificationScreen.c:122:6:NotificationScreen_NotificationBox	24	static
+NotificationScreen.c:140:6:NotificationScreen_SetOnScreenItems	40	static
+NotificationScreen.c:158:6:NotificationScreen_ItemsStyleInit	16	static
+NotificationScreen.c:203:14:NotificationScreen_ItemsetPos	24	static
+NotificationScreen.c:210:8:NotificationScreen_GetMaxScroll	24	static
+NotificationScreen.c:218:6:NotificationScreen_TaskControllerSet	16	static
+NotificationScreen.c:221:6:NotificationScreen_TaskControllerGet	4	static
+NotificationScreen.c:224:6:NotificationScreen_GetNotifications	16	static

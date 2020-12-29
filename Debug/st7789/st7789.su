@@ -1,0 +1,14 @@
+st7789.c:8:13:ST7789_WriteCommand	16	static
+st7789.c:21:13:ST7789_WriteData	24	static
+st7789.c:41:13:ST7789_WriteSmallData	16	static
+st7789.c:53:6:ST7789_SetRotation	16	static
+st7789.c:79:13:ST7789_SetAddressWindow	40	static
+st7789.c:106:6:ST7789_Init	56	static
+st7789.c:169:6:ST7789_Fill_Color	24	static
+st7789.c:186:6:ST7789_DrawPixel	24	static
+st7789.c:203:6:ST7789_Fill	32	static
+st7789.c:222:6:ST7789_DrawPixel_4px	32	static
+st7789.c:229:13:ST7789_SPI_Send	16	static
+st7789.c:234:6:ST7789_Send_Data	24	static
+st7789.c:240:13:ST7789_SPI_Send_DMA	16	static
+st7789.c:245:6:ST7789_Send_Data_DMA	24	static

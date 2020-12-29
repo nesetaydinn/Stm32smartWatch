@@ -1,0 +1,4 @@
+lv_color.h:399:26:lv_color_make	24	static
+lv_disp.h:97:26:lv_scr_act	8	static
+lv_label.h:185:20:lv_label_set_style	24	static
+StartScreen.c:12:6:tos_StartScreen_Init	32	static

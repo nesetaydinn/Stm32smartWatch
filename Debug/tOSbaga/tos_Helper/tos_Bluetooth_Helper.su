@@ -1,0 +1,14 @@
+tos_Bluetooth_Helper.c:27:6:tos_BluetoothReceiverAndTransmitter	16	static
+tos_Bluetooth_Helper.c:37:6:tos_Bluetooth_FirstConnectGetValues	24	static
+tos_Bluetooth_Helper.c:76:6:tos_Bluetooth_GetAndPushNotification	8	static
+tos_Bluetooth_Helper.c:92:6:tos_Bluetooth_SetBatteryVal	16	static
+tos_Bluetooth_Helper.c:99:6:tos_Bluetooth_SetStepsVal	16	static
+tos_Bluetooth_Helper.c:105:6:tos_BluetoothGetStatusVAl	24	static
+tos_Bluetooth_Helper.c:119:12:tos_BluetoothStatus_SymColor_Helper	16	static
+tos_Bluetooth_Helper.c:123:6:tos_BluetoothEnableController	4	static
+tos_Bluetooth_Helper.c:128:6:tos_BluetoothGetEnableVal	4	static
+tos_Bluetooth_Helper.c:131:6:tos_BluetoothSetEnableVal	16	static
+tos_Bluetooth_Helper.c:134:9:tos_BluetoothGetBatteryVal	4	static
+tos_Bluetooth_Helper.c:137:6:tos_BluetoothSetBatteryVal	16	static
+tos_Bluetooth_Helper.c:140:10:tos_BluetoothGetStepsVal	4	static
+tos_Bluetooth_Helper.c:143:6:tos_BluetoothSetStepsVal	16	static

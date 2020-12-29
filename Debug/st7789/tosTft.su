@@ -1,0 +1,4 @@
+lv_disp.h:97:26:lv_scr_act	8	static
+tosTft.c:16:6:tos_Tft_init	48	static
+tosTft.c:32:13:st7789_flush_cb	40	static
+tosTft.c:56:6:tos_Lvgl_test	24	static

@@ -1,0 +1,3 @@
+tos_Calc_Helper.c:13:8:tos_Ratio	56	static
+tos_Calc_Helper.c:19:9:tos_Rounding	24	static
+tos_Calc_Helper.c:28:7:tos_distance_Calc	32	static

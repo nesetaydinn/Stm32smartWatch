@@ -1,0 +1,13 @@
+lcd.c:12:13:LCD_Gpio_Init	8	static
+lcd.c:23:13:LCD_SPI_Send	16	static
+lcd.c:29:13:LCD_Write_Cmd	16	static
+lcd.c:37:13:LCD_Write_Data	16	static
+lcd.c:45:6:LCD_Write_HalfWord	24	static
+lcd.c:58:6:LCD_Address_Set	24	static
+lcd.c:82:6:LCD_DisplayOn	8	static
+lcd.c:93:6:LCD_DisplayOff	8	static
+lcd.c:105:6:LCD_Clear	24	static
+lcd.c:138:6:LCD_Fill	40	static
+lcd.c:180:6:LCD_Send_Data	24	static
+lcd.c:189:6:LCD_Send_Data_DMA	24	static
+lcd.c:209:6:LCD_Init	8	static
