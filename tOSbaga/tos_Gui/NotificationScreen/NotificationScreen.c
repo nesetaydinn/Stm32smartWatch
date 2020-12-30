@@ -14,6 +14,7 @@ char NS_buffer[16];
 int8_t myPos;
 uint8_t selectedItem;
 bool isOpenNotificationBox,NS_isBtnPressed,NS_taskController;
+uint8_t NS_rightBtnListen=0,NS_leftBtnListen=0;
 
 void NotificationScreen_ItemsStyleInit(bool theme);
 tos_Position NotificationScreen_ItemsetPos(int8_t index);
@@ -48,7 +49,30 @@ void tos_NotificationScreen_Init(bool theme){
 void NotificationScreen_ButtonController(void){
 	if(!NS_isBtnPressed){
 		NS_isBtnPressed=true;
-		  if(1==tos_LeftButton_Listenner_For_MenuControl()) {
+		  if(2==NS_rightBtnListen){
+			  //open
+			  if(!isOpenNotificationBox){
+				  isOpenNotificationBox=true;
+				  char * tmp=tos_NotificationGetItem(root,selectedItem)->appNot;
+				    NotificationScreen_NotificationBox(tmp);
+			  }
+		  }
+		  if(1==NS_rightBtnListen) {
+		  			  if(!isOpenNotificationBox){
+		  			  //minus
+		  				lv_obj_clean(lv_scr_act());
+		  				if(myPos>-NotificationScreen_GetMaxScroll(node))myPos--;
+		  				NotificationScreen_SetOnScreenItems(root,node,myPos);
+		  			  }else {isOpenNotificationBox=false;
+		  			  //remove
+		  				lv_obj_clean(lv_scr_act());
+		  				notBox = NULL;
+		  			    tos_NotificationDelItem(root,node,selectedItem);
+		  				NotificationScreen_SetOnScreenItems(root,node,myPos);
+
+		  			  }
+		  		  }
+		  if(1==NS_leftBtnListen) {
 			  //plus
 			  if(!isOpenNotificationBox){
 				lv_obj_clean(lv_scr_act());
@@ -58,30 +82,10 @@ void NotificationScreen_ButtonController(void){
 				  lv_mbox_start_auto_close(notBox,0);
 			  }
 		  }
-		  if(1==tos_RightButton_Listenner_For_MenuControl()) {
-			  if(!isOpenNotificationBox){
-			  //minus
-				lv_obj_clean(lv_scr_act());
-				if(myPos>-NotificationScreen_GetMaxScroll(node))myPos--;
-				NotificationScreen_SetOnScreenItems(root,node,myPos);
-			  }else {isOpenNotificationBox=false;
-			  //remove
-				lv_obj_clean(lv_scr_act());
-				notBox = NULL;
-			    tos_NotificationDelItem(root,node,selectedItem);
-				NotificationScreen_SetOnScreenItems(root,node,myPos);
+		  NS_isBtnPressed=false;
+		  NS_rightBtnListen=tos_RightButton_Listenner_For_MenuControl();
+		  NS_leftBtnListen =tos_LeftButton_Listenner_For_MenuControl();
 
-			  }
-		  }
-		  if(2==tos_RightButton_Listenner_For_MenuControl()){
-			  //open
-			  if(!isOpenNotificationBox){
-				  isOpenNotificationBox=true;
-				  char * tmp=tos_NotificationGetItem(root,selectedItem)->appNot;
-				    NotificationScreen_NotificationBox(tmp);
-			  }
-		  }
-			NS_isBtnPressed=false;
 	}
 }
 /*This function using for create notification items

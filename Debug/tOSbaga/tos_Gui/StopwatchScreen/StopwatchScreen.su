@@ -3,10 +3,10 @@ lv_label.h:185:20:lv_label_set_style	24	static
 StopwatchScreen.c:26:6:tos_StopWatchScreen_Init	16	static
 StopwatchScreen.c:46:6:StopWatch_Obj_Init	24	static
 StopwatchScreen.c:84:6:StopWatch_Stopwatch_Updater	16	static
-StopwatchScreen.c:91:6:StopWatch_ButtonController	8	static
-StopwatchScreen.c:111:6:StopWatch_Update_Time	4	static
-StopwatchScreen.c:131:6:StopWatch_Update_Lbl	24	static
-StopwatchScreen.c:137:6:StopWatch_Update_saveLbl	24	static
-StopwatchScreen.c:148:6:StopWatch_Update_StatuImg	16	static
-StopwatchScreen.c:167:6:StopWatch_TaskControllerSet	16	static
-StopwatchScreen.c:170:6:StopWatch_TaskControllerGet	4	static
+StopwatchScreen.c:91:6:StopWatch_ButtonController	16	static
+StopwatchScreen.c:116:6:StopWatch_Update_Time	4	static
+StopwatchScreen.c:136:6:StopWatch_Update_Lbl	24	static
+StopwatchScreen.c:142:6:StopWatch_Update_saveLbl	24	static
+StopwatchScreen.c:153:6:StopWatch_Update_StatuImg	16	static
+StopwatchScreen.c:172:6:StopWatch_TaskControllerSet	16	static
+StopwatchScreen.c:175:6:StopWatch_TaskControllerGet	4	static

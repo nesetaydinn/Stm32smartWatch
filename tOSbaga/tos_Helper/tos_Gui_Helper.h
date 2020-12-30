@@ -10,9 +10,6 @@
 
 #include "main.h"
 
-#define TOS_SLEEP_TIMER htim2
-extern TIM_HandleTypeDef TOS_SLEEP_TIMER;
-
 #define TOS_SCREENUPDATE_TIMER htim3
 extern TIM_HandleTypeDef TOS_SCREENUPDATE_TIMER;
 

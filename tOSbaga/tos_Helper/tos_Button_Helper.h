@@ -22,10 +22,12 @@
 #define ST7789_Select() HAL_GPIO_WritePin(ST7789_CS_GPIO_Port, ST7789_CS_Pin, GPIO_PIN_RESET)
 #define ST7789_UnSelect() HAL_GPIO_WritePin(ST7789_CS_GPIO_Port, ST7789_CS_Pin, GPIO_PIN_SET)
 
-uint8_t tos_EnterButton_LongPress_Listenner(void);
-void tos_EnterButton_Counter(void);
+#define BTN_SHORT_PRESS_TIME 5
+#define BTN_LONG_PRESS_TIME 550
+
 uint8_t tos_RightButton_Listenner_For_MenuControl(void);
 uint8_t tos_LeftButton_Listenner_For_MenuControl(void);
 uint8_t tos_EnterButton_Listenner_For_MenuControl(void);
+void tos_ButtonCounterIncrease(void);
 
 #endif /* TOS_HELPER_TOS_BUTTON_HELPER_H_ */

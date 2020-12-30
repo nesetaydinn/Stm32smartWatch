@@ -15,7 +15,7 @@
 #include "stdbool.h"
 	//Definations
 
-#define TOS_RUNMODE_TIMER htim4
+#define TOS_RUNMODE_TIMER htim2
 extern TIM_HandleTypeDef TOS_RUNMODE_TIMER;
 
 	//Functions

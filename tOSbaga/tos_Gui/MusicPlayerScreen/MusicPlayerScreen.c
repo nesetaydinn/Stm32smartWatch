@@ -15,6 +15,7 @@ static lv_style_t style_screen,description_Style;
 uint8_t MP_statu,MP_SoundVal;
 bool MP_theme,MP_taskController,MP_buttonMode,MP_isButtonPressed;
 char *MP_SongName,*MP_SongActrist;
+uint8_t MP_rightBtnListen=0,MP_leftBtnListen=0;
 
 void MusicPlayerSound_Init(bool theme);
 void MusicPlayerPlayingVal_Init(bool theme);
@@ -145,30 +146,33 @@ void MusicPlayerDescriptionLbl_Init(bool theme){
 /*This function using for control to buttons*/
 void MusicPlayer_ButtonController(void){
 	if(!MP_isButtonPressed){
-		if(1==tos_LeftButton_Listenner_For_MenuControl()) {
-					MP_isButtonPressed=true;
-				  if(MP_buttonMode) soundVolumeController(false);
-				  else{
-					  if((1==MP_statu) || (2==MP_statu)) MP_statu=0;
-					  else MP_statu=1;
+		  if(2==MP_leftBtnListen){
+				MP_isButtonPressed=true;
+			   MP_statu=2;
+		  }
+		if(2==MP_rightBtnListen){
+				MP_isButtonPressed=true;
+			if(MP_buttonMode)MP_buttonMode=false;
+			else MP_buttonMode=true;
+				  }
+	if(1==MP_leftBtnListen) {
+				MP_isButtonPressed=true;
+			if(MP_buttonMode) soundVolumeController(false);
+			else{
+				if((1==MP_statu) || (2==MP_statu)) MP_statu=0;
+				else MP_statu=1;
 				  }
 			  }
-			  if(2==tos_LeftButton_Listenner_For_MenuControl()){
-					MP_isButtonPressed=true;
-				   MP_statu=2;
-			  }
 
-			  if(1==tos_RightButton_Listenner_For_MenuControl()) {
-					MP_isButtonPressed=true;
-				  if(MP_buttonMode) soundVolumeController(true);
 
-			  }
-			  if(2==tos_RightButton_Listenner_For_MenuControl()){
-					MP_isButtonPressed=true;
-				  if(MP_buttonMode)MP_buttonMode=false;
-				  else MP_buttonMode=true;
+	if(1==MP_rightBtnListen) {
+				MP_isButtonPressed=true;
+				if(MP_buttonMode) soundVolumeController(true);
+
 			  }
 				MP_isButtonPressed=false;
+				MP_rightBtnListen=tos_RightButton_Listenner_For_MenuControl();
+				MP_leftBtnListen =tos_LeftButton_Listenner_For_MenuControl();
 	}
 
 }

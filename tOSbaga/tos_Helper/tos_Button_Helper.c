@@ -6,62 +6,35 @@
  */
 
 #include "tos_Button_Helper.h"
-
-uint8_t tos_EnterButton_LongPress_Listenner(void) {
-
-	static uint8_t buttonCounter=0,result;
-
-	if (!READ_ENTER_BTN) {
-		while (!READ_ENTER_BTN) {
-			if (buttonCounter >=300) {
-				result=2;
-				buttonCounter=0;
-				return result;
-			}
-			else if(buttonCounter >=2)result=1;
-		}
-	} buttonCounter=0;
-	return result;
-}
+static uint16_t enterbtncounter=0,rightbtncounter=0,leftbtncounter=0;
 uint8_t tos_RightButton_Listenner_For_MenuControl(void) {
-	uint8_t result=0, counter=0;
-	if (!READ_RIGHT_BTN) {
-		while (!READ_RIGHT_BTN) {
-			if (counter >=50) {
-				result=2;
-				return result;
-			}
-			else if(counter >=20)result=1;
-			counter++;
-		}
+	if(READ_RIGHT_BTN){
+		if(rightbtncounter>=BTN_LONG_PRESS_TIME){ rightbtncounter=0;return 2;}
+		if(rightbtncounter>=BTN_SHORT_PRESS_TIME){ rightbtncounter=0;return 1;}
+		 rightbtncounter=0;
 	}
-	return result;
+	return 0;
 }
 uint8_t tos_LeftButton_Listenner_For_MenuControl(void) {
-	uint8_t result=0, counter=0;
-	if (!READ_LEFT_BTN) {
-		while (!READ_LEFT_BTN) {
-			if (counter >=50) {
-				result=2;
-				return result;
+
+			if(READ_LEFT_BTN){
+				if(leftbtncounter>=BTN_LONG_PRESS_TIME){ leftbtncounter=0;return 2;}
+				if(leftbtncounter>=BTN_SHORT_PRESS_TIME){ leftbtncounter=0;return 1;}
+				 leftbtncounter=0;
 			}
-			else if(counter >=20)result=1;
-			counter++;
-		}
-	}
-	return result;
+			return 0;
 }
+
 uint8_t tos_EnterButton_Listenner_For_MenuControl(void) {
-	uint8_t result=0, counter=0;
-	if (!READ_ENTER_BTN) {
-		while (!READ_ENTER_BTN) {
-			if (counter >=50) {
-				result=2;
-				return result;
+			if(READ_ENTER_BTN){
+				if(enterbtncounter>=BTN_LONG_PRESS_TIME){ enterbtncounter=0;return 2;}
+				if(enterbtncounter>=BTN_SHORT_PRESS_TIME){ enterbtncounter=0;return 1;}
+				 enterbtncounter=0;
 			}
-			else if(counter >=20)result=1;
-			counter++;
-		}
-	}
-	return result;
+			return 0;
+}
+void tos_ButtonCounterIncrease(void){
+	if(!READ_ENTER_BTN)enterbtncounter++;
+	else if(!READ_LEFT_BTN)leftbtncounter++;
+	else if(!READ_RIGHT_BTN)rightbtncounter++;
 }

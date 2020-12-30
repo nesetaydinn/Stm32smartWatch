@@ -89,21 +89,26 @@ void StopWatch_Stopwatch_Updater(lv_task_t *t){
 
 /*This function using for control to buttons*/
 void StopWatch_ButtonController(void){
-	  if(2==tos_LeftButton_Listenner_For_MenuControl()){
+	uint8_t rightBtnListen =tos_LeftButton_Listenner_For_MenuControl();
+	  if(2==rightBtnListen){
+		  //Clear and stop
+		  SWseconds=0; SWminutes=0; SWhours=0; SWmilisecs=0; isStartCount=false;
+		  HAL_TIM_Base_Stop_IT(&TOS_STOPWATCH_TIMER);
+		  StopWatch_Update_StatuImg(0);}
+	  if(1==rightBtnListen){
 		  //Start Stop
 		  if(!isStartCount){HAL_TIM_Base_Start_IT(&TOS_STOPWATCH_TIMER); isStartCount=true;
 		  StopWatch_Update_StatuImg(2);}
 		  else { HAL_TIM_Base_Stop_IT(&TOS_STOPWATCH_TIMER);  isStartCount=false;
 		  StopWatch_Update_StatuImg(1);}}
 	  if(1==tos_RightButton_Listenner_For_MenuControl()) {
-		  //Save
-		  StopWatch_Update_saveLbl();
-	  }
-	  if(2==tos_RightButton_Listenner_For_MenuControl()){
-		  //Clear and stop
-		  SWseconds=0; SWminutes=0; SWhours=0; SWmilisecs=0;
-		  HAL_TIM_Base_Stop_IT(&TOS_STOPWATCH_TIMER);
-		  StopWatch_Update_StatuImg(0);}
+				  //Save
+				  StopWatch_Update_saveLbl();
+		  }
+
+
+
+
 }
 
 /*This function using for update time

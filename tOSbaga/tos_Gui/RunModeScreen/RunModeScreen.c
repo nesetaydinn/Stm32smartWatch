@@ -14,10 +14,11 @@ lv_obj_t *RM_Lbl,*RM_targetTimeBar,*RM_stepsArc,*RM_stepsLbl,*RM_kCalsArc,*RM_kC
 static lv_style_t style_screen,description_Style;
 
 char runModeBuffer[64];
-uint8_t RMtimeSetVal,RMseconds,RMminutes,RMhours,RMtargetSeconds=50,RMtargetMinutes,RMtargetHours;
+uint8_t RMtimeSetVal,RMseconds,RMminutes,RMhours,RMtargetSeconds,RMtargetMinutes,RMtargetHours;
 uint16_t RMmilisecs,RMstepsBeff,RMsteps,RMkCalsBeff,RMkCals;
 float RMdistancesBeff,RMdistances;
 bool RM_theme,RM_taskController,isStartRun,RMfirstVAl,RM_unitType;
+uint8_t Rm_rightBtnListen=0,Rm_leftBtnListen=0;
 
 void RunMode_Obj_Init(void);
 void RunMode_Steps(bool theme);
@@ -279,31 +280,33 @@ void RunMode_distances_angle_loader(void){
 }
 /*This function using for control to buttons*/
 void RunMode_ButtonController(void){
-	  if(1==tos_LeftButton_Listenner_For_MenuControl()) {
-		  //Time Set
-		  RunMode_RunTimeUpdateVal();
-	  }
-	  if(2==tos_LeftButton_Listenner_For_MenuControl()){
+	if(2==Rm_leftBtnListen){
 		  //Time Set Open/Close
 		  RunMode_RunTimeSetVal();
 	  }
-
-	  if(1==tos_RightButton_Listenner_For_MenuControl()) {
-		  //Timer start/stop
-		  if(0==RMtimeSetVal && !isStartRun){ RunMode_FistValueSet();
-			  HAL_TIM_Base_Start_IT(&TOS_RUNMODE_TIMER); isStartRun=true;
-		  }
-		  else { isStartRun=false;
-			  HAL_TIM_Base_Stop_IT(&TOS_RUNMODE_TIMER);
-		  }
-	  }
-	  if(2==tos_RightButton_Listenner_For_MenuControl()){
+	  if(2==Rm_rightBtnListen){
 		  //Clear and stop
 		   RMmilisecs=0; RMfirstVAl=true;
 			  RMseconds=0;RMminutes=0;RMhours=0;RMtargetSeconds=0;RMtargetMinutes=0;RMtargetHours=0;
 			  HAL_TIM_Base_Stop_IT(&TOS_RUNMODE_TIMER);
 			  RunMode_RunTimeLblController();
 	  }
+	 if(1==Rm_leftBtnListen) {
+			  //Time Set
+			  RunMode_RunTimeUpdateVal();
+		  }
+	 if(1==Rm_rightBtnListen) {
+		  		  //Timer start/stop
+		  		  if(0==RMtimeSetVal && !isStartRun){ RunMode_FistValueSet();
+		  			  HAL_TIM_Base_Start_IT(&TOS_RUNMODE_TIMER); isStartRun=true;
+		  		  }
+		  		  else { isStartRun=false;
+		  			  HAL_TIM_Base_Stop_IT(&TOS_RUNMODE_TIMER);
+		  		  }
+	 }
+
+	 Rm_rightBtnListen=tos_RightButton_Listenner_For_MenuControl();
+	 Rm_leftBtnListen =tos_LeftButton_Listenner_For_MenuControl();
 }
 /*This function using for update time
  * this function must be called in timer interupt function*/

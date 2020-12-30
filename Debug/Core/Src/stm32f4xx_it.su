@@ -9,5 +9,5 @@ stm32f4xx_it.c:175:6:PendSV_Handler	4	static
 stm32f4xx_it.c:188:6:SysTick_Handler	8	static
 stm32f4xx_it.c:210:6:TIM2_IRQHandler	8	static
 stm32f4xx_it.c:225:6:TIM3_IRQHandler	8	static
-stm32f4xx_it.c:239:6:TIM4_IRQHandler	8	static
+stm32f4xx_it.c:240:6:TIM4_IRQHandler	8	static
 stm32f4xx_it.c:255:6:DMA2_Stream3_IRQHandler	8	static

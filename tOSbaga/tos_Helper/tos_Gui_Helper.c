@@ -11,10 +11,12 @@
 RTC_HandleTypeDef *ScreenRtc;
 uint8_t screenType,screenTheme;
 uint16_t screenCounter;
-bool screenStatu,GuiHelperOpen;
+bool GuiHelperOpen;
+bool screenStatu;
 bool isScreenCounterEnable;
 static bool isWorkingSystem=false;
-static uint8_t sleepCounter,currentScreen;
+static uint16_t sleepCounter;
+uint8_t currentScreen;
 void tos_Gui_Init(void);
 
 
@@ -39,7 +41,6 @@ void tos_firstScreen_Update(void){
 		screenCounter++;
 		if(screenCounter>=5000){
 			tos_Gui_Init();
-			HAL_TIM_Base_Stop_IT(&TOS_GUI_TIMER);
 		}
 	}
 
@@ -57,19 +58,24 @@ void tos_Gui_Init(void){
 void tos_ScreenController(void){
 	 tos_Menu_Controller();
 	if(screenCounter==0 && GuiHelperOpen){
-		if(!READ_LEFT_BTN){ sleepCounter=0;
+
+		if(1==tos_EnterButton_Listenner_For_MenuControl()){ sleepCounter=0;
+			if(!screenStatu){screenStatu=true;	ST7789_UnSelect(); return;}
+			else if(1==currentScreen){currentScreen=0; tos_Screen_Chooser(currentScreen);	return;}
+		}
+		else if(2==tos_EnterButton_Listenner_For_MenuControl()){
+				//screenStatu=false; currentScreen=1;tos_Screen_Chooser(currentScreen); return;
+		}
+		if(1==tos_LeftButton_Listenner_For_MenuControl()){ sleepCounter=0;
 			MenuScreen_SetItem(5); currentScreen=2; tos_Screen_Chooser(currentScreen);
 			GuiHelperOpen=false; 	return;
 			}
-		else if(!READ_RIGHT_BTN){ sleepCounter=0;
+		if(1==tos_RightButton_Listenner_For_MenuControl()){ sleepCounter=0;
 			MenuScreen_SetItem(0); currentScreen=2; tos_Screen_Chooser(currentScreen);
 			GuiHelperOpen=false; 	return;
 		}
-			if(!READ_ENTER_BTN){ sleepCounter=0;
-				if(!screenStatu){screenStatu=true;	ST7789_UnSelect(); return;}
-				else if(1==currentScreen){
-						currentScreen=0; tos_Screen_Chooser(currentScreen);	return;}
-			}
+
+
 	}
 
 }
@@ -79,17 +85,16 @@ void tos_Screen_Chooser(uint8_t currentScreen){
 	MainScreen_TaskControllerSet(false);
 	MenuScreen_TaskControllerSet(false);
 	lv_obj_clean(lv_scr_act());
-	HAL_TIM_Base_Stop_IT(&TOS_SCREENUPDATE_TIMER);
 	switch(currentScreen){
 	case TOS_SCREEN_MAIN_:
-		HAL_TIM_Base_Start_IT(&TOS_SLEEP_TIMER);
+		HAL_TIM_Base_Start_IT(&TOS_SCREENUPDATE_TIMER);
 		MainScreen_TaskControllerSet(true);
 		tos_MainScreen_Init(1,1);break;
 	case TOS_SCREEN_SLEEPMODE_:
 		SleepModeScreen_TaskControllerSet(true);
 		tos_SleepModeScreen_Init();break;
 	case TOS_SCREEN_MENU:
-		HAL_TIM_Base_Stop_IT(&TOS_SLEEP_TIMER);
+		HAL_TIM_Base_Stop_IT(&TOS_SCREENUPDATE_TIMER);
 		MenuScreen_TaskControllerSet(true);
 		tos_MenuScreen_Init(true,ScreenRtc);
 		break;
@@ -114,9 +119,9 @@ void tos_Set_Current_Screen(void){
 	GuiHelperOpen=true;
 }
 void tos_SleepScreen_Counter(void){
-	if(!screenStatu)sleepCounter++;
-	if(sleepCounter>=100){
-		if(1==currentScreen) {ST7789_Select();  screenStatu=0;}
+	sleepCounter++;
+	if(sleepCounter>=450){
+		if(1==currentScreen) { screenStatu=false; ST7789_Select(); }
 		currentScreen=1; tos_Screen_Chooser(currentScreen);
 		sleepCounter=0;
 	}
@@ -129,8 +134,6 @@ void tos_Gui_ShutdownController(void){
 		SleepModeScreen_TaskControllerSet(false);
 		MainScreen_TaskControllerSet(false);
 		MenuScreen_TaskControllerSet(false);
-		HAL_TIM_Base_Stop_IT(&TOS_GUI_TIMER);
-
 		HAL_TIM_Base_Stop_IT(&TOS_SCREENUPDATE_TIMER);
 		ST7789_Select();
 	}else {

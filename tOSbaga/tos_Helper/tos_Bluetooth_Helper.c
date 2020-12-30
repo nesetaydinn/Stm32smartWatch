@@ -23,11 +23,12 @@ void tos_Bluetooth_FirstConnectGetValues(RTC_HandleTypeDef *hrtc);
 void tos_Bluetooth_GetAndPushNotification(void);
 void tos_Bluetooth_SetBatteryVal(uint8_t batteryVal);
 void tos_Bluetooth_SetStepsVal(uint8_t stepsVal);
-
+void tos_Bluetooth_GetCurrentTime(RTC_HandleTypeDef *hrtc);
 void tos_BluetoothReceiverAndTransmitter(RTC_HandleTypeDef *hrtc){
 	if(bluetoothEnable){
 		tos_Bluetooth_FirstConnectGetValues(hrtc);
 		tos_Bluetooth_GetAndPushNotification();
+		//tos_Bluetooth_GetCurrentTime(hrtc);
 		//tos_Bluetooth_SetBatteryVal(BluetoothBatteryVal);
 		//tos_Bluetooth_SetStepsVal(BluetoothStepsVal);
 	}
@@ -37,8 +38,8 @@ void tos_BluetoothReceiverAndTransmitter(RTC_HandleTypeDef *hrtc){
 void tos_Bluetooth_FirstConnectGetValues(RTC_HandleTypeDef *hrtc){
 	  isConnected=BLUETOOTH_IS_CONNECT;
 	  if(befConnectVal!=isConnected){
-	  HAL_UART_Transmit(&TOS_BLUETOOTH_PORT, "connected", 20,5);
-	  if(isConnected){
+	  HAL_UART_Transmit(&TOS_BLUETOOTH_PORT, "connected", 20,50);
+	 if(isConnected){
 		  timeTryAgain:
 		  if(!isConnected) return;
 		  HAL_UART_Receive(&TOS_BLUETOOTH_PORT, (uint8_t*)rx_buffer, 13, 100);
