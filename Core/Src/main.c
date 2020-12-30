@@ -19,6 +19,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "cmsis_os.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -52,6 +53,27 @@ TIM_HandleTypeDef htim4;
 
 UART_HandleTypeDef huart6;
 
+/* Definitions for guiTAsk */
+osThreadId_t guiTAskHandle;
+const osThreadAttr_t guiTAsk_attributes = {
+  .name = "guiTAsk",
+  .priority = (osPriority_t) osPriorityHigh7,
+  .stack_size = 15360 * 4
+};
+/* Definitions for controllerTask */
+osThreadId_t controllerTaskHandle;
+const osThreadAttr_t controllerTask_attributes = {
+  .name = "controllerTask",
+  .priority = (osPriority_t) osPriorityAboveNormal7,
+  .stack_size = 1024 * 4
+};
+/* Definitions for bluetoothTask */
+osThreadId_t bluetoothTaskHandle;
+const osThreadAttr_t bluetoothTask_attributes = {
+  .name = "bluetoothTask",
+  .priority = (osPriority_t) osPriorityAboveNormal6,
+  .stack_size = 2560 * 4
+};
 /* USER CODE BEGIN PV */
 RTC_TimeTypeDef sTime = {0};
 RTC_DateTypeDef sDate = {0};
@@ -68,6 +90,10 @@ static void MX_TIM4_Init(void);
 static void MX_USART6_UART_Init(void);
 static void MX_TIM3_Init(void);
 static void MX_TIM2_Init(void);
+void StartguiTAsk(void *argument);
+void StartcontrollerTask(void *argument);
+void StartbluetoothTask(void *argument);
+
 /* USER CODE BEGIN PFP */
 /* USER CODE END PFP */
 
@@ -113,20 +139,57 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   //tos_Flash_Init();
-  tos_Tft_init();
-  tos_Get_Rtc(&hrtc);
-  tos_Screen_Init();
-	ST7789_UnSelect();
+
 	//tos_RTC_init(&hrtc);
   /* USER CODE END 2 */
 
+  /* Init scheduler */
+  osKernelInitialize();
+
+  /* USER CODE BEGIN RTOS_MUTEX */
+  /* add mutexes, ... */
+  /* USER CODE END RTOS_MUTEX */
+
+  /* USER CODE BEGIN RTOS_SEMAPHORES */
+  /* add semaphores, ... */
+  /* USER CODE END RTOS_SEMAPHORES */
+
+  /* USER CODE BEGIN RTOS_TIMERS */
+  /* start timers, add new ones, ... */
+  /* USER CODE END RTOS_TIMERS */
+
+  /* USER CODE BEGIN RTOS_QUEUES */
+  /* add queues, ... */
+  /* USER CODE END RTOS_QUEUES */
+
+  /* Create the thread(s) */
+  /* creation of guiTAsk */
+  guiTAskHandle = osThreadNew(StartguiTAsk, NULL, &guiTAsk_attributes);
+
+  /* creation of controllerTask */
+  controllerTaskHandle = osThreadNew(StartcontrollerTask, NULL, &controllerTask_attributes);
+
+  /* creation of bluetoothTask */
+  bluetoothTaskHandle = osThreadNew(StartbluetoothTask, NULL, &bluetoothTask_attributes);
+
+  /* USER CODE BEGIN RTOS_THREADS */
+  /* add threads, ... */
+  /* USER CODE END RTOS_THREADS */
+
+  /* USER CODE BEGIN RTOS_EVENTS */
+  /* add events, ... */
+  /* USER CODE END RTOS_EVENTS */
+
+  /* Start scheduler */
+  osKernelStart();
+
+  /* We should never get here as control is now taken by the scheduler */
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
 
-	  tos_Screen_Variables_Getter(tos_Get_Current_Screen());
-  tos_ScreenController();
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -464,7 +527,7 @@ static void MX_DMA_Init(void)
 
   /* DMA interrupt init */
   /* DMA2_Stream3_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA2_Stream3_IRQn, 0, 0);
+  HAL_NVIC_SetPriority(DMA2_Stream3_IRQn, 5, 0);
   HAL_NVIC_EnableIRQ(DMA2_Stream3_IRQn);
 
 }
@@ -511,6 +574,89 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 
 /* USER CODE END 4 */
+
+/* USER CODE BEGIN Header_StartguiTAsk */
+/**
+  * @brief  Function implementing the guiTAsk thread.
+  * @param  argument: Not used
+  * @retval None
+  */
+/* USER CODE END Header_StartguiTAsk */
+void StartguiTAsk(void *argument)
+{
+  /* USER CODE BEGIN 5 */
+	  tos_Tft_init();
+	  tos_Get_Rtc(&hrtc);
+	  tos_Screen_Init();
+		ST7789_UnSelect();
+  /* Infinite loop */
+  for(;;)
+  {lv_task_handler();
+  lv_tick_inc(1);
+    osDelay(1);
+  }
+  /* USER CODE END 5 */
+}
+
+/* USER CODE BEGIN Header_StartcontrollerTask */
+/**
+* @brief Function implementing the controllerTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartcontrollerTask */
+void StartcontrollerTask(void *argument)
+{
+  /* USER CODE BEGIN StartcontrollerTask */
+  /* Infinite loop */
+  for(;;)
+  {tos_Screen_Variables_Getter(tos_Get_Current_Screen());
+  tos_ScreenController();
+    osDelay(5);
+  }
+  /* USER CODE END StartcontrollerTask */
+}
+
+/* USER CODE BEGIN Header_StartbluetoothTask */
+/**
+* @brief Function implementing the bluetoothTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartbluetoothTask */
+void StartbluetoothTask(void *argument)
+{
+  /* USER CODE BEGIN StartbluetoothTask */
+	tos_Bluetooth_NotificationItemInit();
+  /* Infinite loop */
+  for(;;)
+  {	  tos_BluetoothReceiverAndTransmitter(&hrtc);
+  	  tos_BluetoothGetStatusVAl(tos_BluetoothGetEnableVal(),tos_Get_Current_Screen());
+    osDelay(1);
+  }
+  /* USER CODE END StartbluetoothTask */
+}
+
+ /**
+  * @brief  Period elapsed callback in non blocking mode
+  * @note   This function is called  when TIM1 interrupt took place, inside
+  * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
+  * a global variable "uwTick" used as application time base.
+  * @param  htim : TIM handle
+  * @retval None
+  */
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+  /* USER CODE BEGIN Callback 0 */
+
+  /* USER CODE END Callback 0 */
+  if (htim->Instance == TIM1) {
+    HAL_IncTick();
+  }
+  /* USER CODE BEGIN Callback 1 */
+
+  /* USER CODE END Callback 1 */
+}
 
 /**
   * @brief  This function is executed in case of error occurrence.

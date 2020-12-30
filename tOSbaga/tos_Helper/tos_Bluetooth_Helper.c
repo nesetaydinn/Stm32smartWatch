@@ -10,6 +10,7 @@
 char rx_buffer[250], tx_buffer[20],*tmp,BluetoothAppName[20],BluetoothNotf[200],
 *BluetoothAppNameP,*BluetoothNotfP;
 bool isConnected,befConnectVal,bluetoothEnable=true,BluetoothUnitType;
+tos_Notification * blNotroot, * blNotnode;
 uint16_t time[3];
 uint16_t date[3];
 uint8_t BluetoothBatteryVal;
@@ -24,13 +25,16 @@ void tos_Bluetooth_GetAndPushNotification(void);
 void tos_Bluetooth_SetBatteryVal(uint8_t batteryVal);
 void tos_Bluetooth_SetStepsVal(uint8_t stepsVal);
 void tos_Bluetooth_GetCurrentTime(RTC_HandleTypeDef *hrtc);
+void tos_Bluetooth_NotificationItemInit(void){
+	blNotroot=tos_Notification_CreateRoot(blNotroot);
+	blNotnode=tos_Notification_SetFirstNode(blNotroot,blNotnode);
+}
 void tos_BluetoothReceiverAndTransmitter(RTC_HandleTypeDef *hrtc){
 	if(bluetoothEnable){
 		tos_Bluetooth_FirstConnectGetValues(hrtc);
 		tos_Bluetooth_GetAndPushNotification();
-		//tos_Bluetooth_GetCurrentTime(hrtc);
-		//tos_Bluetooth_SetBatteryVal(BluetoothBatteryVal);
-		//tos_Bluetooth_SetStepsVal(BluetoothStepsVal);
+	//	tos_Bluetooth_SetBatteryVal(BluetoothBatteryVal);
+	//	tos_Bluetooth_SetStepsVal(BluetoothStepsVal);
 	}
 }
 /*This function using for first connect get time and date values and set Rtc
@@ -73,6 +77,11 @@ void tos_Bluetooth_FirstConnectGetValues(RTC_HandleTypeDef *hrtc){
 	  }
 }
 
+/**/
+void tos_Bluetooth_GetTimeAndDate(void){
+
+}
+
 /*This function using for get notifications and push notification list*/
 void tos_Bluetooth_GetAndPushNotification(void){
 	if(isConnected){
@@ -82,7 +91,8 @@ void tos_Bluetooth_GetAndPushNotification(void){
 			  sscanf(tmp,"notf: appName %s appNotf %s",BluetoothAppName,BluetoothNotf);
 			  BluetoothAppNameP=&BluetoothAppName[0];
 			  BluetoothNotfP=&BluetoothNotf[0];
-			  NotificationScreen_GetNotifications(BluetoothAppNameP,BluetoothNotfP);
+			  if(BluetoothAppNameP!=NULL && BluetoothNotfP!=NULL)
+			  blNotnode=tos_NotificationPushItem(blNotnode,BluetoothAppNameP,BluetoothNotfP);
 			  HAL_UART_Transmit(&TOS_BLUETOOTH_PORT, "wasPushNotf", 20,50);
 			  sprintf(rx_buffer, "OK");
 		  }
@@ -145,5 +155,11 @@ void tos_BluetoothSetStepsVal(uint8_t steps,bool unitType){
 	BluetoothStepsVal=steps;
 	BluetoothUnitType=unitType;
 }
-
+//tos_Notification * blNotroot, * blNotnode;
+tos_Notification * tos_BluetoothSetRoot(void){
+	return blNotroot;
+}
+tos_Notification * tos_BluetoothSetNode(void){
+	return blNotnode;
+}
 

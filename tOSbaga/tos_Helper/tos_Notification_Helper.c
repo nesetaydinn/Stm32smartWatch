@@ -5,6 +5,8 @@
 tos_Notification *  tos_Notification_CreateRoot(tos_Notification * root){
 	root=NULL;
 	root=tos_Notification_CreateNode(0);
+	root->appName="root";
+	root->appName="root";
     return root;
 }
 tos_Notification *  tos_Notification_SetFirstNode(tos_Notification * root,tos_Notification * node){
@@ -59,7 +61,7 @@ tos_Notification *tos_NotificationGetItem(tos_Notification * root,uint16_t itemI
 		tos_Notification * tmp=root;
 	if( itemIndex<tos_NotificationGetSize(root)){
 		while(tmp){
-	if(itemIndex==tmp->index){
+	if(tmp->index==itemIndex){
 		return tmp;
 	}tmp=tmp->next;
 	}}
@@ -91,9 +93,7 @@ void tos_NotificationDelItem(tos_Notification *root,tos_Notification *node,uint1
 			}
 			tmp=node;
 			node=node->next;
-
 		}
-
 }
 
 

@@ -22,6 +22,7 @@ typedef struct tos_Position{
 	uint16_t x,y;
 }tos_Position;
 
+
 	//Functions
 void tos_NotificationScreen_Init(bool theme);
 void NotificationScreen_ButtonController(void);

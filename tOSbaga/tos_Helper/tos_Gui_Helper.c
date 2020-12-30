@@ -102,8 +102,7 @@ void tos_Screen_Chooser(uint8_t currentScreen){
 	}
 }
 void tos_Screen_Variables_Getter(uint8_t Screen){
-	  tos_BluetoothReceiverAndTransmitter(ScreenRtc);
-	  tos_BluetoothGetStatusVAl(tos_BluetoothGetEnableVal(),Screen);
+
 	  tos_RTC_GetTime(ScreenRtc,Screen);
 	  tos_getBatteryVAl(50,Screen);
 
@@ -119,7 +118,7 @@ void tos_Set_Current_Screen(void){
 	GuiHelperOpen=true;
 }
 void tos_SleepScreen_Counter(void){
-	sleepCounter++;
+	if(screenStatu)sleepCounter++;
 	if(sleepCounter>=450){
 		if(1==currentScreen) { screenStatu=false; ST7789_Select(); }
 		currentScreen=1; tos_Screen_Chooser(currentScreen);

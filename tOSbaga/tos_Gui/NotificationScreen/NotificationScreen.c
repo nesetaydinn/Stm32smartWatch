@@ -9,7 +9,8 @@
 
 static lv_style_t style_screen,sb_style,bg_style,scrl_style,appName_Style,notification_Style;
 lv_obj_t * notBox;
-tos_Notification * root, * node;
+extern tos_Notification * blNotroot, * blNotnode;
+tos_Notification * NStmpNot;
 char NS_buffer[16];
 int8_t myPos;
 uint8_t selectedItem;
@@ -34,14 +35,10 @@ void tos_NotificationScreen_Init(bool theme){
 		style_screen.body.grad_color = LV_COLOR_WHITE;
 	}	lv_obj_set_style(lv_scr_act(), &style_screen);
     NotificationScreen_ItemsStyleInit(theme);
-
-	root=tos_Notification_CreateRoot(root);
-    node=tos_Notification_SetFirstNode(root,node);
-
     myPos=0;
     isOpenNotificationBox=false;
     NS_isBtnPressed=false;
-    NotificationScreen_SetOnScreenItems(root,node,myPos);
+    NotificationScreen_SetOnScreenItems(blNotroot,blNotnode,myPos);
     NS_taskController=true;
 
 }
@@ -53,7 +50,7 @@ void NotificationScreen_ButtonController(void){
 			  //open
 			  if(!isOpenNotificationBox){
 				  isOpenNotificationBox=true;
-				  char * tmp=tos_NotificationGetItem(root,selectedItem)->appNot;
+				  char * tmp=tos_NotificationGetItem(blNotroot,selectedItem)->appNot;
 				    NotificationScreen_NotificationBox(tmp);
 			  }
 		  }
@@ -61,14 +58,14 @@ void NotificationScreen_ButtonController(void){
 		  			  if(!isOpenNotificationBox){
 		  			  //minus
 		  				lv_obj_clean(lv_scr_act());
-		  				if(myPos>-NotificationScreen_GetMaxScroll(node))myPos--;
-		  				NotificationScreen_SetOnScreenItems(root,node,myPos);
+		  				if(myPos>-NotificationScreen_GetMaxScroll(blNotnode))myPos--;
+		  				NotificationScreen_SetOnScreenItems(blNotroot,blNotnode,myPos);
 		  			  }else {isOpenNotificationBox=false;
 		  			  //remove
 		  				lv_obj_clean(lv_scr_act());
 		  				notBox = NULL;
-		  			    tos_NotificationDelItem(root,node,selectedItem);
-		  				NotificationScreen_SetOnScreenItems(root,node,myPos);
+		  			    tos_NotificationDelItem(blNotroot,blNotnode,selectedItem);
+		  				NotificationScreen_SetOnScreenItems(blNotroot,blNotnode,myPos);
 
 		  			  }
 		  		  }
@@ -77,7 +74,7 @@ void NotificationScreen_ButtonController(void){
 			  if(!isOpenNotificationBox){
 				lv_obj_clean(lv_scr_act());
 				if(myPos<0)myPos++;
-				NotificationScreen_SetOnScreenItems(root,node,myPos);
+				NotificationScreen_SetOnScreenItems(blNotroot,blNotnode,myPos);
 			  }else{isOpenNotificationBox=false;
 				  lv_mbox_start_auto_close(notBox,0);
 			  }
@@ -143,12 +140,13 @@ void NotificationScreen_NotificationBox(char * appNotification){
  * @param posIndex using for set position index*/
 void NotificationScreen_SetOnScreenItems(tos_Notification * root,tos_Notification* node,int8_t posIndex){
 	bool selected= false;
-       for(uint8_t i=1;i<(uint8_t)tos_NotificationGetSize(node);i++){
+       for(uint16_t i=1;i<(uint16_t)tos_NotificationGetSize(node);i++){
     	   	   if(tos_NotificationGetItem(root,i) !=NULL){
     	           if(posIndex==0){selectedItem=i; selected=true;}
     	           else selected=false;
-        NotificationScreen_Items(tos_NotificationGetItem(root,i)->appName,
-        		tos_NotificationGetItem(root,i)->appNot,
+    	           NStmpNot=tos_NotificationGetItem(root,i);
+        NotificationScreen_Items(NStmpNot->appName,
+        		NStmpNot->appNot,
 				NotificationScreen_ItemsetPos(posIndex),selected);
         posIndex++;
     }
@@ -226,6 +224,5 @@ bool NotificationScreen_TaskControllerGet(void){
 	return NS_taskController;
 }
 void NotificationScreen_GetNotifications(char *appName,char* appNotification){
-	  node=tos_NotificationPushItem(node,appName,appNotification);
+	blNotnode=tos_NotificationPushItem(blNotnode,appName,appNotification);
 }
-
