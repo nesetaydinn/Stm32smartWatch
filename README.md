@@ -32,3 +32,9 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ## FreeRTOS KERNEL ÇALIŞMASI 
 
 FreeRTOS projesinin daha ileriye götürülmesine yönelik deneysel çalışmalar yapılmak istenmektedir. Bu bağlamda işletim sistemi nedir araştırılacak ve proje özelinde donanımsal araştırmayla birlikte geliştirme çalışması yürütülecektir.
+
+## Mühendislik Hedeflerimiz
+
+* FreeRTOS üzerinde taskların bellekte tutacağı yerleri dinamik olarak hesaplamak.
+* FreeRTOS'ta bize en uygun olan bellek yönetim metodunu seçmek ve ayarlamak  (HEAP Configuration)
+* FreeRTOS dinamik bellek yönetim fonksiyonlarını littlevGL ile bağlayıp optimize etmek.
