@@ -38,3 +38,4 @@ FreeRTOS projesinin daha ileriye götürülmesine yönelik deneysel çalışmala
 * FreeRTOS üzerinde taskların bellekte tutacağı yerleri dinamik olarak hesaplamak.
 * FreeRTOS'ta bize en uygun olan bellek yönetim metodunu seçmek ve ayarlamak  (HEAP Configuration)
 * FreeRTOS dinamik bellek yönetim fonksiyonlarını littlevGL ile bağlayıp optimize etmek.
+* Katkıları experimental dalı üzerinden almak istiyoruz.
