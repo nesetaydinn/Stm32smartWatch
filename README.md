@@ -10,7 +10,7 @@ Screen driver: st7789 & 240x240 px ips screen
 
 ## LICENSE 
 
-Bu program Stm32f407vg bir mikrodenetleyici üzerinde FreeRtos ve LittlevGl temelli bir akıllı saat uygulamasıdır.
+We provide a service on Stm32f407vg microcontroller which is a smart watch running FreeRTOS and LittlevGL Framework
 
 Copyright (C) 2021,  Neşet Aydın
 
