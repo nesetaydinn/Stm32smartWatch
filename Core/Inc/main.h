@@ -70,6 +70,8 @@ void Error_Handler(void);
 #define ST7789_DC_GPIO_Port GPIOA
 #define ST7789_CS_Pin GPIO_PIN_3
 #define ST7789_CS_GPIO_Port GPIOA
+#define BluetoothEnable_Pin GPIO_PIN_8
+#define BluetoothEnable_GPIO_Port GPIOC
 #define BluetoothState_Pin GPIO_PIN_9
 #define BluetoothState_GPIO_Port GPIOC
 /* USER CODE BEGIN Private defines */

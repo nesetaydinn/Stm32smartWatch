@@ -4,8 +4,8 @@
 
 
 typedef struct tos_Notification{
-	char * appName;
-	char * appNot;
+	char appName[20];
+	char appNot[200];
 	uint16_t index;
 	struct tos_Notification * next;
 }tos_Notification;

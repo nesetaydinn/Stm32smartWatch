@@ -19,6 +19,8 @@ extern UART_HandleTypeDef TOS_BLUETOOTH_PORT;
 
 #define BLUETOOTH_IS_CONNECT HAL_GPIO_ReadPin(BluetoothState_GPIO_Port,BluetoothState_Pin)
 
+#define bluetooth_Enable() HAL_GPIO_WritePin(BluetoothEnable_GPIO_Port, BluetoothEnable_Pin, GPIO_PIN_SET)
+#define bluetooth_Disable() HAL_GPIO_WritePin(BluetoothEnable_GPIO_Port, BluetoothEnable_Pin, GPIO_PIN_RESET)
 
 void tos_BluetoothGetStatusVAl(bool bluetoothStatus,uint8_t Screen);
 void tos_BluetoothReceiverAndTransmitter(RTC_HandleTypeDef *hrtc);

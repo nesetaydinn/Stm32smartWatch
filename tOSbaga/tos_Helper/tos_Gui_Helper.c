@@ -9,31 +9,36 @@
 #include "../../lvgl/lvgl.h"
 
 RTC_HandleTypeDef *ScreenRtc;
-uint8_t screenType,screenTheme;
+uint8_t screenType;
+bool screenTheme;
 uint16_t screenCounter;
 bool GuiHelperOpen;
 bool screenStatu;
 bool isScreenCounterEnable;
 static bool isWorkingSystem=false;
 static uint16_t sleepCounter;
-uint8_t currentScreen;
+uint8_t currentScreen,TGEnterBtnListenner,TGRightBtnListenner,TGLeftBtnListenner;
 void tos_Gui_Init(void);
+void tos_Screen_Create(void);
 
 
 
 void tos_Screen_Init(void){
-	ST7789_UnSelect();
+	HAL_TIM_Base_Start_IT(&TOS_GUI_TIMER);
+	TGEnterBtnListenner=0,TGRightBtnListenner=0,TGLeftBtnListenner=0;
+
+}
+void tos_Screen_Create(void){
 	isScreenCounterEnable=true;
 	screenStatu=true;
 	GuiHelperOpen=true;
 	screenType=1;
-	screenTheme=0;
+	screenTheme=true;
 	currentScreen=1;
 	screenCounter=0;
-	tos_StartScreen_Init();
-	HAL_TIM_Base_Start_IT(&TOS_GUI_TIMER);
 	isWorkingSystem=true;
-
+	ST7789_UnSelect();
+	tos_StartScreen_Init();
 
 }
 void tos_firstScreen_Update(void){
@@ -56,28 +61,33 @@ void tos_Gui_Init(void){
 
 
 void tos_ScreenController(void){
-	 tos_Menu_Controller();
+	if(3==TGEnterBtnListenner){
+		tos_Gui_ShutdownController();
+	}
+	tos_Menu_Controller();
 	if(screenCounter==0 && GuiHelperOpen){
-
-		if(1==tos_EnterButton_Listenner_For_MenuControl()){ sleepCounter=0;
+		if(2==TGEnterBtnListenner){
+				if(screenStatu){screenStatu=false; currentScreen=1;tos_Screen_Chooser(currentScreen); return;}
+		}
+		else if(1==TGEnterBtnListenner){ sleepCounter=0;
 			if(!screenStatu){screenStatu=true;	ST7789_UnSelect(); return;}
 			else if(1==currentScreen){currentScreen=0; tos_Screen_Chooser(currentScreen);	return;}
 		}
-		else if(2==tos_EnterButton_Listenner_For_MenuControl()){
-				//screenStatu=false; currentScreen=1;tos_Screen_Chooser(currentScreen); return;
-		}
-		if(1==tos_LeftButton_Listenner_For_MenuControl()){ sleepCounter=0;
+
+		if(1==TGLeftBtnListenner){ sleepCounter=0;
 			MenuScreen_SetItem(5); currentScreen=2; tos_Screen_Chooser(currentScreen);
 			GuiHelperOpen=false; 	return;
 			}
-		if(1==tos_RightButton_Listenner_For_MenuControl()){ sleepCounter=0;
+		if(1==TGRightBtnListenner){ sleepCounter=0;
 			MenuScreen_SetItem(0); currentScreen=2; tos_Screen_Chooser(currentScreen);
 			GuiHelperOpen=false; 	return;
 		}
 
 
 	}
-
+	TGEnterBtnListenner=tos_EnterButton_Listenner_For_MenuControl();
+	TGRightBtnListenner=tos_RightButton_Listenner_For_MenuControl();
+	TGLeftBtnListenner=tos_LeftButton_Listenner_For_MenuControl();
 }
 /*This function using for set new screen*/
 void tos_Screen_Chooser(uint8_t currentScreen){
@@ -89,14 +99,14 @@ void tos_Screen_Chooser(uint8_t currentScreen){
 	case TOS_SCREEN_MAIN_:
 		HAL_TIM_Base_Start_IT(&TOS_SCREENUPDATE_TIMER);
 		MainScreen_TaskControllerSet(true);
-		tos_MainScreen_Init(1,1);break;
+		tos_MainScreen_Init(screenType,screenTheme);break;
 	case TOS_SCREEN_SLEEPMODE_:
 		SleepModeScreen_TaskControllerSet(true);
 		tos_SleepModeScreen_Init();break;
 	case TOS_SCREEN_MENU:
 		HAL_TIM_Base_Stop_IT(&TOS_SCREENUPDATE_TIMER);
 		MenuScreen_TaskControllerSet(true);
-		tos_MenuScreen_Init(true,ScreenRtc);
+		tos_MenuScreen_Init(screenTheme,ScreenRtc);
 		break;
 	default: return;
 	}
@@ -118,7 +128,7 @@ void tos_Set_Current_Screen(void){
 	GuiHelperOpen=true;
 }
 void tos_SleepScreen_Counter(void){
-	if(screenStatu)sleepCounter++;
+	if(isWorkingSystem && screenStatu)sleepCounter++;
 	if(sleepCounter>=450){
 		if(1==currentScreen) { screenStatu=false; ST7789_Select(); }
 		currentScreen=1; tos_Screen_Chooser(currentScreen);
@@ -127,18 +137,21 @@ void tos_SleepScreen_Counter(void){
 }
 void tos_Gui_ShutdownController(void){
 	if(isWorkingSystem){
+		GuiHelperOpen=false;
 		isWorkingSystem=false;
 		tos_StartScreen_Init();
 		lv_obj_clean(lv_scr_act());
 		SleepModeScreen_TaskControllerSet(false);
 		MainScreen_TaskControllerSet(false);
 		MenuScreen_TaskControllerSet(false);
-		HAL_TIM_Base_Stop_IT(&TOS_SCREENUPDATE_TIMER);
 		ST7789_Select();
 	}else {
 		isWorkingSystem=true;
-		tos_Screen_Init();
+		tos_Screen_Create();
 	}
 
+}
+bool tos_Gui_GetWorkingSystemVal(void){
+	return isWorkingSystem;
 }
 

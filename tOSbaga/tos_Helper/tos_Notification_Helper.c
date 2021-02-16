@@ -5,8 +5,6 @@
 tos_Notification *  tos_Notification_CreateRoot(tos_Notification * root){
 	root=NULL;
 	root=tos_Notification_CreateNode(0);
-	root->appName="root";
-	root->appName="root";
     return root;
 }
 tos_Notification *  tos_Notification_SetFirstNode(tos_Notification * root,tos_Notification * node){
@@ -72,8 +70,8 @@ tos_Notification *tos_NotificationGetItem(tos_Notification * root,uint16_t itemI
 tos_Notification * tos_NotificationPushItem(tos_Notification * node,char *appName,char *notification){
 		tos_Notification * tmp;
 		tmp=tos_Notification_CreateNode(tos_NotificationGetSize(node));
-		if(appName!=NULL)tmp->appName =appName;
-		if(notification!=NULL) tmp->appNot =notification;
+		if(appName!=NULL)sscanf(appName,"%s",tmp->appName);
+		if(notification!=NULL)sscanf(notification,"%s",tmp->appNot);
         node->next=tmp;
         node=node->next;
         return node;

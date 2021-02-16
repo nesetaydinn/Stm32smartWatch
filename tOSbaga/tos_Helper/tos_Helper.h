@@ -7,3 +7,4 @@
 #include "tos_Flash_Mem_Helper.h"
 #include "tos_Text_Helper.h"
 #include "tos_Notification_Helper.h"
+#include "tos_StepsAndKcals_Helper.h"

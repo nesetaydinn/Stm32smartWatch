@@ -1,0 +1,11 @@
+tos_StepsAndKcals_Helper.c:47:6:tos_StepsAndKcalsInit	8	static
+tos_StepsAndKcals_Helper.c:51:6:tos_StepsAndKcalsRead	152	static
+tos_StepsAndKcals_Helper.c:105:6:tos_StepsAndKcalsSetLastAngle	40	static
+tos_StepsAndKcals_Helper.c:121:6:tos_StepsAndKcalsCalcSteps	88	static
+tos_StepsAndKcals_Helper.c:154:15:getMPU6050_last_read_time	4	static
+tos_StepsAndKcals_Helper.c:155:7:getlast_ax_angle	4	static
+tos_StepsAndKcals_Helper.c:156:7:getlast_ay_angle	4	static
+tos_StepsAndKcals_Helper.c:157:7:getlast_az_angle	4	static
+tos_StepsAndKcals_Helper.c:158:7:getlast_gx_angle	4	static
+tos_StepsAndKcals_Helper.c:159:7:getlast_gy_angle	4	static
+tos_StepsAndKcals_Helper.c:160:7:getlast_gz_angle	4	static

@@ -1,0 +1,16 @@
+tm_stm32_gpio.c:36:6:TM_GPIO_Init	24	static
+tm_stm32_gpio.c:49:6:TM_GPIO_InitAlternate	32	static
+tm_stm32_gpio.c:75:6:TM_GPIO_DeInit	24	static
+tm_stm32_gpio.c:92:6:TM_GPIO_SetPinAsInput	24	static
+tm_stm32_gpio.c:104:6:TM_GPIO_SetPinAsOutput	24	static
+tm_stm32_gpio.c:116:6:TM_GPIO_SetPinAsAnalog	24	static
+tm_stm32_gpio.c:128:6:TM_GPIO_SetPinAsAlternate	24	static
+tm_stm32_gpio.c:143:6:TM_GPIO_SetPullResistor	24	static
+tm_stm32_gpio.c:158:6:TM_GPIO_Lock	24	static
+tm_stm32_gpio.c:174:10:TM_GPIO_GetPinSource	24	static
+tm_stm32_gpio.c:189:10:TM_GPIO_GetPortSource	16	static
+tm_stm32_gpio.c:196:6:TM_GPIO_INT_EnableClock	16	static
+tm_stm32_gpio.c:205:6:TM_GPIO_INT_DisableClock	16	static
+tm_stm32_gpio.c:214:6:TM_GPIO_INT_Init	24	static
+tm_stm32_gpio.c:253:10:TM_GPIO_GetUsedPins	16	static
+tm_stm32_gpio.c:258:10:TM_GPIO_GetFreePins	16	static

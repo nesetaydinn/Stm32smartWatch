@@ -24,6 +24,7 @@
 
 #define BTN_SHORT_PRESS_TIME 5
 #define BTN_LONG_PRESS_TIME 550
+#define BTN_ULTRA_LONG_PRESS_TIME 1200
 
 uint8_t tos_RightButton_Listenner_For_MenuControl(void);
 uint8_t tos_LeftButton_Listenner_For_MenuControl(void);

@@ -18,7 +18,7 @@ char settingsBuffer[64];
 uint8_t Shours,Sminutes,Sseconds,Sdates,Smonths,
 SdateSetVal,StimeSetVal,S_whichItem;
 uint16_t Syears;
-bool Stheme,SunitType,SbluetoothStatu,SbluetoothSetVal,SunitSetVal,isMenuOpen;
+bool Stheme,SunitType,SbluetoothStatu=false,SbluetoothSetVal,SunitSetVal,isMenuOpen;
 
 void SettingsScreen_clockInit(bool theme);
 void SettingsScreen_dateInit(bool theme);
@@ -60,6 +60,9 @@ void tos_SettingsScreen_Init(bool theme,RTC_HandleTypeDef *hrtc){
 			Stheme=theme;
 			isMenuOpen=true;
 			S_hrtc=hrtc;
+
+		 	SbluetoothStatu=tos_BluetoothGetEnableVal();
+
 			SettingsScreen_clockInit(theme);
 			SettingsScreen_dateInit(theme);
 			SettingsScreen_bluetoothInit(theme);
@@ -140,10 +143,10 @@ void SettingsScreen_bluetoothInit(bool theme){
 	lv_label_set_text(bluetoothLbl, LV_SYMBOL_BLUETOOTH "Statu:");
  	lv_obj_align(bluetoothLbl, NULL, LV_ALIGN_IN_TOP_LEFT, 20, 120);
 
-    SbluetoothSwitch = lv_sw_create(lv_scr_act(), NULL);
+ 	SbluetoothSwitch = lv_sw_create(lv_scr_act(), NULL);
     lv_sw_set_style(SbluetoothSwitch, LV_SW_STYLE_INDIC, &bluetooth_indic_style);
-    lv_sw_on(SbluetoothSwitch, LV_ANIM_OFF);
-    if(SbluetoothStatu)lv_sw_on(SbluetoothSwitch, LV_ANIM_ON);
+    if(!SbluetoothStatu)lv_sw_on(SbluetoothSwitch, LV_ANIM_OFF);
+    else     lv_sw_on(SbluetoothSwitch, LV_ANIM_ON);
     lv_obj_align(SbluetoothSwitch, NULL,LV_ALIGN_IN_TOP_RIGHT, -20, 120);
 }
 /**/
@@ -207,8 +210,7 @@ void SettingsScreen_buttonsInit(bool theme){
 		scrl_style.text.color = LV_COLOR_BLACK;
 		bg_style.text.color = LV_COLOR_BLACK;
 	 }
-    //LV_BTN_STATE_TGL_PR
-    //LV_BTN_STATE_REL
+
     lv_obj_t * saveBtnLbl;
 
     S_saveBtn = lv_btn_create(lv_scr_act(), NULL);
@@ -462,7 +464,7 @@ void SettingsScreen_newUnitTypeController(void){
 void SettingsScreen_SetNewValues(void){
 	  tos_RTC_SetTime(S_hrtc,Shours,Sminutes,Sseconds);
 	  tos_RTC_SetDate(S_hrtc,(Syears-2000),Smonths,Sdates);
-	  tos_BluetoothSetStepsVal(SbluetoothStatu,SunitType);
+	  tos_BluetoothSetEnableVal(SbluetoothStatu);
 }
 
 void SettingsScreen_SetTime(uint8_t getHours, uint8_t getMinutes, uint8_t getSeconds) {
@@ -478,9 +480,6 @@ void SettingsScreen_SetDate(uint8_t getYear, uint8_t getMonth, uint8_t getDate) 
 		Smonths = getMonth;
 		Sdates = getDate;
 	}
-}
-void SettingsScreen_SetBluetoothStatu(bool statu){
-	if(!isMenuOpen)SbluetoothStatu=statu;
 }
 void SettingsScreen_SetUnitType(bool val){
 	if(!isMenuOpen)SunitType=val;

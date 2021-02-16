@@ -34,6 +34,7 @@ lvgl/src/lv_hal \
 lvgl/src/lv_misc \
 lvgl/src/lv_objx \
 lvgl/src/lv_themes \
+mpu6050 \
 st7789 \
 tOSbaga/tos_Fonts \
 tOSbaga/tos_Gui/MainScreen \

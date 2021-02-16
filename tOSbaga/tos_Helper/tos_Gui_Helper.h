@@ -9,6 +9,7 @@
 #define TOS_HELPER_TOS_GUI_HELPER_H_
 
 #include "main.h"
+#include "stdbool.h"
 
 #define TOS_SCREENUPDATE_TIMER htim3
 extern TIM_HandleTypeDef TOS_SCREENUPDATE_TIMER;
@@ -26,6 +27,7 @@ void tos_ScreenController(void);
 void tos_firstScreen_Update(void);
 void tos_Screen_Variables_Getter(uint8_t Screen);
 uint8_t tos_Get_Current_Screen(void);
+bool tos_Gui_GetWorkingSystemVal(void);
 
 #define TOS_SCREEN_MAIN_ 0X00
 #define TOS_SCREEN_SLEEPMODE_ 0X01

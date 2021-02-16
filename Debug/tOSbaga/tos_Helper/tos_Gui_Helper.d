@@ -164,6 +164,8 @@ tOSbaga/tos_Helper/tos_Gui_Helper.o: \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc.h \
@@ -200,6 +202,13 @@ tOSbaga/tos_Helper/tos_Gui_Helper.o: \
  ../tOSbaga/tos_Helper/../tos_Helper/tos_Flash_Mem_Helper.h \
  ../tOSbaga/tos_Helper/../tos_Helper/tos_Text_Helper.h \
  ../tOSbaga/tos_Helper/../tos_Helper/tos_Notification_Helper.h \
+ ../tOSbaga/tos_Helper/../tos_Helper/tos_StepsAndKcals_Helper.h \
+ ../tOSbaga/tos_Helper/../tos_Helper/../../mpu6050/defines.h \
+ ../tOSbaga/tos_Helper/../tos_Helper/../../mpu6050/tm_stm32_mpu6050.h \
+ ../tOSbaga/tos_Helper/../tos_Helper/../../mpu6050/defines.h \
+ ../tOSbaga/tos_Helper/../tos_Helper/../../mpu6050/tm_stm32_i2c.h \
+ ../tOSbaga/tos_Helper/../tos_Helper/../../mpu6050/attributes.h \
+ ../tOSbaga/tos_Helper/../tos_Helper/../../mpu6050/tm_stm32_gpio.h \
  ../tOSbaga/tos_Helper/../tos_Fonts/tos_Fonts.h \
  ../tOSbaga/tos_Helper/../tos_Fonts/../../lvgl/lvgl.h \
  ../tOSbaga/tos_Helper/../tos_Images/tos_Images.h \
@@ -536,6 +545,10 @@ tOSbaga/tos_Helper/tos_Gui_Helper.o: \
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h:
 
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:
+
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c_ex.h:
+
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h:
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
@@ -607,6 +620,20 @@ tOSbaga/tos_Helper/tos_Gui_Helper.o: \
 ../tOSbaga/tos_Helper/../tos_Helper/tos_Text_Helper.h:
 
 ../tOSbaga/tos_Helper/../tos_Helper/tos_Notification_Helper.h:
+
+../tOSbaga/tos_Helper/../tos_Helper/tos_StepsAndKcals_Helper.h:
+
+../tOSbaga/tos_Helper/../tos_Helper/../../mpu6050/defines.h:
+
+../tOSbaga/tos_Helper/../tos_Helper/../../mpu6050/tm_stm32_mpu6050.h:
+
+../tOSbaga/tos_Helper/../tos_Helper/../../mpu6050/defines.h:
+
+../tOSbaga/tos_Helper/../tos_Helper/../../mpu6050/tm_stm32_i2c.h:
+
+../tOSbaga/tos_Helper/../tos_Helper/../../mpu6050/attributes.h:
+
+../tOSbaga/tos_Helper/../tos_Helper/../../mpu6050/tm_stm32_gpio.h:
 
 ../tOSbaga/tos_Helper/../tos_Fonts/tos_Fonts.h:
 

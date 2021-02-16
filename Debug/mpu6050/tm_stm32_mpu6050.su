@@ -1,0 +1,11 @@
+tm_stm32_mpu6050.c:82:21:TM_MPU6050_Init	24	static
+tm_stm32_mpu6050.c:120:21:TM_MPU6050_SetGyroscope	24	static
+tm_stm32_mpu6050.c:148:21:TM_MPU6050_SetAccelerometer	24	static
+tm_stm32_mpu6050.c:177:21:TM_MPU6050_SetDataRate	16	static
+tm_stm32_mpu6050.c:189:21:TM_MPU6050_EnableInterrupts	24	static
+tm_stm32_mpu6050.c:204:21:TM_MPU6050_DisableInterrupts	16	static
+tm_stm32_mpu6050.c:215:21:TM_MPU6050_ReadInterrupts	24	static
+tm_stm32_mpu6050.c:234:21:TM_MPU6050_ReadAccelerometer	32	static
+tm_stm32_mpu6050.c:249:21:TM_MPU6050_ReadGyroscope	32	static
+tm_stm32_mpu6050.c:264:21:TM_MPU6050_ReadTemperature	32	static
+tm_stm32_mpu6050.c:279:21:TM_MPU6050_ReadAll	40	static

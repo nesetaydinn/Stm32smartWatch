@@ -27,6 +27,7 @@ uint8_t tos_LeftButton_Listenner_For_MenuControl(void) {
 
 uint8_t tos_EnterButton_Listenner_For_MenuControl(void) {
 			if(READ_ENTER_BTN){
+				if(enterbtncounter>=BTN_ULTRA_LONG_PRESS_TIME){ enterbtncounter=0;return 3;}
 				if(enterbtncounter>=BTN_LONG_PRESS_TIME){ enterbtncounter=0;return 2;}
 				if(enterbtncounter>=BTN_SHORT_PRESS_TIME){ enterbtncounter=0;return 1;}
 				 enterbtncounter=0;

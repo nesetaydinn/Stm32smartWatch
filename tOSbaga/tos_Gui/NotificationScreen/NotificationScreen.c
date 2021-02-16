@@ -9,13 +9,14 @@
 
 static lv_style_t style_screen,sb_style,bg_style,scrl_style,appName_Style,notification_Style;
 lv_obj_t * notBox;
-extern tos_Notification * blNotroot, * blNotnode;
-tos_Notification * NStmpNot;
 char NS_buffer[16];
 int8_t myPos;
 uint8_t selectedItem;
 bool isOpenNotificationBox,NS_isBtnPressed,NS_taskController;
 uint8_t NS_rightBtnListen=0,NS_leftBtnListen=0;
+char * NS_tmpName,*NS_tmpNode;
+//extern tos_Notification * blNotroot, * blNotnode;
+tos_Notification * NS_Notroot, * NS_Notnode;
 
 void NotificationScreen_ItemsStyleInit(bool theme);
 tos_Position NotificationScreen_ItemsetPos(int8_t index);
@@ -38,7 +39,9 @@ void tos_NotificationScreen_Init(bool theme){
     myPos=0;
     isOpenNotificationBox=false;
     NS_isBtnPressed=false;
-    NotificationScreen_SetOnScreenItems(blNotroot,blNotnode,myPos);
+    if(NS_Notroot!=NULL && NS_Notnode!=NULL){
+    	NotificationScreen_SetOnScreenItems(NS_Notroot,NS_Notnode,myPos);
+    }
     NS_taskController=true;
 
 }
@@ -50,7 +53,7 @@ void NotificationScreen_ButtonController(void){
 			  //open
 			  if(!isOpenNotificationBox){
 				  isOpenNotificationBox=true;
-				  char * tmp=tos_NotificationGetItem(blNotroot,selectedItem)->appNot;
+				  char * tmp=tos_NotificationGetItem(NS_Notroot,selectedItem)->appNot;
 				    NotificationScreen_NotificationBox(tmp);
 			  }
 		  }
@@ -58,14 +61,14 @@ void NotificationScreen_ButtonController(void){
 		  			  if(!isOpenNotificationBox){
 		  			  //minus
 		  				lv_obj_clean(lv_scr_act());
-		  				if(myPos>-NotificationScreen_GetMaxScroll(blNotnode))myPos--;
-		  				NotificationScreen_SetOnScreenItems(blNotroot,blNotnode,myPos);
+		  				if(myPos>-NotificationScreen_GetMaxScroll(NS_Notnode))myPos--;
+		  				NotificationScreen_SetOnScreenItems(NS_Notroot,NS_Notnode,myPos);
 		  			  }else {isOpenNotificationBox=false;
 		  			  //remove
 		  				lv_obj_clean(lv_scr_act());
 		  				notBox = NULL;
-		  			    tos_NotificationDelItem(blNotroot,blNotnode,selectedItem);
-		  				NotificationScreen_SetOnScreenItems(blNotroot,blNotnode,myPos);
+		  			    tos_NotificationDelItem(NS_Notroot,NS_Notnode,selectedItem);
+		  				NotificationScreen_SetOnScreenItems(NS_Notroot,NS_Notnode,myPos);
 
 		  			  }
 		  		  }
@@ -74,7 +77,7 @@ void NotificationScreen_ButtonController(void){
 			  if(!isOpenNotificationBox){
 				lv_obj_clean(lv_scr_act());
 				if(myPos<0)myPos++;
-				NotificationScreen_SetOnScreenItems(blNotroot,blNotnode,myPos);
+				NotificationScreen_SetOnScreenItems(NS_Notroot,NS_Notnode,myPos);
 			  }else{isOpenNotificationBox=false;
 				  lv_mbox_start_auto_close(notBox,0);
 			  }
@@ -139,14 +142,14 @@ void NotificationScreen_NotificationBox(char * appNotification){
  * @param node using for all nodes
  * @param posIndex using for set position index*/
 void NotificationScreen_SetOnScreenItems(tos_Notification * root,tos_Notification* node,int8_t posIndex){
-	bool selected= false;
-       for(uint16_t i=1;i<(uint16_t)tos_NotificationGetSize(node);i++){
+	bool selected= false; //blNotroot,blNotnode
+       for(uint16_t i=1;i<(uint8_t)tos_NotificationGetSize(node);i++){
     	   	   if(tos_NotificationGetItem(root,i) !=NULL){
     	           if(posIndex==0){selectedItem=i; selected=true;}
     	           else selected=false;
-    	           NStmpNot=tos_NotificationGetItem(root,i);
-        NotificationScreen_Items(NStmpNot->appName,
-        		NStmpNot->appNot,
+    	          NS_tmpName=tos_NotificationGetItem(root,i)->appName;
+    	           NS_tmpNode=tos_NotificationGetItem(root,i)->appNot;
+        NotificationScreen_Items(NS_tmpName,NS_tmpNode,
 				NotificationScreen_ItemsetPos(posIndex),selected);
         posIndex++;
     }
@@ -223,6 +226,7 @@ void NotificationScreen_TaskControllerSet(bool active){
 bool NotificationScreen_TaskControllerGet(void){
 	return NS_taskController;
 }
-void NotificationScreen_GetNotifications(char *appName,char* appNotification){
-	blNotnode=tos_NotificationPushItem(blNotnode,appName,appNotification);
+void NotificationScreen_SetNotrootAndnode(tos_Notification *setRoot,tos_Notification *setNode){
+	NS_Notroot=setRoot;
+	NS_Notnode=setNode;
 }

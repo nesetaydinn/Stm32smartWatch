@@ -22,6 +22,7 @@ RM := rm -rf
 -include tOSbaga/tos_Gui/MainScreen/subdir.mk
 -include tOSbaga/tos_Fonts/subdir.mk
 -include st7789/subdir.mk
+-include mpu6050/subdir.mk
 -include lvgl/src/lv_themes/subdir.mk
 -include lvgl/src/lv_objx/subdir.mk
 -include lvgl/src/lv_misc/subdir.mk

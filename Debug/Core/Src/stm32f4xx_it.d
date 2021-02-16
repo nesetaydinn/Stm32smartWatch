@@ -22,6 +22,8 @@ Core/Src/stm32f4xx_it.o: ../Core/Src/stm32f4xx_it.c ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc.h \
@@ -200,6 +202,13 @@ Core/Src/stm32f4xx_it.o: ../Core/Src/stm32f4xx_it.c ../Core/Inc/main.h \
  /home/neset/stmProjects/smartWatch/tOSbaga/tos_Helper/tos_Flash_Mem_Helper.h \
  /home/neset/stmProjects/smartWatch/tOSbaga/tos_Helper/tos_Text_Helper.h \
  /home/neset/stmProjects/smartWatch/tOSbaga/tos_Helper/tos_Notification_Helper.h \
+ /home/neset/stmProjects/smartWatch/tOSbaga/tos_Helper/tos_StepsAndKcals_Helper.h \
+ /home/neset/stmProjects/smartWatch/tOSbaga/tos_Helper/../../mpu6050/defines.h \
+ /home/neset/stmProjects/smartWatch/tOSbaga/tos_Helper/../../mpu6050/tm_stm32_mpu6050.h \
+ /home/neset/stmProjects/smartWatch/tOSbaga/tos_Helper/../../mpu6050/defines.h \
+ /home/neset/stmProjects/smartWatch/tOSbaga/tos_Helper/../../mpu6050/tm_stm32_i2c.h \
+ /home/neset/stmProjects/smartWatch/tOSbaga/tos_Helper/../../mpu6050/attributes.h \
+ /home/neset/stmProjects/smartWatch/tOSbaga/tos_Helper/../../mpu6050/tm_stm32_gpio.h \
  /home/neset/stmProjects/smartWatch/tOSbaga/tos_Fonts/tos_Fonts.h \
  /home/neset/stmProjects/smartWatch/tOSbaga/tos_Fonts/../../lvgl/lvgl.h \
  /home/neset/stmProjects/smartWatch/tOSbaga/tos_Images/tos_Images.h \
@@ -252,6 +261,10 @@ Core/Src/stm32f4xx_it.o: ../Core/Src/stm32f4xx_it.c ../Core/Inc/main.h \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h:
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h:
+
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:
+
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c_ex.h:
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h:
 
@@ -608,6 +621,20 @@ Core/Src/stm32f4xx_it.o: ../Core/Src/stm32f4xx_it.c ../Core/Inc/main.h \
 /home/neset/stmProjects/smartWatch/tOSbaga/tos_Helper/tos_Text_Helper.h:
 
 /home/neset/stmProjects/smartWatch/tOSbaga/tos_Helper/tos_Notification_Helper.h:
+
+/home/neset/stmProjects/smartWatch/tOSbaga/tos_Helper/tos_StepsAndKcals_Helper.h:
+
+/home/neset/stmProjects/smartWatch/tOSbaga/tos_Helper/../../mpu6050/defines.h:
+
+/home/neset/stmProjects/smartWatch/tOSbaga/tos_Helper/../../mpu6050/tm_stm32_mpu6050.h:
+
+/home/neset/stmProjects/smartWatch/tOSbaga/tos_Helper/../../mpu6050/defines.h:
+
+/home/neset/stmProjects/smartWatch/tOSbaga/tos_Helper/../../mpu6050/tm_stm32_i2c.h:
+
+/home/neset/stmProjects/smartWatch/tOSbaga/tos_Helper/../../mpu6050/attributes.h:
+
+/home/neset/stmProjects/smartWatch/tOSbaga/tos_Helper/../../mpu6050/tm_stm32_gpio.h:
 
 /home/neset/stmProjects/smartWatch/tOSbaga/tos_Fonts/tos_Fonts.h:
 

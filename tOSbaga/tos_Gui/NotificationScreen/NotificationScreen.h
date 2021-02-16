@@ -26,7 +26,6 @@ typedef struct tos_Position{
 	//Functions
 void tos_NotificationScreen_Init(bool theme);
 void NotificationScreen_ButtonController(void);
-void NotificationScreen_GetNotifications(char *appName,char* appNotification);
 void NotificationScreen_TaskControllerSet(bool active);
 bool NotificationScreen_TaskControllerGet(void);
 

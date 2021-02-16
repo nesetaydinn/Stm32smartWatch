@@ -40,18 +40,21 @@ void tos_RTC_init(RTC_HandleTypeDef *hrtc){
   }
 
   void tos_RTC_SetTime(RTC_HandleTypeDef *hrtc,uint8_t setHours,uint8_t setMins,uint8_t setSecs){
-	  myTime.Hours = setHours;
-	  myTime.Minutes = setMins;
-	  myTime.Seconds = setSecs;
-	  HAL_RTC_SetTime(hrtc,&myTime,RTC_FORMAT_BIN);
+	  if(setSecs>60 || setMins>60 || setHours>24) return;
+	  RTC_TimeTypeDef tmp = {0};
+	  tmp.Hours = setHours;
+	  tmp.Minutes = setMins;
+	  tmp.Seconds = setSecs;
+	  HAL_RTC_SetTime(hrtc,&tmp,RTC_FORMAT_BIN);
   }
 
   void tos_RTC_SetDate(RTC_HandleTypeDef *hrtc,uint8_t setYear,uint8_t setMonth,uint8_t setDate){
 	  if(setDate>31 || setMonth>12) return;
-	  myDate.Month = setMonth;
-	  myDate.Date = setDate;
-	  myDate.Year = setYear;
-	  HAL_RTC_SetDate(hrtc,&myDate,RTC_FORMAT_BIN);
+	  RTC_DateTypeDef tmp = {0};
+	  tmp.Year = setYear;
+	  tmp.Month = setMonth;
+	  tmp.Date = setDate;
+	  HAL_RTC_SetDate(hrtc,&tmp,RTC_FORMAT_BIN);
   }
 
 

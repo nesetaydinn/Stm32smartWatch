@@ -42,10 +42,11 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+I2C_HandleTypeDef hi2c1;
+
 RTC_HandleTypeDef hrtc;
 
 SPI_HandleTypeDef hspi1;
-DMA_HandleTypeDef hdma_spi1_tx;
 
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
@@ -58,21 +59,21 @@ osThreadId_t guiTAskHandle;
 const osThreadAttr_t guiTAsk_attributes = {
   .name = "guiTAsk",
   .priority = (osPriority_t) osPriorityHigh7,
-  .stack_size = 15360 * 4
+  .stack_size = 2048 * 4
 };
 /* Definitions for controllerTask */
 osThreadId_t controllerTaskHandle;
 const osThreadAttr_t controllerTask_attributes = {
   .name = "controllerTask",
-  .priority = (osPriority_t) osPriorityAboveNormal7,
-  .stack_size = 1024 * 4
+  .priority = (osPriority_t) osPriorityHigh3,
+  .stack_size = 10240 * 4
 };
 /* Definitions for bluetoothTask */
 osThreadId_t bluetoothTaskHandle;
 const osThreadAttr_t bluetoothTask_attributes = {
   .name = "bluetoothTask",
-  .priority = (osPriority_t) osPriorityAboveNormal6,
-  .stack_size = 2560 * 4
+  .priority = (osPriority_t) osPriorityHigh1,
+  .stack_size = 5120 * 4
 };
 /* USER CODE BEGIN PV */
 RTC_TimeTypeDef sTime = {0};
@@ -83,13 +84,13 @@ RTC_DateTypeDef sDate = {0};
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_DMA_Init(void);
 static void MX_RTC_Init(void);
-static void MX_SPI1_Init(void);
 static void MX_TIM4_Init(void);
 static void MX_USART6_UART_Init(void);
 static void MX_TIM3_Init(void);
 static void MX_TIM2_Init(void);
+static void MX_SPI1_Init(void);
+static void MX_I2C1_Init(void);
 void StartguiTAsk(void *argument);
 void StartcontrollerTask(void *argument);
 void StartbluetoothTask(void *argument);
@@ -130,13 +131,13 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_DMA_Init();
   MX_RTC_Init();
-  MX_SPI1_Init();
   MX_TIM4_Init();
   MX_USART6_UART_Init();
   MX_TIM3_Init();
   MX_TIM2_Init();
+  MX_SPI1_Init();
+  MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
   //tos_Flash_Init();
 
@@ -214,9 +215,8 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSI|RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
-  RCC_OscInitStruct.LSIState = RCC_LSI_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLM = 4;
@@ -241,11 +241,45 @@ void SystemClock_Config(void)
     Error_Handler();
   }
   PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_RTC;
-  PeriphClkInitStruct.RTCClockSelection = RCC_RTCCLKSOURCE_LSI;
+  PeriphClkInitStruct.RTCClockSelection = RCC_RTCCLKSOURCE_HSE_DIV20;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
   {
     Error_Handler();
   }
+}
+
+/**
+  * @brief I2C1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_I2C1_Init(void)
+{
+
+  /* USER CODE BEGIN I2C1_Init 0 */
+
+  /* USER CODE END I2C1_Init 0 */
+
+  /* USER CODE BEGIN I2C1_Init 1 */
+
+  /* USER CODE END I2C1_Init 1 */
+  hi2c1.Instance = I2C1;
+  hi2c1.Init.ClockSpeed = 400000;
+  hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_16_9;
+  hi2c1.Init.OwnAddress1 = 0;
+  hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+  hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  hi2c1.Init.OwnAddress2 = 0;
+  hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+  if (HAL_I2C_Init(&hi2c1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN I2C1_Init 2 */
+
+  /* USER CODE END I2C1_Init 2 */
+
 }
 
 /**
@@ -271,7 +305,7 @@ static void MX_RTC_Init(void)
   hrtc.Instance = RTC;
   hrtc.Init.HourFormat = RTC_HOURFORMAT_24;
   hrtc.Init.AsynchPrediv = 127;
-  hrtc.Init.SynchPrediv = 249;
+  hrtc.Init.SynchPrediv = 3124;
   hrtc.Init.OutPut = RTC_OUTPUT_DISABLE;
   hrtc.Init.OutPutPolarity = RTC_OUTPUT_POLARITY_HIGH;
   hrtc.Init.OutPutType = RTC_OUTPUT_TYPE_OPENDRAIN;
@@ -500,7 +534,7 @@ static void MX_USART6_UART_Init(void)
 
   /* USER CODE END USART6_Init 1 */
   huart6.Instance = USART6;
-  huart6.Init.BaudRate = 9600;
+  huart6.Init.BaudRate = 115200;
   huart6.Init.WordLength = UART_WORDLENGTH_8B;
   huart6.Init.StopBits = UART_STOPBITS_1;
   huart6.Init.Parity = UART_PARITY_NONE;
@@ -513,22 +547,6 @@ static void MX_USART6_UART_Init(void)
   }
   /* USER CODE BEGIN USART6_Init 2 */
   /* USER CODE END USART6_Init 2 */
-
-}
-
-/**
-  * Enable DMA controller clock
-  */
-static void MX_DMA_Init(void)
-{
-
-  /* DMA controller clock enable */
-  __HAL_RCC_DMA2_CLK_ENABLE();
-
-  /* DMA interrupt init */
-  /* DMA2_Stream3_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA2_Stream3_IRQn, 5, 0);
-  HAL_NVIC_EnableIRQ(DMA2_Stream3_IRQn);
 
 }
 
@@ -546,9 +564,13 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOC_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, ST7789_RST_Pin|ST7789_DC_Pin|ST7789_CS_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(BluetoothEnable_GPIO_Port, BluetoothEnable_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : Left_Btn_Pin Enter_Btn_Pin Right_Btn_Pin */
   GPIO_InitStruct.Pin = Left_Btn_Pin|Enter_Btn_Pin|Right_Btn_Pin;
@@ -563,10 +585,17 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : BluetoothEnable_Pin */
+  GPIO_InitStruct.Pin = BluetoothEnable_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+  HAL_GPIO_Init(BluetoothEnable_GPIO_Port, &GPIO_InitStruct);
+
   /*Configure GPIO pin : BluetoothState_Pin */
   GPIO_InitStruct.Pin = BluetoothState_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(BluetoothState_GPIO_Port, &GPIO_InitStruct);
 
 }
@@ -588,7 +617,6 @@ void StartguiTAsk(void *argument)
 	  tos_Tft_init();
 	  tos_Get_Rtc(&hrtc);
 	  tos_Screen_Init();
-		ST7789_UnSelect();
   /* Infinite loop */
   for(;;)
   {lv_task_handler();
@@ -608,6 +636,7 @@ void StartguiTAsk(void *argument)
 void StartcontrollerTask(void *argument)
 {
   /* USER CODE BEGIN StartcontrollerTask */
+
   /* Infinite loop */
   for(;;)
   {tos_Screen_Variables_Getter(tos_Get_Current_Screen());
@@ -627,12 +656,17 @@ void StartcontrollerTask(void *argument)
 void StartbluetoothTask(void *argument)
 {
   /* USER CODE BEGIN StartbluetoothTask */
-	tos_Bluetooth_NotificationItemInit();
-  /* Infinite loop */
+//	tos_Bluetooth_NotificationItemInit();
+	tos_StepsAndKcalsInit();
+	osDelay(5000);
+	/* Infinite loop */
   for(;;)
-  {	  tos_BluetoothReceiverAndTransmitter(&hrtc);
-  	  tos_BluetoothGetStatusVAl(tos_BluetoothGetEnableVal(),tos_Get_Current_Screen());
-    osDelay(1);
+  {
+	 tos_BluetoothGetStatusVAl(tos_BluetoothGetEnableVal(),tos_Get_Current_Screen());
+	  //tos_BluetoothReceiverAndTransmitter(&hrtc);
+	 osDelay(500);
+	tos_StepsAndKcalsRead();
+	// tos_StepsAndKcalsCalcSteps();
   }
   /* USER CODE END StartbluetoothTask */
 }
