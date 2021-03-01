@@ -656,16 +656,16 @@ void StartcontrollerTask(void *argument)
 void StartbluetoothTask(void *argument)
 {
   /* USER CODE BEGIN StartbluetoothTask */
-//	tos_Bluetooth_NotificationItemInit();
-	tos_StepsAndKcalsInit();
-	osDelay(5000);
+	tos_Bluetooth_NotificationItemInit();
+//	tos_StepsAndKcalsInit();
+	osDelay(50);
 	/* Infinite loop */
   for(;;)
   {
 	 tos_BluetoothGetStatusVAl(tos_BluetoothGetEnableVal(),tos_Get_Current_Screen());
-	  //tos_BluetoothReceiverAndTransmitter(&hrtc);
-	 osDelay(500);
-	tos_StepsAndKcalsRead();
+	  tos_BluetoothReceiverAndTransmitter(&hrtc);
+	 osDelay(5);
+	//tos_StepsAndKcalsRead();
 	// tos_StepsAndKcalsCalcSteps();
   }
   /* USER CODE END StartbluetoothTask */
