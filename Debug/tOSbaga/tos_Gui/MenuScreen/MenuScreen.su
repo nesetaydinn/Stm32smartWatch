@@ -1,0 +1,11 @@
+lv_color.h:399:26:lv_color_make	24	static
+lv_disp.h:97:26:lv_scr_act	8	static
+lv_label.h:185:20:lv_label_set_style	24	static
+MenuScreen.c:22:6:tos_MenuScreen_Init	24	static
+MenuScreen.c:39:6:tos_Menu_Controller	8	static
+MenuScreen.c:73:6:MenuScreen_OpenMenu	16	static
+MenuScreen.c:130:6:MenuScreen_ItemController	16	static
+MenuScreen.c:148:6:MenuScreen_MenuItem	32	static
+MenuScreen.c:161:6:MenuScreen_TaskControllerGet	4	static
+MenuScreen.c:164:6:MenuScreen_TaskControllerSet	16	static
+MenuScreen.c:167:6:MenuScreen_SetItem	16	static

@@ -1,0 +1,3 @@
+tos_Battery_Helper.c:14:6:tos_getBatteryVAl	24	static
+tos_Battery_Helper.c:30:8:tos_BatteryVal_Sym_Helper	16	static
+tos_Battery_Helper.c:46:12:tos_BatteryVal_SymColor_Helper	16	static

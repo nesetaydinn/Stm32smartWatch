@@ -1,0 +1,6 @@
+tos_taskManager.c:24:6:tos_tasks_init	16	static
+tos_taskManager.c:51:6:tos_tftTickUpdaterTask	16	static
+tos_taskManager.c:61:6:tos_controllerTask	16	static
+tos_taskManager.c:69:6:tos_mpu6050readTask	16	static
+tos_taskManager.c:75:6:tos_stepAndkCalsCalcTask	16	static
+tos_taskManager.c:82:6:tos_Bluetooth_Task	24	static

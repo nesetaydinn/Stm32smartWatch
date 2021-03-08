@@ -1,0 +1,2 @@
+tos_Text_Helper.c:13:8:tos_floatToStrings	48	static
+tos_Text_Helper.c:23:8:tos_doubleToStrings	64	static
