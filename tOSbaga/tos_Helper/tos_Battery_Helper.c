@@ -8,6 +8,9 @@
 #include "../tOSbaga.h"
 #include "../../lvgl/lvgl.h"
 
+
+uint8_t realbatValue;
+
 char * tos_BatteryVal_Sym_Helper(uint8_t batteryVal,uint8_t batteryValueTemp);
 lv_color_t tos_BatteryVal_SymColor_Helper(uint8_t batteryVal);
 
@@ -25,6 +28,20 @@ void tos_getBatteryVAl(uint8_t batteryVal,uint8_t Screen){
 	}
 
 	}
+}
+
+void tos_BatteryRead(ADC_HandleTypeDef *battery){
+	uint16_t batValue;
+	static uint32_t filter=0;
+	HAL_ADC_PollForConversion(battery, BATTERY_READ_TIMEOUT);
+	  HAL_ADC_Start(battery);
+	  for(int c=0;c<256;c++){
+		  filter+=HAL_ADC_GetValue(battery);
+	  }
+	  batValue=(uint16_t)(filter>>8);
+	  realbatValue=(uint8_t) tos_Ratio(batValue,0,4095,0,100);
+	  filter=0;
+	  HAL_ADC_Stop(battery);
 }
 
 char * tos_BatteryVal_Sym_Helper(uint8_t batteryVal,uint8_t batteryValueTemp){
@@ -52,3 +69,4 @@ lv_color_t tos_BatteryVal_SymColor_Helper(uint8_t batteryVal){
 
 			return LV_COLOR_BLUE;
 }
+uint8_t tos_getRealbatValue(void){return realbatValue;};

@@ -1,5 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
+# Toolchain: GNU Tools for STM32 (9-2020-q2-update)
 ################################################################################
 
 ELF_SRCS := 
@@ -37,6 +38,7 @@ lvgl/src/lv_objx \
 lvgl/src/lv_themes \
 st7789 \
 tOSbaga/tos_Fonts \
+tOSbaga/tos_Gui/LampScreen \
 tOSbaga/tos_Gui/MainScreen \
 tOSbaga/tos_Gui/MenuScreen \
 tOSbaga/tos_Gui/MusicPlayerScreen \
@@ -47,6 +49,7 @@ tOSbaga/tos_Gui/SleepModeScreen \
 tOSbaga/tos_Gui/StartScreen \
 tOSbaga/tos_Gui/StepAndKcalScreen \
 tOSbaga/tos_Gui/StopwatchScreen \
+tOSbaga/tos_Gui/ThemeSettingsScreen \
 tOSbaga/tos_Helper \
 tOSbaga/tos_Images \
 tOSbaga/tos_taskManager \

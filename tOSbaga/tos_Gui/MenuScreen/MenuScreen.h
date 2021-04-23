@@ -21,7 +21,9 @@
 #define ITEM3 0x03
 #define ITEM4 0x04
 #define ITEM5 0x05
-#define ITEM_MAX ITEM5
+#define ITEM6 0x06
+#define ITEM7 0x07
+#define ITEM_MAX ITEM7
 #define ITEM_MIN ITEM0
 	//Functions
 void tos_MenuScreen_Init(bool theme,RTC_HandleTypeDef *hrtc);

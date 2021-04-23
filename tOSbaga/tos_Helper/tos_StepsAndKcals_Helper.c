@@ -31,7 +31,7 @@ void tos_StepsAndKcalsRead(void){
 void tos_StepsAndKcalsCalcSteps(void){
 	getAccVal=MPU6050_getAccScaleVals();
 	totalVec=(float)sqrt(pow(getAccVal.x,2)+pow(getAccVal.y,2)+pow(getAccVal.z,2));
-	if(totalVec>2.5f)steps++;
+	if(totalVec>2.0f)steps++;
 }
 void tos_StepsAndKcalsSetVal(void){
 

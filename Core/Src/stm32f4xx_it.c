@@ -187,8 +187,8 @@ void TIM2_IRQHandler(void)
   /* USER CODE END TIM2_IRQn 0 */
   HAL_TIM_IRQHandler(&htim2);
   /* USER CODE BEGIN TIM2_IRQn 1 */
-  StopWatch_Update_Time();
-  RunMode_Update_Time();
+ StopWatch_Update_Time();
+ RunMode_Update_Time();
   /* USER CODE END TIM2_IRQn 1 */
 }
 
@@ -202,8 +202,8 @@ void TIM3_IRQHandler(void)
   /* USER CODE END TIM3_IRQn 0 */
   HAL_TIM_IRQHandler(&htim3);
   /* USER CODE BEGIN TIM3_IRQn 1 */
-  MainScreen_Updater();
-  tos_SleepScreen_Counter();
+//
+//
   /* USER CODE END TIM3_IRQn 1 */
 }
 
@@ -217,8 +217,8 @@ void TIM4_IRQHandler(void)
   /* USER CODE END TIM4_IRQn 0 */
   HAL_TIM_IRQHandler(&htim4);
   /* USER CODE BEGIN TIM4_IRQn 1 */
-  tos_ButtonCounterIncrease();
-  tos_firstScreen_Update();
+/* tos_ButtonCounterIncrease();
+  tos_firstScreen_Update();*/
   /* USER CODE END TIM4_IRQn 1 */
 }
 

@@ -39,6 +39,7 @@ void tos_MenuScreen_Init(bool theme,RTC_HandleTypeDef *hrtc){
 void tos_Menu_Controller(void){
 	if(MenuS_TaskController){
 			  if(SettingsScreen_isSettingsOpen())  SettingsScreen_ButtonController();
+			  else if(ThemeSettingsScreen_isSettingsOpen())  ThemeSettingsScreen_ButtonController();
 			  else {
 				  if(1==tos_EnterButton_Listenner_For_MenuControl()) MenuScreen_OpenMenu(item);
 				  if(StopWatch_TaskControllerGet())  StopWatch_ButtonController();
@@ -63,15 +64,24 @@ void tos_Menu_Controller(void){
 
 				  }
 				  if(befItem!=item){
+				  Menutheme=ThemeSettingsScreen_GetTheme();
 				  MenuScreen_ItemController(item);
 				  befItem=item;
 				}
+
 			  }
 	}
 }
 
 void MenuScreen_OpenMenu(uint8_t item){
 	lv_obj_clean(lv_scr_act());
+	style_screen.body.main_color = LV_COLOR_WHITE;
+	style_screen.body.grad_color = LV_COLOR_WHITE;
+	if(Menutheme){
+		style_screen.body.main_color = LV_COLOR_BLACK;
+		style_screen.body.grad_color = LV_COLOR_BLACK;
+	}	lv_obj_set_style(lv_scr_act(), &style_screen);
+
 	StepAndKcal_TaskControllerSet(false);
 	StopWatch_TaskControllerSet(false);
 	RunMode_TaskControllerSet(false);
@@ -118,6 +128,15 @@ void MenuScreen_OpenMenu(uint8_t item){
 	break;
 
 	case ITEM5:
+		tos_LampScreen_Init();
+	break;
+
+	case ITEM6:
+	/*Theme Settings*/
+		tos_ThemeSettingsScreen_Init(Menutheme);
+	break;
+
+	case ITEM7:
 	/*Sys Settings*/
 	tos_SettingsScreen_Init(Menutheme,M_hrtc);
 	//Close a veya save e basınca buraya dönmüyor !!
@@ -139,8 +158,11 @@ void MenuScreen_ItemController(uint8_t item){
 
 		case ITEM4: MenuScreen_MenuItem("NOTIFICATIONS", &tos75x75); break;
 
-		case ITEM5: MenuScreen_MenuItem("SYSTEM SETTINGS", &tos75x75); break;
+		case ITEM5: MenuScreen_MenuItem("HAND LANTERN", &tos75x75); break;
 
+		case ITEM6: MenuScreen_MenuItem("THEME SETTINGS", &tos75x75); break;
+
+		case ITEM7: MenuScreen_MenuItem("SYSTEM SETTINGS", &tos75x75); break;
 		default: return;
 		}
 }

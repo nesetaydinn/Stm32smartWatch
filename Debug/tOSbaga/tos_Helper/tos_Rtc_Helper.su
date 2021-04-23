@@ -2,4 +2,4 @@ tos_Rtc_Helper.c:14:6:tos_RTC_init	24	static
 tos_Rtc_Helper.c:20:8:tos_RTC_GetTime	32	static
 tos_Rtc_Helper.c:44:8:tos_RTC_SetTime	40	static
 tos_Rtc_Helper.c:53:8:tos_RTC_SetDate	24	static
-tos_Rtc_Helper.c:64:8:weekDayFinder	40	static
+tos_Rtc_Helper.c:64:8:weekDayFinder	32	static

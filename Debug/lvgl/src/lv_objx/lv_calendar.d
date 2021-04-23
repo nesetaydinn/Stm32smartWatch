@@ -23,7 +23,7 @@ lvgl/src/lv_objx/lv_calendar.o: ../lvgl/src/lv_objx/lv_calendar.c \
  ../lvgl/src/lv_objx/../lv_core/../lv_hal/../lv_misc/lv_area.h \
  ../lvgl/src/lv_objx/../lv_core/../lv_hal/../lv_misc/lv_ll.h \
  ../lvgl/src/lv_objx/../lv_core/../lv_hal/../lv_misc/lv_task.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
  ../lvgl/src/lv_objx/../lv_core/../lv_hal/../lv_misc/lv_mem.h \
  ../lvgl/src/lv_objx/../lv_core/../lv_hal/../lv_misc/lv_ll.h \
  ../lvgl/src/lv_objx/../lv_core/../lv_hal/lv_hal_indev.h \
@@ -122,7 +122,7 @@ lvgl/src/lv_objx/lv_calendar.o: ../lvgl/src/lv_objx/lv_calendar.c \
 
 ../lvgl/src/lv_objx/../lv_core/../lv_hal/../lv_misc/lv_task.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
 
 ../lvgl/src/lv_objx/../lv_core/../lv_hal/../lv_misc/lv_mem.h:
 

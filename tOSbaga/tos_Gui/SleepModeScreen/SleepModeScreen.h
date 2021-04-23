@@ -18,6 +18,7 @@
 
 	//Functions
 void tos_SleepModeScreen_Init(void);
+void SMS_Updater(void);
 
 void SleepModeScreen_SetTime(uint8_t getHours, uint8_t getMinutes, uint8_t getSeconds);
 void SleepModeScreen_SetDate(uint8_t getYear, uint8_t getMonth, uint8_t getDate, char* getWeekDay);

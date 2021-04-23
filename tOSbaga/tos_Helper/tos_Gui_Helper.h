@@ -28,6 +28,8 @@ void tos_firstScreen_Update(void);
 void tos_Screen_Variables_Getter(uint8_t Screen);
 uint8_t tos_Get_Current_Screen(void);
 bool tos_Gui_GetWorkingSystemVal(void);
+void tos_Gui_SetScreenType(uint8_t type);
+void tos_Gui_SetTheme(bool theme);
 
 #define TOS_SCREEN_MAIN_ 0X00
 #define TOS_SCREEN_SLEEPMODE_ 0X01

@@ -12,12 +12,13 @@ void tos_AnalogueType_Init(bool theme);
 void seconds_angle_loader(void);
 void minutes_angle_loader(void);
 void hours_angle_loader(void);
-void steps_angle_loader(lv_task_t *t);
-void kCals_angle_loader(lv_task_t *t);
-void digitalTimePrintTheScreen(lv_task_t *t);
-void analogueDataPrintTheScreen(lv_task_t *t);
-void batteryValueUpdater(lv_task_t *t);
-void bluetoothStatusUpdater(lv_task_t *t);
+void steps_angle_loader(void);
+void kCals_angle_loader(void);
+void digitalTimePrintTheScreen(void);
+void analogueDataPrintTheScreen(void);
+
+void batteryValueUpdater(void);
+void bluetoothStatusUpdater(void);
 
 
 //Local Variables
@@ -57,21 +58,11 @@ void tos_MainScreen_Init(uint8_t screenType,bool theme) {
 	MainScreenType= screenType;
 	MS_taskController=true;
 	switch(screenType){
-	case tos_mainScreen_Type1: tos_DigitalType_Init(0,theme);
-	lv_task_create(digitalTimePrintTheScreen, 500, LV_TASK_PRIO_LOWEST, NULL); break;
-	case tos_mainScreen_Type2: tos_DigitalType_Init(1,theme);
-	lv_task_create(digitalTimePrintTheScreen, 500, LV_TASK_PRIO_LOWEST, NULL); break;
-	case tos_mainScreen_Type3: tos_AnalogueType_Init(theme);
-	lv_task_create(analogueDataPrintTheScreen, 500, LV_TASK_PRIO_LOWEST, NULL); break;
+	case tos_mainScreen_Type1: tos_DigitalType_Init(0,theme); break;
+	case tos_mainScreen_Type2: tos_DigitalType_Init(1,theme); break;
+	case tos_mainScreen_Type3: tos_AnalogueType_Init(theme); break;
 	default: tos_DigitalType_Init(0,theme);
 	}
-	lv_task_create(batteryValueUpdater, 500, LV_TASK_PRIO_LOWEST, NULL);
-	lv_task_create(bluetoothStatusUpdater, 500, LV_TASK_PRIO_LOWEST, NULL);
-	lv_task_create(steps_angle_loader, 500, LV_TASK_PRIO_LOWEST, NULL);
-	lv_task_create(kCals_angle_loader, 500, LV_TASK_PRIO_LOWEST, NULL);
-
-
-
 }
 
 //Analogue Type
@@ -219,7 +210,7 @@ void tos_AnalogueType_Init(bool theme){
        			       //Digital Date
        			   		    digitalDate = lv_label_create(lv_scr_act(), NULL);
        			   		    lv_label_set_style(digitalDate, LV_LABEL_STYLE_MAIN, &dDate_style);
-       			     	    snprintf(buffer, 9, "%02d:%02d:%04d", date,month,year);
+       			     	    snprintf(buffer, 10, "%02d:%02d:%04d", date,month,year);
        			 		    lv_label_set_text(digitalDate, buffer);
        			   		    lv_obj_align(digitalDate, NULL, LV_ALIGN_CENTER, 0, -35);
 
@@ -482,15 +473,26 @@ void dType2_Clock_Init(bool theme) {
 /*This function using for update values*/
 void MainScreen_Updater(void){
 	if(MS_taskController){
+		batteryValueUpdater();
+		bluetoothStatusUpdater();
+
+		kCals_angle_loader();
+		steps_angle_loader();
+
 	switch(MainScreenType){
 	case tos_mainScreen_Type1:
 		minutes_angle_loader();
 		hours_angle_loader();
+		digitalTimePrintTheScreen();
+		break;
+	case tos_mainScreen_Type2:
+		digitalTimePrintTheScreen();
 		break;
 	case tos_mainScreen_Type3:
 		seconds_angle_loader();
 		minutes_angle_loader();
 		hours_angle_loader();
+		analogueDataPrintTheScreen();
 		break;
 	default: break;
 	}
@@ -501,23 +503,22 @@ void MainScreen_Updater(void){
 
 /* This function using for battery value update
 */
-void batteryValueUpdater(lv_task_t *t){
-	if(MS_taskController){
+void batteryValueUpdater(void){
 		  lv_label_set_text(batteryLbl, batteryVal);
 		  battery_style.text.color = batteryColor;
 		  lv_obj_align(batteryLbl, NULL, LV_ALIGN_CENTER, 100, -110);
-}else lv_task_del(t);}
+}
 /* This function using for bluetooth status update
 */
-void bluetoothStatusUpdater(lv_task_t *t){
-	if(MS_taskController){
+void bluetoothStatusUpdater(void){
+
 		if(bluetoothStatus){
 		      bluetooth_style.text.color = bluetoothColor;
 			  lv_label_set_text(bluetoothLbl, LV_SYMBOL_BLUETOOTH);
 			  lv_obj_align(bluetoothLbl, NULL, LV_ALIGN_CENTER, -110, -110);
 		}
 		else lv_label_set_text(bluetoothLbl, " ");
-	}else lv_task_del(t);
+
 }
 /* This function using for calculate and set the angle for arcObjects,
 We use here set hours 
@@ -552,8 +553,8 @@ void seconds_angle_loader(void)
 }
 
 /* This function using for digital clock print to screen*/
-void digitalTimePrintTheScreen(lv_task_t *t){
-	if(MS_taskController){
+void digitalTimePrintTheScreen(void){
+
 		snprintf(buffer, 9, "%02d:%02d:%02d", hours,minutes,seconds);
 		    lv_label_set_text(digitalClock, buffer);
 			lv_obj_align(digitalClock, NULL, LV_ALIGN_CENTER, 0, -75);
@@ -572,11 +573,10 @@ void digitalTimePrintTheScreen(lv_task_t *t){
 			    	lv_obj_align(weekDay, NULL, LV_ALIGN_CENTER, 0, -10);
 					break;
 					}
-	}else lv_task_del(t);
 }
 /*This function using for date and week day print to screen on analogue clock*/
-void analogueDataPrintTheScreen(lv_task_t *t){
-	if(MS_taskController){
+void analogueDataPrintTheScreen(void){
+
 		 //Digital Date
 			snprintf(buffer, 16, " "); //For cleaning buff
 		    	snprintf(buffer, 16, "%02d:%02d:%04d", date,month,year);
@@ -585,13 +585,13 @@ void analogueDataPrintTheScreen(lv_task_t *t){
 		    	lv_label_set_text(weekDay, weekDayStr);
 		    	lv_obj_align(digitalDate, NULL, LV_ALIGN_CENTER, 0, -35);
 		    	lv_obj_align(weekDay, NULL, LV_ALIGN_CENTER, 0, -10);
-	}else lv_task_del(t);
+
 }
 /* This function using for calculate and set the angle for arcObjects,
 We use here set steps
 */
-void steps_angle_loader(lv_task_t *t)
-{	if(MS_taskController){
+void steps_angle_loader(void)
+{
 	snprintf(buffer, 8, "%04d", steps);
 		 lv_label_set_text(stepsLbl, buffer);
 		 if(MainScreenType ==tos_mainScreen_Type3)lv_obj_align(stepsLbl, NULL, LV_ALIGN_CENTER, -40, 40);
@@ -600,13 +600,13 @@ void steps_angle_loader(lv_task_t *t)
 		double stepsTemp = tos_Ratio(steps, 0, 10000, 0, 359);
 		if(stepsTemp < 180) lv_arc_set_angles(stepsArc, 180-stepsTemp ,180);
 		    else lv_arc_set_angles(stepsArc, 540-stepsTemp ,180);
-}else lv_task_del(t);
+
 }
 /* This function using for calculate and set the angle for arcObjects,
 We use here set kCals
 */
-void kCals_angle_loader(lv_task_t *t)
-{	if(MS_taskController){
+void kCals_angle_loader(void)
+{
 	 	 	 snprintf(buffer, 8, "%04d", kCals);
 			 lv_label_set_text(kCalsLbl, buffer);
 			 if(MainScreenType ==tos_mainScreen_Type3) lv_obj_align(kCalsLbl, NULL, LV_ALIGN_CENTER, 40, 40);
@@ -615,7 +615,7 @@ void kCals_angle_loader(lv_task_t *t)
 		double kCalsTemp = tos_Ratio(kCals, 0, 10000, 0, 359);
 		if(kCalsTemp < 180) lv_arc_set_angles(kCalsArc, 180-kCalsTemp ,180);
 		    else lv_arc_set_angles(kCalsArc, 540-kCalsTemp ,180);
-}else lv_task_del(t);
+
 }
 //Getter and setter functions
 void MainScreen_SetTime(uint8_t getHours, uint8_t getMinutes, uint8_t getSeconds) {

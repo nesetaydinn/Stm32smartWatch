@@ -140,7 +140,7 @@ void SettingsScreen_bluetoothInit(bool theme){
 
     lv_obj_t * bluetoothLbl = lv_label_create(lv_scr_act(), NULL);
  	lv_label_set_style(bluetoothLbl, LV_LABEL_STYLE_MAIN, &description_Style);
-	lv_label_set_text(bluetoothLbl, LV_SYMBOL_BLUETOOTH "Statu:");
+	lv_label_set_text(bluetoothLbl, LV_SYMBOL_BLUETOOTH "Status:");
  	lv_obj_align(bluetoothLbl, NULL, LV_ALIGN_IN_TOP_LEFT, 20, 120);
 
  	SbluetoothSwitch = lv_sw_create(lv_scr_act(), NULL);

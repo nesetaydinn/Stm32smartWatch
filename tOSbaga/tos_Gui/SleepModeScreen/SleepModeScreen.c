@@ -21,7 +21,7 @@ bool slpbluetoothStatus,slptaskController;
 void SMS_digitalTimePrintTheScreen(void);
 void SMS_batteryValueUpdater(void);
 void SMS_bluetoothStatusUpdater(void);
-void SMS_Updater(lv_task_t * t);
+
 
 void tos_SleepModeScreen_Init(void) {
 	slptaskController=true;
@@ -81,15 +81,14 @@ void tos_SleepModeScreen_Init(void) {
 			    lv_label_set_style(slpweekDay, LV_LABEL_STYLE_MAIN, &slpweekD_style);
 			    lv_label_set_text(slpweekDay,slpweekDayStr);
 			    lv_obj_align(slpweekDay, NULL, LV_ALIGN_CENTER, 0, 35);
-				lv_task_create(SMS_Updater, 250, _LV_TASK_PRIO_NUM, NULL);
 }
 /*This function using for update all updater functions*/
-void SMS_Updater(lv_task_t *t){
+void SMS_Updater(void){
 	if(slptaskController){
 		SMS_batteryValueUpdater();
 		SMS_bluetoothStatusUpdater();
 		SMS_digitalTimePrintTheScreen();
-	}else lv_task_del(t);
+	}
 }
 /* This function using for digital clock print to screen*/
 void SMS_digitalTimePrintTheScreen(void){

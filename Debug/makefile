@@ -1,5 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
+# Toolchain: GNU Tools for STM32 (9-2020-q2-update)
 ################################################################################
 
 -include ../makefile.init
@@ -11,6 +12,7 @@ RM := rm -rf
 -include tOSbaga/tos_taskManager/subdir.mk
 -include tOSbaga/tos_Images/subdir.mk
 -include tOSbaga/tos_Helper/subdir.mk
+-include tOSbaga/tos_Gui/ThemeSettingsScreen/subdir.mk
 -include tOSbaga/tos_Gui/StopwatchScreen/subdir.mk
 -include tOSbaga/tos_Gui/StepAndKcalScreen/subdir.mk
 -include tOSbaga/tos_Gui/StartScreen/subdir.mk
@@ -21,6 +23,7 @@ RM := rm -rf
 -include tOSbaga/tos_Gui/MusicPlayerScreen/subdir.mk
 -include tOSbaga/tos_Gui/MenuScreen/subdir.mk
 -include tOSbaga/tos_Gui/MainScreen/subdir.mk
+-include tOSbaga/tos_Gui/LampScreen/subdir.mk
 -include tOSbaga/tos_Fonts/subdir.mk
 -include st7789/subdir.mk
 -include lvgl/src/lv_themes/subdir.mk
@@ -56,6 +59,12 @@ endif
 
 -include ../makefile.defs
 
+OPTIONAL_TOOL_DEPS := \
+$(wildcard ../makefile.defs) \
+$(wildcard ../makefile.init) \
+$(wildcard ../makefile.targets) \
+
+
 BUILD_ARTIFACT_NAME := smartWatchF407
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX := 
@@ -82,22 +91,22 @@ all: main-build
 main-build: smartWatchF407.elf secondary-outputs
 
 # Tool invocations
-smartWatchF407.elf: $(OBJS) $(USER_OBJS) C:\Users\pc\STM32CubeIDE\workspace_1.5.0\smartWatchF407\STM32F407VGTX_FLASH.ld
-	arm-none-eabi-gcc -o "smartWatchF407.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\pc\STM32CubeIDE\workspace_1.5.0\smartWatchF407\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="smartWatchF407.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+smartWatchF407.elf: $(OBJS) $(USER_OBJS) F:\Users\pc\STM32CubeIDE\workspace_1.5.0\smartWatchF407\STM32F407VGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "smartWatchF407.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"F:\Users\pc\STM32CubeIDE\workspace_1.5.0\smartWatchF407\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="smartWatchF407.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-default.size.stdout: $(EXECUTABLES)
+default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-size  $(EXECUTABLES)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-smartWatchF407.list: $(EXECUTABLES)
+smartWatchF407.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "smartWatchF407.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-smartWatchF407.bin: $(EXECUTABLES)
+smartWatchF407.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "smartWatchF407.bin"
 	@echo 'Finished building: $@'
 	@echo ' '

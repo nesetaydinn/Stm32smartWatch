@@ -19,6 +19,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h \
@@ -32,180 +34,196 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
- C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tOSbaga.h \
- C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/tos_Gui.h \
- C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/MainScreen/MainScreen.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_version.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_misc/lv_log.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_misc/lv_task.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_misc/lv_mem.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_misc/lv_log.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_misc/lv_ll.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_misc/lv_math.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_hal/lv_hal.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_hal/lv_hal_disp.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_hal/lv_hal.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_color.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_area.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_ll.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_task.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_hal/lv_hal_indev.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_hal/lv_hal_tick.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_core/lv_obj.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_core/lv_style.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_font\lv_font.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_font\lv_symbol_def.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_color.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_area.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_anim.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_types.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_mem.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_ll.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_log.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_hal\lv_hal.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_core/lv_group.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_core/lv_obj.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_core/lv_refr.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_core/lv_disp.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_core\lv_style.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_core\lv_group.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_templ.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_default.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_alien.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_night.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_zen.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_mono.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_nemo.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_material.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_font/lv_font.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_font/lv_font_fmt_txt.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_font/lv_font.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_btn.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_cont.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_core\lv_obj.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_core\lv_indev.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_core\lv_obj.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_hal\lv_hal_indev.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_core\lv_group.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_imgbtn.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_btn.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_img.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_core\lv_style.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_txt.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_area.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_font\lv_font.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_img_decoder.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_fs.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_mem.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_types.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_area.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_basic.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_font\lv_font.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_color.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_rect.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_label.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_img.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_line.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_triangle.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_arc.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_img.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_fs.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_label.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_font\lv_font.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_font\lv_symbol_def.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_txt.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_label.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_line.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_page.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_anim.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_cont.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_list.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_page.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_img.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_chart.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_line.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_table.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_cb.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_bar.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_slider.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_bar.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_led.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_btnm.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_kb.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_btnm.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_ddlist.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_objx\lv_page.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_objx\lv_label.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_roller.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_ddlist.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_ta.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_canvas.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_objx\lv_img.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_win.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_tabview.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_objx\lv_win.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_tileview.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_mbox.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_gauge.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_lmeter.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_lmeter.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_sw.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_slider.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_arc.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_preload.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_calendar.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_spinbox.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_objx\lv_ta.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_draw/lv_img_cache.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_draw/lv_img_decoder.h \
- C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/StartScreen/StartScreen.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h \
- C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/SleepModeScreen/SleepModeScreen.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h \
- C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/MenuScreen/MenuScreen.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h \
- C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/StepAndKcalScreen/StepAndKcalScreen.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h \
- C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/StopwatchScreen/StopwatchScreen.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h \
- C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/RunModeScreen/RunModeScreen.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h \
- C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/MusicPlayerScreen/MusicPlayerScreen.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h \
- C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/NotificationScreen/NotificationScreen.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h \
- C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/SettingsScreen/SettingsScreen.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h \
- C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Helper.h \
- C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Calc_Helper.h \
- C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Rtc_Helper.h \
- C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Battery_Helper.h \
- C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Bluetooth_Helper.h \
- C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Button_Helper.h \
- C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Gui_Helper.h \
- C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Flash_Mem_Helper.h \
- C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Text_Helper.h \
- C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Notification_Helper.h \
- C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_StepsAndKcals_Helper.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\mpu6050\na_mpu6050.h \
- C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Fonts/tos_Fonts.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h \
- C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Images/tos_Images.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h \
- C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_taskManager/tos_taskManager.h
+ ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
+ ../Core/Inc/FreeRTOSConfig.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
+ F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tOSbaga.h \
+ F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/tos_Gui.h \
+ F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/LampScreen/LampScreen.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_version.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_misc/lv_log.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_misc/lv_task.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_misc/lv_mem.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_misc/lv_log.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_misc/lv_ll.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_misc/lv_math.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_hal/lv_hal.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_hal/lv_hal_disp.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_hal/lv_hal.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_color.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_area.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_ll.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_task.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_hal/lv_hal_indev.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_hal/lv_hal_tick.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_core/lv_obj.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_core/lv_style.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_font\lv_font.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_font\lv_symbol_def.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_color.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_area.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_anim.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_types.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_mem.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_ll.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_log.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_hal\lv_hal.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_core/lv_group.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_core/lv_obj.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_core/lv_refr.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_core/lv_disp.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_core\lv_style.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_core\lv_group.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_templ.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_default.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_alien.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_night.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_zen.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_mono.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_nemo.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_material.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_font/lv_font.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_font/lv_font_fmt_txt.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_font/lv_font.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_btn.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_cont.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_core\lv_obj.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_core\lv_indev.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_core\lv_obj.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_hal\lv_hal_indev.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_core\lv_group.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_imgbtn.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_btn.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_img.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_core\lv_style.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_txt.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_area.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_font\lv_font.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_img_decoder.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_fs.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_mem.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_types.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_area.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_basic.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_font\lv_font.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_color.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_rect.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_label.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_img.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_line.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_triangle.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_arc.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_img.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_fs.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_label.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_font\lv_font.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_font\lv_symbol_def.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_txt.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_label.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_line.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_page.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_anim.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_cont.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_list.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_page.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_img.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_chart.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_line.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_table.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_cb.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_bar.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_slider.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_bar.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_led.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_btnm.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_kb.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_btnm.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_ddlist.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_objx\lv_page.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_objx\lv_label.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_roller.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_ddlist.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_ta.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_canvas.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_objx\lv_img.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_win.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_tabview.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_objx\lv_win.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_tileview.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_mbox.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_gauge.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_lmeter.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_lmeter.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_sw.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_slider.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_arc.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_preload.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_calendar.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_spinbox.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_objx\lv_ta.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_draw/lv_img_cache.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_draw/lv_img_decoder.h \
+ F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/MainScreen/MainScreen.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h \
+ F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/StartScreen/StartScreen.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h \
+ F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/SleepModeScreen/SleepModeScreen.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h \
+ F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/MenuScreen/MenuScreen.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h \
+ F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/StepAndKcalScreen/StepAndKcalScreen.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h \
+ F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/StopwatchScreen/StopwatchScreen.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h \
+ F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/RunModeScreen/RunModeScreen.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h \
+ F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/MusicPlayerScreen/MusicPlayerScreen.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h \
+ F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/NotificationScreen/NotificationScreen.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h \
+ F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/SettingsScreen/SettingsScreen.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h \
+ F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/LampScreen/LampScreen.h \
+ F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/ThemeSettingsScreen/ThemeSettingsScreen.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h \
+ F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Helper.h \
+ F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Calc_Helper.h \
+ F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Rtc_Helper.h \
+ F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Battery_Helper.h \
+ F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Bluetooth_Helper.h \
+ F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Button_Helper.h \
+ F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Gui_Helper.h \
+ F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Flash_Mem_Helper.h \
+ F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Text_Helper.h \
+ F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Notification_Helper.h \
+ F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_StepsAndKcals_Helper.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\mpu6050\na_mpu6050.h \
+ F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Fonts/tos_Fonts.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h \
+ F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Images/tos_Images.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h \
+ F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_taskManager/tos_taskManager.h
 
 ../Core/Inc/main.h:
 
@@ -249,6 +267,10 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h:
 
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h:
+
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc_ex.h:
+
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h:
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h:
@@ -275,350 +297,382 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 
-C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tOSbaga.h:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:
 
-C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/tos_Gui.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 
-C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/MainScreen/MainScreen.h:
+../Core/Inc/FreeRTOSConfig.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_version.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_misc/lv_log.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
+../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_misc/lv_task.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_misc/lv_mem.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_misc/lv_log.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_misc/lv_ll.h:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_misc/lv_math.h:
+F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tOSbaga.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_hal/lv_hal.h:
+F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/tos_Gui.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_hal/lv_hal_disp.h:
+F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/LampScreen/LampScreen.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_hal/lv_hal.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_color.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_version.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_misc/lv_log.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_area.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_ll.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_misc/lv_task.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_task.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_misc/lv_mem.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_hal/lv_hal_indev.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_misc/lv_log.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_misc/lv_ll.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_hal/lv_hal_tick.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_misc/lv_math.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_core/lv_obj.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_hal/lv_hal.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_hal/lv_hal_disp.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_core/lv_style.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_hal/lv_hal.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_font\lv_font.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_color.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_font\lv_symbol_def.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_area.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_color.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_ll.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_area.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_task.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_anim.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_hal/lv_hal_indev.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_types.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_mem.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_hal/lv_hal_tick.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_ll.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_core/lv_obj.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_log.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_hal\lv_hal.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_core/lv_style.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_core/lv_group.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_font\lv_font.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_core/lv_obj.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_core/lv_refr.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_font\lv_symbol_def.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_core/lv_disp.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_color.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_area.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_anim.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_core\lv_style.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_types.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_core\lv_group.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_mem.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_templ.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_ll.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_default.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_log.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_alien.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_hal\lv_hal.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_night.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_core/lv_group.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_zen.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_core/lv_obj.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_mono.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_core/lv_refr.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_nemo.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_core/lv_disp.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_material.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_font/lv_font.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_font/lv_font_fmt_txt.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_core\lv_style.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_core\lv_group.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_font/lv_font.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_templ.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_btn.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_default.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_alien.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_cont.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_night.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_core\lv_obj.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_zen.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_core\lv_indev.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_mono.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_core\lv_obj.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_nemo.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_hal\lv_hal_indev.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_themes/lv_theme_material.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_core\lv_group.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_font/lv_font.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_imgbtn.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_font/lv_font_fmt_txt.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_btn.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_img.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_font/lv_font.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_btn.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_core\lv_style.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_cont.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_txt.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_core\lv_obj.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_area.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_core\lv_indev.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_font\lv_font.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_core\lv_obj.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_img_decoder.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_hal\lv_hal_indev.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_fs.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_core\lv_group.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_mem.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_imgbtn.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_types.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_btn.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_area.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_img.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_basic.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_font\lv_font.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_color.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_core\lv_style.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_rect.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_txt.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_label.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_area.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_img.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_font\lv_font.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_line.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_img_decoder.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_triangle.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_fs.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_arc.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_mem.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_img.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_types.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_fs.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_area.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_label.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_basic.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_font\lv_font.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_font\lv_font.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_font\lv_symbol_def.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_color.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_txt.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_rect.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_label.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_label.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_img.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_line.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_line.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_page.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_triangle.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_anim.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw_arc.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_cont.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_img.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_list.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_fs.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_page.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_label.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_img.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_font\lv_font.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_chart.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_font\lv_symbol_def.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_line.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_txt.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_table.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_draw\lv_draw.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_cb.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_label.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_bar.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_line.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_slider.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_page.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_bar.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_misc\lv_anim.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_led.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_cont.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_btnm.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_list.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_kb.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_page.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_btnm.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_img.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_ddlist.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_chart.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_objx\lv_page.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_line.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_objx\lv_label.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_table.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_roller.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_cb.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_ddlist.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_bar.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_ta.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_slider.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_canvas.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_bar.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_objx\lv_img.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_led.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_win.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_btnm.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_tabview.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_kb.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_objx\lv_win.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_btnm.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_tileview.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_ddlist.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_mbox.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_objx\lv_page.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_gauge.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_objx\lv_label.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_lmeter.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_roller.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_lmeter.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_ddlist.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_sw.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_ta.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_slider.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_canvas.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_arc.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_objx\lv_img.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_preload.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_win.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_calendar.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_tabview.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_spinbox.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_objx\lv_win.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_objx\lv_ta.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_tileview.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_draw/lv_img_cache.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_mbox.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_draw/lv_img_decoder.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_gauge.h:
 
-C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/StartScreen/StartScreen.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_lmeter.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_lmeter.h:
 
-C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/SleepModeScreen/SleepModeScreen.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_sw.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_slider.h:
 
-C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/MenuScreen/MenuScreen.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_arc.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_preload.h:
 
-C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/StepAndKcalScreen/StepAndKcalScreen.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_calendar.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_objx/lv_spinbox.h:
 
-C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/StopwatchScreen/StopwatchScreen.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src\lv_objx\lv_ta.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_draw/lv_img_cache.h:
 
-C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/RunModeScreen/RunModeScreen.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\src/lv_draw/lv_img_decoder.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h:
+F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/MainScreen/MainScreen.h:
 
-C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/MusicPlayerScreen/MusicPlayerScreen.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h:
+F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/StartScreen/StartScreen.h:
 
-C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/NotificationScreen/NotificationScreen.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h:
+F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/SleepModeScreen/SleepModeScreen.h:
 
-C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/SettingsScreen/SettingsScreen.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h:
+F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/MenuScreen/MenuScreen.h:
 
-C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Helper.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h:
 
-C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Calc_Helper.h:
+F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/StepAndKcalScreen/StepAndKcalScreen.h:
 
-C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Rtc_Helper.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h:
 
-C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Battery_Helper.h:
+F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/StopwatchScreen/StopwatchScreen.h:
 
-C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Bluetooth_Helper.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h:
 
-C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Button_Helper.h:
+F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/RunModeScreen/RunModeScreen.h:
 
-C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Gui_Helper.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h:
 
-C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Flash_Mem_Helper.h:
+F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/MusicPlayerScreen/MusicPlayerScreen.h:
 
-C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Text_Helper.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h:
 
-C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Notification_Helper.h:
+F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/NotificationScreen/NotificationScreen.h:
 
-C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_StepsAndKcals_Helper.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\mpu6050\na_mpu6050.h:
+F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/SettingsScreen/SettingsScreen.h:
 
-C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Fonts/tos_Fonts.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h:
+F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/LampScreen/LampScreen.h:
 
-C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Images/tos_Images.h:
+F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Gui/ThemeSettingsScreen/ThemeSettingsScreen.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h:
 
-C:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_taskManager/tos_taskManager.h:
+F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Helper.h:
+
+F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Calc_Helper.h:
+
+F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Rtc_Helper.h:
+
+F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Battery_Helper.h:
+
+F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Bluetooth_Helper.h:
+
+F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Button_Helper.h:
+
+F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Gui_Helper.h:
+
+F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Flash_Mem_Helper.h:
+
+F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Text_Helper.h:
+
+F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_Notification_Helper.h:
+
+F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Helper/tos_StepsAndKcals_Helper.h:
+
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\mpu6050\na_mpu6050.h:
+
+F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Fonts/tos_Fonts.h:
+
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h:
+
+F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_Images/tos_Images.h:
+
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h:
+
+F:/Users/pc/STM32CubeIDE/workspace_1.5.0/smartWatchF407/tOSbaga/tos_taskManager/tos_taskManager.h:

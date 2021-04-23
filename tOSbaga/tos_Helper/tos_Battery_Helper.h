@@ -10,7 +10,12 @@
 
 #include "main.h"
 
+#define BATTERY_READ_TIMEOUT 150
+
+
+void tos_BatteryRead(ADC_HandleTypeDef *battery);
 void tos_getBatteryVAl(uint8_t batteryVal,uint8_t Screen);
+uint8_t tos_getRealbatValue(void);
 
 
 

@@ -1,9 +1,9 @@
 NA_MPU6050.c:20:6:MPU6050_Init	32	static
 NA_MPU6050.c:50:6:MPU6050_Do_Calibration	16	static
 NA_MPU6050.c:78:6:MPU6050_Read_RawAcc_Val	32	static
-NA_MPU6050.c:90:6:MPU6050_Read_ScaledAcc_Val	16	static
+NA_MPU6050.c:90:6:MPU6050_Read_ScaledAcc_Val	8	static
 NA_MPU6050.c:102:6:MPU6050_Read_RawGyro_Val	32	static
-NA_MPU6050.c:115:6:MPU6050_Read_ScaledGyro_Val	16	static
+NA_MPU6050.c:115:6:MPU6050_Read_ScaledGyro_Val	8	static
 NA_MPU6050.c:126:6:MPU6050_Set_Acc_Calibration	16	static
 NA_MPU6050.c:134:6:MPU6050_Set_Gyro_Calibration	16	static
 NA_MPU6050.c:143:16:MPU6050_getAccRawVals	16	static

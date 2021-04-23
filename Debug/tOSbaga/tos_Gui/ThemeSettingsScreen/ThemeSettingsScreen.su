@@ -1,0 +1,17 @@
+lv_color.h:399:26:lv_color_make	24	static
+lv_color.h:422:26:lv_color_hex	16	static
+lv_disp.h:97:26:lv_scr_act	8	static
+lv_label.h:185:20:lv_label_set_style	24	static
+ThemeSettingsScreen.c:25:6:tos_ThemeSettingsScreen_Init	16	static
+ThemeSettingsScreen.c:51:6:ThemeSettingsScreen_themeInit	40	static
+ThemeSettingsScreen.c:75:6:ThemeSettingsScreen_clockTypeInit	32	static
+ThemeSettingsScreen.c:96:6:ThemeSettingsScreen_buttonsInit	32	static
+ThemeSettingsScreen.c:148:6:ThemeSettingsScreen_ButtonController	8	static
+ThemeSettingsScreen.c:194:6:ThemeSettingsScreen_newthemeUpdateVal	16	static
+ThemeSettingsScreen.c:201:6:ThemeSettingsScreen_newthemeValController	16	static
+ThemeSettingsScreen.c:216:6:ThemeSettingsScreen_SetNewValues	8	static
+ThemeSettingsScreen.c:222:6:ThemeSettingsScreen_SetTheme	16	static
+ThemeSettingsScreen.c:223:6:ThemeSettingsScreen_GetTheme	4	static
+ThemeSettingsScreen.c:225:6:ThemeSettingsScreen_SetClockType	16	static
+ThemeSettingsScreen.c:226:9:ThemeSettingsScreen_GetClockType	4	static
+ThemeSettingsScreen.c:228:6:ThemeSettingsScreen_isSettingsOpen	4	static

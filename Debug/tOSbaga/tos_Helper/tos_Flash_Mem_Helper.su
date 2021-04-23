@@ -13,7 +13,7 @@ tos_Flash_Mem_Helper.c:173:9:tos_Flash_GetTypeTheme	8	static
 tos_Flash_Mem_Helper.c:179:9:tos_Flash_Read_Byte	16	static
 tos_Flash_Mem_Helper.c:182:10:tos_Flash_Read_HalfWord	16	static
 tos_Flash_Mem_Helper.c:185:10:tos_Flash_Read_Word	16	static
-tos_Flash_Mem_Helper.c:189:6:tos_Flash_Write_Byte	24	static
-tos_Flash_Mem_Helper.c:194:6:tos_Flash_Write_HalfWord	24	static
-tos_Flash_Mem_Helper.c:199:6:tos_Flash_Write_Word	24	static
+tos_Flash_Mem_Helper.c:189:6:tos_Flash_Write_Byte	16	static
+tos_Flash_Mem_Helper.c:194:6:tos_Flash_Write_HalfWord	16	static
+tos_Flash_Mem_Helper.c:199:6:tos_Flash_Write_Word	16	static
 tos_Flash_Mem_Helper.c:204:6:tos_Erase_Sector	8	static

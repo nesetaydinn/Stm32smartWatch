@@ -37,7 +37,7 @@ lvgl/src/lv_core/lv_refr.o: ../lvgl/src/lv_core/lv_refr.c \
  ../lvgl/src/lv_core/../lv_misc/../lv_draw/lv_img_decoder.h \
  ../lvgl/src/lv_core/../lv_misc/../lv_draw/../../../lv_conf.h \
  ../lvgl/src/lv_core/../lv_misc/../lv_draw/../lv_misc/lv_fs.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
  ../lvgl/src/lv_core/../lv_misc/../lv_draw/../lv_misc/lv_mem.h \
  ../lvgl/src/lv_core/../lv_misc/../lv_draw/../lv_misc/lv_types.h \
  ../lvgl/src/lv_core/../lv_misc/../lv_draw/../lv_misc/lv_area.h \
@@ -142,7 +142,7 @@ lvgl/src/lv_core/lv_refr.o: ../lvgl/src/lv_core/lv_refr.c \
 
 ../lvgl/src/lv_core/../lv_misc/../lv_draw/../lv_misc/lv_fs.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
 
 ../lvgl/src/lv_core/../lv_misc/../lv_draw/../lv_misc/lv_mem.h:
 

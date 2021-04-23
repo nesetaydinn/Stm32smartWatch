@@ -12,10 +12,10 @@ lvgl/src/lv_misc/lv_gc.o: ../lvgl/src/lv_misc/lv_gc.c \
  ../lvgl/src/lv_misc/../lv_draw/../lv_misc/lv_area.h \
  ../lvgl/src/lv_misc/../lv_draw/../lv_core/lv_style.h \
  ../lvgl/src/lv_misc/../lv_draw/../lv_core/../lv_font/lv_font.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
  ../lvgl/src/lv_misc/../lv_draw/../lv_core/../lv_font/lv_symbol_def.h \
  ../lvgl/src/lv_misc/../lv_draw/../lv_core/../lv_misc/lv_color.h \
- c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
+ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
  ../lvgl/src/lv_misc/../lv_draw/../lv_core/../lv_misc/lv_area.h \
  ../lvgl/src/lv_misc/../lv_draw/../lv_core/../lv_misc/lv_anim.h
 
@@ -49,13 +49,13 @@ lvgl/src/lv_misc/lv_gc.o: ../lvgl/src/lv_misc/lv_gc.c \
 
 ../lvgl/src/lv_misc/../lv_draw/../lv_core/../lv_font/lv_font.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
 
 ../lvgl/src/lv_misc/../lv_draw/../lv_core/../lv_font/lv_symbol_def.h:
 
 ../lvgl/src/lv_misc/../lv_draw/../lv_core/../lv_misc/lv_color.h:
 
-c:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
+f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
 
 ../lvgl/src/lv_misc/../lv_draw/../lv_core/../lv_misc/lv_area.h:
 
