@@ -11,19 +11,14 @@
 #include "../tOSbaga.h"
 #include "math.h"
 MPUScaledData_Def getAccVal;
-MPURawData_Def getAccRaw;
 float totalAccVecNorm=0, accVecNorm=0,accVecNormBef=0;
 uint16_t steps=0;
 void tos_StepsAndKcalsInit(void){
 	MPU6050_Init();
 //	MPU6050_Do_Calibration();
 	//MPU6050_Set_Acc_Calibration(16780,);
-	MPU6050_Set_Gyro_Calibration(13500,8,-9985);
+//	MPU6050_Set_Gyro_Calibration(13500,8,-9985);
 }
-
-
-
-
 void tos_StepsAndKcalsRead(void){
 	uint32_t t1,t2,dt;
 	t1=HAL_GetTick();

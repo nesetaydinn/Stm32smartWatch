@@ -214,7 +214,8 @@ tOSbaga/tos_Helper/tos_Gui_Helper.o: \
  ../tOSbaga/tos_Helper/../tos_Images/tos_Images.h \
  ../tOSbaga/tos_Helper/../tos_Images/../../lvgl/lvgl.h \
  ../tOSbaga/tos_Helper/../tos_taskManager/tos_taskManager.h \
- ../tOSbaga/tos_Helper/../../lvgl/lvgl.h
+ ../tOSbaga/tos_Helper/../../lvgl/lvgl.h \
+ ../tOSbaga/tos_Helper/../../MPU6050/NA_MPU6050.h
 
 ../tOSbaga/tos_Helper/../tOSbaga.h:
 
@@ -647,3 +648,5 @@ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h:
 ../tOSbaga/tos_Helper/../tos_taskManager/tos_taskManager.h:
 
 ../tOSbaga/tos_Helper/../../lvgl/lvgl.h:
+
+../tOSbaga/tos_Helper/../../MPU6050/NA_MPU6050.h:

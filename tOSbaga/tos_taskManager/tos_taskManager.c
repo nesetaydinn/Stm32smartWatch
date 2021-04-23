@@ -121,6 +121,7 @@ void tos_BtnAndFSUpdate_Task(void *params){
 void tos_BatteryRead_Task(void *params){
 	while(1){
 		tos_BatteryRead(&hadc1);
+		tos_Read_Gyro();
 	}
 }
 

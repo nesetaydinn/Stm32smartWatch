@@ -7,7 +7,7 @@
 
 #include "../tOSbaga.h"
 #include "../../lvgl/lvgl.h"
-
+#include "../../MPU6050/NA_MPU6050.h"
 RTC_HandleTypeDef *ScreenRtc;
 uint8_t screenType;
 bool screenTheme;
@@ -88,6 +88,25 @@ void tos_ScreenController(void){
 	TGRightBtnListenner=tos_RightButton_Listenner_For_MenuControl();
 	TGLeftBtnListenner=tos_LeftButton_Listenner_For_MenuControl();
 }
+
+MPUScaledData_Def getgyroScale;
+float gyroYnow,gyroYbef,gyroYtotal;
+void tos_Read_Gyro(void){
+	if(isWorkingSystem){
+	uint32_t t1,t2,dt;
+	t1=HAL_GetTick();
+	MPU6050_Read_ScaledGyro_Val();
+	getgyroScale=MPU6050_getGyroScaleVals();
+	gyroYnow=getgyroScale.y;
+	gyroYtotal=gyroYnow-gyroYbef;
+	if(gyroYtotal>45.0f)ST7789_UnSelect();
+	if(gyroYtotal<-45.0f)ST7789_Select();
+	gyroYbef=gyroYnow;
+	dt=t2-t1;
+	if(dt<400)vTaskDelay(400-dt);
+	}
+}
+
 /*This function using for set new screen*/
 void tos_Screen_Chooser(uint8_t currentScreen){
 	SleepModeScreen_TaskControllerSet(false);

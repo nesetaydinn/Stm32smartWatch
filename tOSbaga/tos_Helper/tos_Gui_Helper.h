@@ -18,6 +18,7 @@ extern TIM_HandleTypeDef TOS_SCREENUPDATE_TIMER;
 extern TIM_HandleTypeDef TOS_GUI_TIMER;
 
 void tos_Screen_Init(void);
+void tos_Read_Gyro(void);
 void tos_Get_Rtc(RTC_HandleTypeDef *hrtc);
 void tos_Screen_Chooser(uint8_t currentScreen);
 void tos_SleepScreen_Counter(void);
