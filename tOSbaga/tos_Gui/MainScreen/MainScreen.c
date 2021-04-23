@@ -43,6 +43,7 @@ false ->Light Theme
 true ->Dark Theme
 */
 void tos_MainScreen_Init(uint8_t screenType,bool theme) {
+
 		    weekDayStr="Gun";
 	static lv_style_t style_screen;
 	lv_style_copy(&style_screen, &lv_style_plain);
@@ -55,14 +56,15 @@ void tos_MainScreen_Init(uint8_t screenType,bool theme) {
 	}
 	lv_obj_set_style(lv_scr_act(), &style_screen);
 
-	MainScreenType= screenType;
-	MS_taskController=true;
+
 	switch(screenType){
 	case tos_mainScreen_Type1: tos_DigitalType_Init(0,theme); break;
 	case tos_mainScreen_Type2: tos_DigitalType_Init(1,theme); break;
 	case tos_mainScreen_Type3: tos_AnalogueType_Init(theme); break;
 	default: tos_DigitalType_Init(0,theme);
 	}
+	MainScreenType= screenType;
+	MS_taskController=true;
 }
 
 //Analogue Type

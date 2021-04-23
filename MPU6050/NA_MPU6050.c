@@ -77,8 +77,8 @@ void MPU6050_Do_Calibration(void){
 
 void MPU6050_Read_RawAcc_Val(void)
 {
-	uint8_t Rec_Data[6];
 
+	uint8_t Rec_Data[6]={0};
 	// Read 6 BYTES of data starting from ACCEL_XOUT_H register
 
 	HAL_I2C_Mem_Read (&MPU6050I2C, MPU6050_ADDR, ACCEL_XOUT_H_REG, 1, Rec_Data, 6, 1000);

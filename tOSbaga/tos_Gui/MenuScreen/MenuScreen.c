@@ -20,6 +20,7 @@ void MenuScreen_OpenMenu(uint8_t item);
 static uint8_t item=0,befItem=255;
 
 void tos_MenuScreen_Init(bool theme,RTC_HandleTypeDef *hrtc){
+
 	befItem=255;
 		lv_style_copy(&style_screen, &lv_style_plain);
 		style_screen.body.main_color = LV_COLOR_WHITE;

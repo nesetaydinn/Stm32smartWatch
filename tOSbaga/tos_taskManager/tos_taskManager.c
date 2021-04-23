@@ -126,8 +126,6 @@ void tos_BatteryRead_Task(void *params){
 
 
 void tos_tftTickUpdaterTask(void *params){
-
-
 	while(1){
 	//	xSemaphoreTake(task1Mutex,portMAX_DELAY);
 		xSemaphoreTake(task1Mutex,portMAX_DELAY);

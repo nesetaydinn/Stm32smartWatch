@@ -24,7 +24,7 @@ void SMS_bluetoothStatusUpdater(void);
 
 
 void tos_SleepModeScreen_Init(void) {
-	slptaskController=true;
+
 	static lv_style_t slpStyle_screen;
 	lv_style_copy(&slpStyle_screen, &lv_style_plain);
 	slpStyle_screen.body.main_color = LV_COLOR_BLACK;
@@ -81,6 +81,7 @@ void tos_SleepModeScreen_Init(void) {
 			    lv_label_set_style(slpweekDay, LV_LABEL_STYLE_MAIN, &slpweekD_style);
 			    lv_label_set_text(slpweekDay,slpweekDayStr);
 			    lv_obj_align(slpweekDay, NULL, LV_ALIGN_CENTER, 0, 35);
+				slptaskController=true;
 }
 /*This function using for update all updater functions*/
 void SMS_Updater(void){

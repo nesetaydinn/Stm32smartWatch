@@ -96,21 +96,12 @@ void tos_Screen_Chooser(uint8_t currentScreen){
 	lv_obj_clean(lv_scr_act());
 	switch(currentScreen){
 	case TOS_SCREEN_MAIN_:
-	//	tos_MainScreenUpdate_TaskResume();
-	//	tos_SleepScreenUpdate_TaskResume();
 		tos_MainScreen_Init(screenType,screenTheme);
-		MainScreen_TaskControllerSet(true);
 		break;
 	case TOS_SCREEN_SLEEPMODE_:
-		//tos_MainScreenUpdate_TaskPause();
-		SleepModeScreen_TaskControllerSet(true);
 		tos_SleepModeScreen_Init();
-		tos_SleepScreenUpdate_TaskResume();
 		break;
 	case TOS_SCREEN_MENU:
-	//	tos_SleepScreenUpdate_TaskPause();
-	//	tos_MainScreenUpdate_TaskPause();
-		MenuScreen_TaskControllerSet(true);
 		tos_MenuScreen_Init(screenTheme,ScreenRtc);
 		break;
 	default: return;
@@ -121,7 +112,7 @@ void tos_Screen_Variables_Getter(uint8_t Screen){
 	uint8_t battVal=tos_getRealbatValue();
 	  tos_RTC_GetTime(ScreenRtc,Screen);
 	  tos_getBatteryVAl(battVal,Screen);
-	  tos_StepsAndKcalsSetVal();
+	  tos_StepsAndKcalsSetVal(Screen);
 
 }
 void tos_Get_Rtc(RTC_HandleTypeDef *hrtc){
@@ -136,16 +127,19 @@ void tos_Set_Current_Screen(void){
 	tos_Screen_Chooser(currentScreen);
 }
 void tos_SleepScreen_Counter(void){
-	if(isWorkingSystem && screenStatu)sleepCounter++;
-	if(sleepCounter>=100){
-		if(TOS_SCREEN_MAIN_==currentScreen) {
-			currentScreen=TOS_SCREEN_SLEEPMODE_; tos_Screen_Chooser(currentScreen);
-			sleepCounter=0;
-		}
-		else if(TOS_SCREEN_SLEEPMODE_==currentScreen){screenStatu=false; ST7789_Select();
-		sleepCounter=0;
-		}
-	}
+	if(isWorkingSystem){
+if(TOS_SCREEN_MAIN_==currentScreen){
+	sleepCounter++;
+	if(sleepCounter>100)
+			 {currentScreen=TOS_SCREEN_SLEEPMODE_; tos_Screen_Chooser(currentScreen);}
+}
+else if(TOS_SCREEN_SLEEPMODE_==currentScreen && screenStatu){
+	sleepCounter++;
+	if(sleepCounter>200){screenStatu=false; ST7789_Select(); 	sleepCounter=0;}
+
+}
+}
+
 }
 void tos_Gui_ShutdownController(void){
 	if(isWorkingSystem){

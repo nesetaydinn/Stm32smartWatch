@@ -22,7 +22,7 @@ extern UART_HandleTypeDef TESTBLT_PORT;
 void tos_StepsAndKcalsInit(void);
 void tos_StepsAndKcalsRead(void);
 void tos_StepsAndKcalsCalcSteps(void);
-void tos_StepsAndKcalsSetVal(void);
+void tos_StepsAndKcalsSetVal(uint8_t Screen);
 uint16_t tos_StepsAndKcalsGetSteps(void);
 float tos_StepsAndKcalsGetDistance_KiloMeter(void);
 float tos_StepsAndKcalsGetDistance_Mile(void);
