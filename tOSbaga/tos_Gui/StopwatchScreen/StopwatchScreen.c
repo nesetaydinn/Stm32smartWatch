@@ -88,7 +88,11 @@ void StopWatch_Stopwatch_Updater(void){
 
 /*This function using for control to buttons*/
 void StopWatch_ButtonController(void){
-	bool rightBtn,leftBtn;
+	static uint8_t rightBtn,leftBtn;
+	  if(1==rightBtn) {
+				  //Save
+				  StopWatch_Update_saveLbl();
+		  }
 	  if(2==rightBtn){
 		  //Clear and stop
 		  SWseconds=0; SWminutes=0; SWhours=0; SWmilisecs=0; isStartCount=false;
@@ -100,10 +104,7 @@ void StopWatch_ButtonController(void){
 		  StopWatch_Update_StatuImg(2);}
 		  else { HAL_TIM_Base_Stop_IT(&TOS_STOPWATCH_TIMER);  isStartCount=false;
 		  StopWatch_Update_StatuImg(1);}}
-	  if(1==rightBtn) {
-				  //Save
-				  StopWatch_Update_saveLbl();
-		  }
+
 		rightBtn=tos_RightButton_Listenner_For_MenuControl();
 		leftBtn=tos_LeftButton_Listenner_For_MenuControl();
 

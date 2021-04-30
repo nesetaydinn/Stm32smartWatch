@@ -42,7 +42,7 @@ void tos_Menu_Controller(void){
 			  if(SettingsScreen_isSettingsOpen())  SettingsScreen_ButtonController();
 			  else if(ThemeSettingsScreen_isSettingsOpen())  ThemeSettingsScreen_ButtonController();
 			  else {
-				static  bool rightBtn=0,leftBtn=0,enterBtn=0;
+				static  uint8_t rightBtn=0,leftBtn=0,enterBtn=0;
 
 				  if(1==enterBtn) MenuScreen_OpenMenu(item);
 				  if(StopWatch_TaskControllerGet())  StopWatch_ButtonController();

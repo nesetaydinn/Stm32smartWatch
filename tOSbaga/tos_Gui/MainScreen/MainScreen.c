@@ -27,9 +27,9 @@ lv_obj_t * digitalClock ,* digitalDate,* weekDay,*stepsLbl,*kCalsLbl,*batteryLbl
 uint8_t hours, minutes, seconds, month, date,dateTmp,MainScreenType;
 uint16_t year,steps,kCals;
 char buffer[16],*weekDayStr,*batteryVal;
-lv_color_t batteryColor,bluetoothColor;
+lv_color_t batteryColor,MS_bluetoothColor;
 lv_style_t battery_style,bluetooth_style;
-bool bluetoothStatus,MS_taskController;
+bool MS_bluetoothEnable,MS_taskController,MS_theme;
 
 /*This function using for initalize the Main Screen
 screenType parameter using for set Screen type (analog or digital types)
@@ -63,6 +63,7 @@ void tos_MainScreen_Init(uint8_t screenType,bool theme) {
 	case tos_mainScreen_Type3: tos_AnalogueType_Init(theme); break;
 	default: tos_DigitalType_Init(0,theme);
 	}
+	MS_theme=theme;
 	MainScreenType= screenType;
 	MS_taskController=true;
 }
@@ -512,12 +513,16 @@ void batteryValueUpdater(void){
 */
 void bluetoothStatusUpdater(void){
 
-		if(bluetoothStatus){
-		      bluetooth_style.text.color = bluetoothColor;
+		if(MS_bluetoothEnable){
+		      bluetooth_style.text.color = MS_bluetoothColor;
 			  lv_label_set_text(bluetoothLbl, LV_SYMBOL_BLUETOOTH);
 			  lv_obj_align(bluetoothLbl, NULL, LV_ALIGN_CENTER, -110, -110);
 		}
-		else lv_label_set_text(bluetoothLbl, " ");
+		else{
+			bluetooth_style.text.color = LV_COLOR_WHITE;
+			if(MS_theme) bluetooth_style.text.color = LV_COLOR_BLACK;
+			lv_label_set_text(bluetoothLbl, " ");
+		}
 
 }
 /* This function using for calculate and set the angle for arcObjects,
@@ -639,8 +644,8 @@ void MainScreen_SetBatteryVal(char* getBatteryVal, lv_color_t getBatteryColor) {
 	batteryColor =getBatteryColor;
 }
 void MainScreen_SetBluetoothStatusVal(bool getBluetoothStatus, lv_color_t getBluetoothColor) {
-	bluetoothStatus =getBluetoothStatus;
-	bluetoothColor =getBluetoothColor;
+	MS_bluetoothEnable =getBluetoothStatus;
+	MS_bluetoothColor =getBluetoothColor;
 }
 void MainScreen_TaskControllerSet(bool active){
 	MS_taskController = active;

@@ -42,10 +42,12 @@ void tos_Bluetooth_NotificationItemInit(void){
 }
 void tos_BluetoothReceiverAndTransmitter(RTC_HandleTypeDef *hrtc){
 	tos_BluetoothEnableController();
-	if(bluetoothEnable){
+	static bool sysWork;
+	if(bluetoothEnable && sysWork){
+		bluetooth_Enable();
 		tos_Bluetooth_isConnected();
 		tos_Bluetooth_StartListening();
-		tos_Bluetooth_GetTimeAndDate(hrtc);
+	//	tos_Bluetooth_GetTimeAndDate(hrtc);
 		tos_Bluetooth_GetAndPushNotification();
 		tos_Bluetooth_GetAndPushMusic();
 		tos_Bluetooth_SetMusicVAls();
@@ -53,7 +55,8 @@ void tos_BluetoothReceiverAndTransmitter(RTC_HandleTypeDef *hrtc){
 		tos_Bluetooth_SetStepsVal(BluetoothStepsVal);
 
 	}
-	bluetoothEnable =tos_Gui_GetWorkingSystemVal();
+	else bluetooth_Disable();
+	sysWork = tos_Gui_GetWorkingSystemVal();
 }
 /*This function using for first connect send connected message*/
 void tos_Bluetooth_isConnected(void){
@@ -167,17 +170,17 @@ void tos_Bluetooth_SetStepsVal(uint8_t stepsVal){
 		}
 		}
 }
-void tos_BluetoothGetStatusVAl(bool bluetoothStatus,uint8_t Screen){
-	if(bluetoothStatus){
+void tos_BluetoothGetStatusVAl(bool isBluetoothEnable,uint8_t Screen){
+	if(isBluetoothEnable){
 			lv_color_t bluetoothClr = tos_BluetoothStatus_SymColor_Helper(isConnected);
 			switch(Screen){
-				case TOS_SCREEN_MAIN_:  	MainScreen_SetBluetoothStatusVal(bluetoothEnable, bluetoothClr); break;
-				case TOS_SCREEN_SLEEPMODE_:  SleepModeScreen_SetBluetoothStatusVal(bluetoothEnable, bluetoothClr); break;
+				case TOS_SCREEN_MAIN_:  	MainScreen_SetBluetoothStatusVal(isConnected, bluetoothClr); break;
+				case TOS_SCREEN_SLEEPMODE_:  SleepModeScreen_SetBluetoothStatusVal(isConnected, bluetoothClr); break;
 				default: return;
 				}
 	}else switch(Screen){
-	case TOS_SCREEN_MAIN_:  	MainScreen_SetBluetoothStatusVal(bluetoothEnable, LV_COLOR_WHITE); break;
-	case TOS_SCREEN_SLEEPMODE_:  SleepModeScreen_SetBluetoothStatusVal(bluetoothEnable, LV_COLOR_WHITE); break;
+	case TOS_SCREEN_MAIN_:  	MainScreen_SetBluetoothStatusVal(isBluetoothEnable, LV_COLOR_WHITE); break;
+	case TOS_SCREEN_SLEEPMODE_:  SleepModeScreen_SetBluetoothStatusVal(isBluetoothEnable, LV_COLOR_WHITE); break;
 	default: return;
 	}
 }

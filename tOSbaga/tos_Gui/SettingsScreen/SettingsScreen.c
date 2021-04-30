@@ -145,7 +145,7 @@ void SettingsScreen_bluetoothInit(bool theme){
 
  	SbluetoothSwitch = lv_sw_create(lv_scr_act(), NULL);
     lv_sw_set_style(SbluetoothSwitch, LV_SW_STYLE_INDIC, &bluetooth_indic_style);
-    if(!SbluetoothStatu)lv_sw_on(SbluetoothSwitch, LV_ANIM_OFF);
+    if(!SbluetoothStatu)lv_sw_off(SbluetoothSwitch, LV_ANIM_ON);
     else     lv_sw_on(SbluetoothSwitch, LV_ANIM_ON);
     lv_obj_align(SbluetoothSwitch, NULL,LV_ALIGN_IN_TOP_RIGHT, -20, 120);
 }
@@ -181,7 +181,7 @@ void SettingsScreen_unitTypeInit(bool theme){
 
     unitTypeSwitch = lv_sw_create(lv_scr_act(), NULL);
     lv_sw_set_style(unitTypeSwitch, LV_SW_STYLE_INDIC, &unit_indic_style);
-    lv_sw_on(unitTypeSwitch, LV_ANIM_OFF);
+    lv_sw_off(unitTypeSwitch, LV_ANIM_ON);
     if(SunitType)lv_sw_on(unitTypeSwitch, LV_ANIM_ON);
     lv_obj_align(unitTypeSwitch, NULL,LV_ALIGN_IN_TOP_RIGHT, -20, 160);
 }
@@ -240,7 +240,8 @@ void SettingsScreen_buttonsInit(bool theme){
 
 /*This function using for control to buttons*/
 void SettingsScreen_ButtonController(void){
-	  if(1==tos_LeftButton_Listenner_For_MenuControl()) {	SettingsScreen_DateUpdateVal(false);
+	static bool enterBtn,rightBtn,leftBtn;
+	  if(1==leftBtn) {	SettingsScreen_DateUpdateVal(false);
 		  switch(S_whichItem){
 		  case 0: SettingsScreen_TimeUpdateVal(false); break;
 		  case 1: SettingsScreen_DateUpdateVal(false); break;
@@ -251,7 +252,7 @@ void SettingsScreen_ButtonController(void){
 		  break;
 		  }
 	  }
-	  if(1==tos_RightButton_Listenner_For_MenuControl()) {
+	  if(1==rightBtn) {
 		  //SettingsScreen_DateUpdateVal(true);
 		  switch(S_whichItem){
 		  case 0: SettingsScreen_TimeUpdateVal(true); break;
@@ -263,10 +264,13 @@ void SettingsScreen_ButtonController(void){
 		  break;
 		  }
 	  }
-	  if(1==tos_EnterButton_Listenner_For_MenuControl()) {
+	  if(1==enterBtn) {
 		  SettingsScreen_WhichItemSetVal();
 		 // SettingsScreen_DateSetVal();
 	  }
+	  enterBtn=tos_EnterButton_Listenner_For_MenuControl();
+	  rightBtn=tos_RightButton_Listenner_For_MenuControl();
+	  leftBtn=tos_LeftButton_Listenner_For_MenuControl();
 
 }
 

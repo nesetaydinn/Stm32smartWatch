@@ -283,6 +283,10 @@ void RunMode_ButtonController(void){
 		  //Time Set Open/Close
 		  RunMode_RunTimeSetVal();
 	  }
+	 if(1==Rm_leftBtnListen) {
+			  //Time Set
+			  RunMode_RunTimeUpdateVal();
+		  }
 	  if(2==Rm_rightBtnListen){
 		  //Clear and stop
 		   RMmilisecs=0; RMfirstVAl=true;
@@ -290,10 +294,6 @@ void RunMode_ButtonController(void){
 			  HAL_TIM_Base_Stop_IT(&TOS_RUNMODE_TIMER);
 			  RunMode_RunTimeLblController();
 	  }
-	 if(1==Rm_leftBtnListen) {
-			  //Time Set
-			  RunMode_RunTimeUpdateVal();
-		  }
 	 if(1==Rm_rightBtnListen) {
 		  		  //Timer start/stop
 		  		  if(0==RMtimeSetVal && !isStartRun){ RunMode_FistValueSet();
@@ -303,7 +303,6 @@ void RunMode_ButtonController(void){
 		  			  HAL_TIM_Base_Stop_IT(&TOS_RUNMODE_TIMER);
 		  		  }
 	 }
-
 	 Rm_rightBtnListen=tos_RightButton_Listenner_For_MenuControl();
 	 Rm_leftBtnListen =tos_LeftButton_Listenner_For_MenuControl();
 }

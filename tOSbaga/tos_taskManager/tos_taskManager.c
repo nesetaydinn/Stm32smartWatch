@@ -167,18 +167,21 @@ void tos_stepAndkCalsCalcTask(void *params){
 //Bluetooth
 void tos_Bluetooth_Task(void *params){
 
+
 	while(1){
 		//xSemaphoreTake(task5Mutex,portMAX_DELAY);
-		tos_BluetoothGetStatusVAl(tos_BluetoothGetEnableVal(),tos_Get_Current_Screen());
-		 tos_BluetoothReceiverAndTransmitter(&hrtc);
+
+		tos_BluetoothReceiverAndTransmitter(&hrtc);
 		// xSemaphoreGive(task5Mutex);
+
 	}
 }
 
-
 void tos_ScreenUpdate_Task(void *params){
 	while(1){
-	//
+		static bool enable;
+		tos_BluetoothGetStatusVAl(enable,tos_Get_Current_Screen());
+		enable= tos_BluetoothGetEnableVal();
 		MainScreen_Updater();
 		SMS_Updater();
 		MusicPlayerScreen_Updater();
