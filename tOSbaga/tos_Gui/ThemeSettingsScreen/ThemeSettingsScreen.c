@@ -148,7 +148,6 @@ void ThemeSettingsScreen_buttonsInit(bool theme){
 void ThemeSettingsScreen_ButtonController(void){
 	static uint8_t leftBtn,rightBtn,enterBtn,items;
 	static int8_t selectedClk;
-	// lv_btn_set_state(S_closeBtn, LV_BTN_STATE_REL); isMenuOpen=false;
 	if(1==enterBtn){
 		items++;	if(1!=items)lv_ddlist_close(TSclockTypeList,LV_ANIM_ON);	if(items>2)items=0;
 		if(0==items)TSthemeSetVal=true;

@@ -7,9 +7,9 @@
 #include "tos_Bluetooth_Helper.h"
 #include "../tOSbaga.h"
 #include "../../lvgl/lvgl.h"
-uint16_t time[6];
+tos_Time *getTimeBT;
 uint8_t BluetoothBatteryVal;
-uint16_t  BluetoothStepsVal,blmusicStatu,blSoundVAl;
+uint16_t  BluetoothStepsVal,blmusicStatu,blSoundVAl,music[2];
 bool isConnected,befConnectVal,bluetoothEnable=true,BluetoothUnitType;
 char rx_buffer[250];
 char tx_buffer[25];
@@ -65,24 +65,33 @@ void tos_Bluetooth_isConnected(void){
 }
 /*This function using for start listening sender device*/
 void tos_Bluetooth_StartListening(void){
-	if(isConnected)HAL_UART_Receive(&TOS_BLUETOOTH_PORT, (uint8_t*)rx_buffer, 250, 250);
+	if(isConnected)HAL_UART_Receive(&TOS_BLUETOOTH_PORT, (uint8_t*)rx_buffer, 250, 1000);
 }
 /*This function using for set time and date values and set Rtc
  * @param hrtc using for get rtc module*/
 void tos_Bluetooth_GetTimeAndDate(RTC_HandleTypeDef *hrtc){
 	 if(isConnected){
 		 tmp=&rx_buffer[0];
-		 if(rx_buffer[0]=='d' && rx_buffer[1]=='a' && rx_buffer[2]=='t' && rx_buffer[3]=='e'){
-			 sscanf(tmp,"date: %d %d %d", &time[0],&time[1],&time[2]);
-			 HAL_UART_Transmit(&TOS_BLUETOOTH_PORT, "wasSetDate", 10,100);
-			 tos_RTC_SetDate(hrtc,time[2],time[1],time[0]);
-			 sprintf(rx_buffer, "OK");
+		 while(!getTimeBT->isDateSet){
+			 tos_Bluetooth_StartListening();
+
+			 if(rx_buffer[0]=='d' && rx_buffer[1]=='a' && rx_buffer[2]=='t' && rx_buffer[3]=='e'){
+				 sscanf(tmp,"date: %d %d %d", getTimeBT->days,getTimeBT->months,getTimeBT->years);
+				 HAL_UART_Transmit(&TOS_BLUETOOTH_PORT, "wasSetDate", 10,100);
+				 tos_RTC_SetDate(hrtc,(uint8_t)getTimeBT->years,(uint8_t)getTimeBT->months,(uint8_t)getTimeBT->days);
+				 sprintf(rx_buffer, "OK");
+				 getTimeBT->isDateSet=true;
+			 }
 		 }
+		 while(!getTimeBT->isClockSet){
+			 tos_Bluetooth_StartListening();
 		 if(rx_buffer[0]=='t' && rx_buffer[1]=='i' && rx_buffer[2]=='m' && rx_buffer[3]=='e'){
-			 sscanf(tmp,"time: %d %d %d",&time[3],&time[4],&time[5]);
+			 sscanf(tmp,"time: %d %d %d",getTimeBT->hours,getTimeBT->minutes,getTimeBT->seconds);
 			 HAL_UART_Transmit(&TOS_BLUETOOTH_PORT, "wasSetTime", 10,100);
-			 tos_RTC_SetTime(hrtc,time[3],time[4],time[5]);
+			 tos_RTC_SetTime(hrtc,(uint8_t)getTimeBT->hours,(uint8_t)getTimeBT->minutes,(uint8_t)getTimeBT->seconds);
 			 sprintf(rx_buffer, "OK");
+			 getTimeBT->isClockSet=true;
+		 }
 		 }
 	  }
 }
@@ -128,7 +137,7 @@ void tos_Bluetooth_SetMusicVAls(void){
 		static uint8_t musicSoundBef,musicVAlBef;
 		blmusicStatu=MusicPlayer_PlayingStatuGet();
 		blSoundVAl=MusicPlayer_MP_SoundVAlGet();
-		if(musicSoundBef !=time[6] && musicVAlBef !=time[7]){
+		if(musicSoundBef !=music[0] && musicVAlBef !=music[1]){
 			sprintf(tx_buffer, "musicSet: val %d sound %03d",blmusicStatu,blSoundVAl);
 			HAL_UART_Transmit(&TOS_BLUETOOTH_PORT, tx_buffer, 25,250);
 			musicSoundBef=blSoundVAl;

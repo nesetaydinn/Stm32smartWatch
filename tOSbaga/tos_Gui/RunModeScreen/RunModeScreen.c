@@ -63,7 +63,6 @@ void tos_RunModeScreen_Init(bool unitType,bool theme){
 	RunMode_kCals(theme);
 	RunMode_Distances(unitType,theme);
 	RM_taskController=true;
-	lv_task_create(RunModeScreen_Updater, 500, LV_TASK_PRIO_LOWEST, NULL);
 }
 
 
@@ -213,13 +212,13 @@ void RunMode_Distances(bool unitType,bool theme){
  	lv_obj_align(RM_distLbl, NULL, LV_ALIGN_CENTER, 75, -15);
 }
 /*This function using for update all updater functions*/
-void RunModeScreen_Updater(lv_task_t *t){
+void RunModeScreen_Updater(void){
 	if(RM_taskController){
 		 RunMode_RunMode_Updater();
 		 RunMode_steps_angle_loader();
 		 RunMode_kCals_angle_loader();
 		 RunMode_distances_angle_loader();
-	}else lv_task_del(t);
+	}
 }
 /*This function using for update to current label*/
 void RunMode_RunMode_Updater(void){

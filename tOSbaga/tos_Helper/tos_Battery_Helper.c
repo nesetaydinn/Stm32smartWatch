@@ -10,7 +10,7 @@
 
 
 uint8_t realbatValue;
-bool isChargeFill;
+bool isCharging;
 
 char * tos_BatteryVal_Sym_Helper(uint8_t batteryVal,uint8_t batteryValueTemp);
 lv_color_t tos_BatteryVal_SymColor_Helper(uint8_t batteryVal);
@@ -31,9 +31,7 @@ void tos_getBatteryVAl(uint8_t batteryVal,uint8_t Screen){
 	}
 }
 void tos_BatteryRead(ADC_HandleTypeDef *battery){
-
 	uint16_t tmpbatValue;
-	static uint16_t befTmpbatValue;
 	static uint32_t filter=0;
 	HAL_ADC_PollForConversion(battery, BATTERY_READ_TIMEOUT);
 	  HAL_ADC_Start(battery);
@@ -43,17 +41,14 @@ void tos_BatteryRead(ADC_HandleTypeDef *battery){
 	  tmpbatValue=(uint16_t)(filter>>8);
 	  realbatValue=(uint8_t) tos_Ratio(tmpbatValue,0,4095,0,100);
 	  filter=0;
-	  if(befTmpbatValue!=tmpbatValue){
-		  if(tmpbatValue>(befTmpbatValue+10))isChargeFill=true;
-		  else  isChargeFill=false;
-			  befTmpbatValue=tmpbatValue;
-	  }
-
 	  HAL_ADC_Stop(battery);
+
+	  BATTERY_CHARGED;
+	  isCharging=BATTERY_IS_CHARGING;
 }
 
 char * tos_BatteryVal_Sym_Helper(uint8_t batteryVal,uint8_t batteryValueTemp){
-		if(!isChargeFill){
+		if(!isCharging){
 			if (batteryVal < 10 && batteryVal >= 0) return LV_SYMBOL_BATTERY_EMPTY;
 			else if (batteryVal >= 10 && batteryVal < 25) return LV_SYMBOL_BATTERY_1;
 			else if (batteryVal >= 25 && batteryVal < 50) return LV_SYMBOL_BATTERY_2;

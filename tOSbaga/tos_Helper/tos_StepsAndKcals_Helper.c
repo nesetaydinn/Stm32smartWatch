@@ -34,9 +34,8 @@ void tos_StepsAndKcalsCalcSteps(void){
     getAccVal=MPU6050_getAccScaleVals();
 	accVecNorm=(float)sqrt(pow(getAccVal.x,2)+pow(getAccVal.y,2)+pow(getAccVal.z,2));
 	totalAccVecNorm=accVecNorm-accVecNormBef;
-	if(totalAccVecNorm>0.12f)steps++;
+	if(totalAccVecNorm>0.22f)steps++;
 	accVecNormBef=accVecNorm;
-
 	t2=HAL_GetTick();
 	dt=t2-t1;
 	if(dt<400)vTaskDelay(400-dt);

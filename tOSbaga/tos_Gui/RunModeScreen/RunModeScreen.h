@@ -20,7 +20,7 @@ extern TIM_HandleTypeDef TOS_RUNMODE_TIMER;
 
 	//Functions
 void tos_RunModeScreen_Init(bool unitType,bool theme);
-void RunModeScreen_Updater(lv_task_t *t);
+void RunModeScreen_Updater(void);
 void RunMode_ButtonController(void);
 void RunMode_Update_Time(void);
 void RunMode_TaskControllerSet(bool active);

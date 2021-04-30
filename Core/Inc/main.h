@@ -70,6 +70,10 @@ void Error_Handler(void);
 #define ST7789_DC_GPIO_Port GPIOA
 #define ST7789_CS_Pin GPIO_PIN_3
 #define ST7789_CS_GPIO_Port GPIOA
+#define BatteryCharged_Pin GPIO_PIN_14
+#define BatteryCharged_GPIO_Port GPIOD
+#define BatteryIsCharging_Pin GPIO_PIN_15
+#define BatteryIsCharging_GPIO_Port GPIOD
 #define BluetoothEnable_Pin GPIO_PIN_8
 #define BluetoothEnable_GPIO_Port GPIOC
 #define BluetoothState_Pin GPIO_PIN_9

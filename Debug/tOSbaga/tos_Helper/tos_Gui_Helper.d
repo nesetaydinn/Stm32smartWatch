@@ -215,7 +215,18 @@ tOSbaga/tos_Helper/tos_Gui_Helper.o: \
  ../tOSbaga/tos_Helper/../tos_Images/../../lvgl/lvgl.h \
  ../tOSbaga/tos_Helper/../tos_taskManager/tos_taskManager.h \
  ../tOSbaga/tos_Helper/../../lvgl/lvgl.h \
- ../tOSbaga/tos_Helper/../../MPU6050/NA_MPU6050.h
+ ../tOSbaga/tos_Helper/../../MPU6050/NA_MPU6050.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
+ ../Core/Inc/FreeRTOSConfig.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
 
 ../tOSbaga/tos_Helper/../tOSbaga.h:
 
@@ -650,3 +661,25 @@ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lvgl\lvgl.h:
 ../tOSbaga/tos_Helper/../../lvgl/lvgl.h:
 
 ../tOSbaga/tos_Helper/../../MPU6050/NA_MPU6050.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
+
+../Core/Inc/FreeRTOSConfig.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:

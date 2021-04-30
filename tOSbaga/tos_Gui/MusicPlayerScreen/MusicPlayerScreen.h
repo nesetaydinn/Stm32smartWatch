@@ -20,7 +20,7 @@
 
 	//Functions
 void tos_MusicPlayerScreen_Init(bool theme);
-void MusicPlayerScreen_Updater(lv_task_t *t);
+void MusicPlayerScreen_Updater(void);
 void MusicPlayer_ButtonController(void);
 void MusicPlayer_TaskControllerSet(bool active);
 bool MusicPlayer_TaskControllerGet(void);

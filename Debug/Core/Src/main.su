@@ -8,7 +8,7 @@ main.c:425:13:MX_TIM2_Init	32	static
 main.c:470:13:MX_TIM3_Init	32	static
 main.c:515:13:MX_TIM4_Init	32	static
 main.c:560:13:MX_USART6_UART_Init	8	static
-main.c:593:13:MX_GPIO_Init	48	static
-main.c:649:6:StartDefaultTask	16	static
-main.c:668:6:HAL_TIM_PeriodElapsedCallback	16	static
-main.c:685:6:Error_Handler	4	static,ignoring_inline_asm
+main.c:593:13:MX_GPIO_Init	56	static
+main.c:656:6:StartDefaultTask	16	static
+main.c:675:6:HAL_TIM_PeriodElapsedCallback	16	static
+main.c:692:6:Error_Handler	4	static,ignoring_inline_asm

@@ -55,7 +55,6 @@ void tos_StepAndKcalScreen_Init(bool unitType, bool theme){
 	StepAndKcal_kCals(theme);
 	StepAndKcal_Distances(unitType,theme);
 	SAk_taskController=true;
-	lv_task_create(SAK_Updater, 500, LV_TASK_PRIO_LOWEST, NULL);
 }
 /* This function using for initiation steps Objs on Screen
  * @param theme using for set Theme
@@ -168,12 +167,12 @@ void StepAndKcal_Distances(bool unitType,bool theme){
 
 //Update Functions
 /*This function using for update all update functions*/
-void SAK_Updater(lv_task_t *t){
+void SAK_Updater(void){
 	if(SAk_taskController){
 		SAK_steps_angle_loader();
 		SAK_kCals_angle_loader();
 		SAK_distances_angle_loader();
-	}lv_task_del(t);
+	}
 }
 /* This function using for calculate and set the angle for arcObjects,
 We use here set steps

@@ -38,7 +38,6 @@ void tos_StopWatchScreen_Init(bool theme){
 
 	StopWatch_Obj_Init();
  	SW_taskController=true;
-	lv_task_create(StopWatch_Stopwatch_Updater, 500, LV_TASK_PRIO_LOWEST, NULL);
 
 }
 
@@ -81,32 +80,32 @@ void StopWatch_Obj_Init(void){
 }
 
 /*This function using for update to current label*/
-void StopWatch_Stopwatch_Updater(lv_task_t *t){
+void StopWatch_Stopwatch_Updater(void){
 	if(SW_taskController){
 		StopWatch_Update_Lbl();
-		}else lv_task_del(t);
+		}
 }
 
 /*This function using for control to buttons*/
 void StopWatch_ButtonController(void){
-	uint8_t rightBtnListen =tos_LeftButton_Listenner_For_MenuControl();
-	  if(2==rightBtnListen){
+	bool rightBtn,leftBtn;
+	  if(2==rightBtn){
 		  //Clear and stop
 		  SWseconds=0; SWminutes=0; SWhours=0; SWmilisecs=0; isStartCount=false;
 		  HAL_TIM_Base_Stop_IT(&TOS_STOPWATCH_TIMER);
 		  StopWatch_Update_StatuImg(0);}
-	  if(1==rightBtnListen){
+	  if(1==leftBtn){
 		  //Start Stop
 		  if(!isStartCount){HAL_TIM_Base_Start_IT(&TOS_STOPWATCH_TIMER); isStartCount=true;
 		  StopWatch_Update_StatuImg(2);}
 		  else { HAL_TIM_Base_Stop_IT(&TOS_STOPWATCH_TIMER);  isStartCount=false;
 		  StopWatch_Update_StatuImg(1);}}
-	  if(1==tos_RightButton_Listenner_For_MenuControl()) {
+	  if(1==rightBtn) {
 				  //Save
 				  StopWatch_Update_saveLbl();
 		  }
-
-
+		rightBtn=tos_RightButton_Listenner_For_MenuControl();
+		leftBtn=tos_LeftButton_Listenner_For_MenuControl();
 
 
 }

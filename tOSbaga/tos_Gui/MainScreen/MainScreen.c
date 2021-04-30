@@ -477,10 +477,8 @@ void MainScreen_Updater(void){
 	if(MS_taskController){
 		batteryValueUpdater();
 		bluetoothStatusUpdater();
-
 		kCals_angle_loader();
 		steps_angle_loader();
-
 	switch(MainScreenType){
 	case tos_mainScreen_Type1:
 		minutes_angle_loader();

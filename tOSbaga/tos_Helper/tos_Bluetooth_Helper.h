@@ -14,6 +14,20 @@
 #include "stdlib.h"
 #include "string.h"
 
+
+typedef struct{
+	uint16_t hours;
+	uint16_t minutes;
+	uint16_t seconds;
+	uint16_t days;
+	uint16_t months;
+	uint16_t years;
+
+	bool isClockSet;
+	bool isDateSet;
+
+}tos_Time;
+
 #define TOS_BLUETOOTH_PORT huart6
 extern UART_HandleTypeDef TOS_BLUETOOTH_PORT;
 

@@ -17,6 +17,7 @@ extern RTC_HandleTypeDef hrtc;
 extern ADC_HandleTypeDef hadc1;
 
 SemaphoreHandle_t task1Mutex;
+SemaphoreHandle_t task2Mutex;
 /*
 SemaphoreHandle_t task1Mutex;
 SemaphoreHandle_t task2Mutex;
@@ -34,7 +35,7 @@ xTaskHandle ScreenUpdateHandle;
 xTaskHandle SleepScreenHandle;
 xTaskHandle BatteryReadHandle;
 
-xTimerHandle MainScreenUpdTimer,SleepScreenCountTimer;
+//xTimerHandle MainScreenUpdTimer,SleepScreenCountTimer;
 
 void tos_BtnAndFSUpdate_Task(void *params);
 void tos_tftTickUpdaterTask(void *params);
@@ -69,6 +70,7 @@ void tos_tasks_init(void){
 	  vTaskDelay(500);
 
 	  task1Mutex  = xSemaphoreCreateMutex();
+	  task2Mutex  = xSemaphoreCreateMutex();
 	  /*  task2Mutex  = xSemaphoreCreateMutex();
 	  task3Mutex  = xSemaphoreCreateMutex();
 	  task4Mutex  = xSemaphoreCreateMutex();
@@ -92,16 +94,15 @@ void tos_tasks_init(void){
 	xTaskCreate(tos_BtnAndFSUpdate_Task, "BtnAndFSU", 128*4, NULL,  55 , &BtnAndFSUpdateHandle);
 	xTaskCreate(tos_tftTickUpdaterTask, "tftTickUpdate", 128*4, NULL,  55 , &tftTickUpdaterHandle);
 	xTaskCreate(tos_controllerTask, "controller", 2048*4, NULL,  54 , &tos_controllerHandle);
-	xTaskCreate(tos_mpu6050readTask, "mpu6050", 128*4, NULL,  54 , &mpu6050readHandle);
-	xTaskCreate(tos_stepAndkCalsCalcTask, "stepAndkCals", 128*4, NULL,  54 , &stepAndkCalsCalcHandle);
-	xTaskCreate(tos_Bluetooth_Task, "bluetooth", 128*4, NULL,  54 , &BluetoothHandle);
+	xTaskCreate(tos_mpu6050readTask, "mpu6050", 128, NULL,  54 , &mpu6050readHandle);
+	xTaskCreate(tos_stepAndkCalsCalcTask, "stepAndkCals", 128, NULL,  54 , &stepAndkCalsCalcHandle);
+	xTaskCreate(tos_Bluetooth_Task, "bluetooth", 128*2, NULL,  54 , &BluetoothHandle);
 	xTaskCreate(tos_ScreenUpdate_Task, "mainScreen", 128*4, NULL,  55 , &ScreenUpdateHandle);
-	xTaskCreate(tos_SleepScreenUpdate_Task, "sleepScreen", 128*4, NULL,  55 , &SleepScreenHandle);
+	xTaskCreate(tos_SleepScreenUpdate_Task, "sleepScreen", 256*4, NULL,  55 , &SleepScreenHandle);
 	xTaskCreate(tos_BatteryRead_Task, "read battery", 128, NULL,  54 , &BatteryReadHandle);
 	//	xTimerStart(MainScreenUpdTimer,0);
 
 	0x0B; 0x58;
-
 	vTaskStartScheduler();
 }
 
@@ -177,9 +178,15 @@ void tos_Bluetooth_Task(void *params){
 
 void tos_ScreenUpdate_Task(void *params){
 	while(1){
+	//
 		MainScreen_Updater();
 		SMS_Updater();
+		MusicPlayerScreen_Updater();
+		RunModeScreen_Updater();
+		SAK_Updater();
+		StopWatch_Stopwatch_Updater();
 		vTaskDelay(250);
+	//
 	}
 }
 void tos_SleepScreenUpdate_Task(void *params){

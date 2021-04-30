@@ -18,7 +18,7 @@
 
 	//Functions
 void tos_StepAndKcalScreen_Init(bool unitType,bool theme);
-void SAK_Updater(lv_task_t *t);
+void SAK_Updater(void);
 void StepAndKcal_SetStepsAndKcals(uint16_t getSteps, uint16_t getKcals);
 
 void StepAndKcal_TaskControllerSet(bool active);

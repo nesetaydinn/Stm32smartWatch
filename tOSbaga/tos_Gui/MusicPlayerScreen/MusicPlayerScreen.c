@@ -53,12 +53,11 @@ void tos_MusicPlayerScreen_Init(bool theme){
 		MusicPlayerDescriptionLbl_Init(theme);
 
 		MP_taskController=true;
-		lv_task_create(MusicPlayerScreen_Updater, 750, LV_TASK_PRIO_LOWEST, NULL);
 }
 
 
 /*This function using for update variables*/
-void MusicPlayerScreen_Updater(lv_task_t *t){
+void MusicPlayerScreen_Updater(void){
 	if(MP_taskController){
 		if(NULL != MP_SongName) 	lv_label_set_text(MP_SongNameLbl, MP_SongName);
 		else lv_label_set_text(MP_SongNameLbl, "unknow");
@@ -68,7 +67,7 @@ void MusicPlayerScreen_Updater(lv_task_t *t){
 	 	lv_obj_align(MP_SingerLbl, NULL, LV_ALIGN_CENTER, 0, 85);
 	    lv_bar_set_value(MP_soundValBar, MP_SoundVal, LV_ANIM_OFF);
 		MusicPlayerImgSet(MP_statu,MP_theme);
-	}else lv_task_del(t);
+	}
 }
 /**/
 void MusicPlayerSound_Init(bool theme){

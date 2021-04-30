@@ -1,10 +1,10 @@
 tos_StepsAndKcals_Helper.c:16:6:tos_StepsAndKcalsInit	8	static
 tos_StepsAndKcals_Helper.c:22:6:tos_StepsAndKcalsRead	24	static
 tos_StepsAndKcals_Helper.c:30:6:tos_StepsAndKcalsCalcSteps	32	static
-tos_StepsAndKcals_Helper.c:50:6:tos_StepsAndKcalsSetVal	24	static
-tos_StepsAndKcals_Helper.c:57:10:tos_StepsAndKcalsGetSteps	4	static
-tos_StepsAndKcals_Helper.c:58:7:tos_StepsAndKcalsGetDistance_KiloMeter	8	static
-tos_StepsAndKcals_Helper.c:59:7:tos_StepsAndKcalsGetDistance_Mile	8	static
-tos_StepsAndKcals_Helper.c:60:10:tos_StepsAndKcalsGetDistance_KiloCal	8	static
-tos_StepsAndKcals_Helper.c:61:10:tos_StepsAndKcalsGetDistance_Cal	8	static
-tos_StepsAndKcals_Helper.c:62:6:tos_StepsAndKcalsSetSteps	16	static
+tos_StepsAndKcals_Helper.c:49:6:tos_StepsAndKcalsSetVal	24	static
+tos_StepsAndKcals_Helper.c:56:10:tos_StepsAndKcalsGetSteps	4	static
+tos_StepsAndKcals_Helper.c:57:7:tos_StepsAndKcalsGetDistance_KiloMeter	8	static
+tos_StepsAndKcals_Helper.c:58:7:tos_StepsAndKcalsGetDistance_Mile	8	static
+tos_StepsAndKcals_Helper.c:59:10:tos_StepsAndKcalsGetDistance_KiloCal	8	static
+tos_StepsAndKcals_Helper.c:60:10:tos_StepsAndKcalsGetDistance_Cal	8	static
+tos_StepsAndKcals_Helper.c:61:6:tos_StepsAndKcalsSetSteps	16	static

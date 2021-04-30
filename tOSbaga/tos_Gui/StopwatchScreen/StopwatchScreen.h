@@ -20,7 +20,7 @@ extern TIM_HandleTypeDef TOS_STOPWATCH_TIMER;
 
 	//Functions
 void tos_StopWatchScreen_Init(bool theme);
-void StopWatch_Stopwatch_Updater(lv_task_t *t);
+void StopWatch_Stopwatch_Updater(void);
 
 void StopWatch_ButtonController(void);
 void StopWatch_Update_Time(void);

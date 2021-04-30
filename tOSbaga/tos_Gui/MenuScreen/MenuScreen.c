@@ -33,29 +33,31 @@ void tos_MenuScreen_Init(bool theme,RTC_HandleTypeDef *hrtc){
 		style_screen.text.font = &lv_font_roboto_28;
 		lv_obj_set_style(lv_scr_act(), &style_screen);
 		MenuIsOpen=true;
-		MenuS_TaskController=true;
 		Menutheme=theme;
 		M_hrtc=hrtc;
+		MenuS_TaskController=true;
 }
 void tos_Menu_Controller(void){
 	if(MenuS_TaskController){
 			  if(SettingsScreen_isSettingsOpen())  SettingsScreen_ButtonController();
 			  else if(ThemeSettingsScreen_isSettingsOpen())  ThemeSettingsScreen_ButtonController();
 			  else {
-				  if(1==tos_EnterButton_Listenner_For_MenuControl()) MenuScreen_OpenMenu(item);
+				static  bool rightBtn=0,leftBtn=0,enterBtn=0;
+
+				  if(1==enterBtn) MenuScreen_OpenMenu(item);
 				  if(StopWatch_TaskControllerGet())  StopWatch_ButtonController();
 				  else if(RunMode_TaskControllerGet())    RunMode_ButtonController();
 				  else if(MusicPlayer_TaskControllerGet())   MusicPlayer_ButtonController();
 				  else if(NotificationScreen_TaskControllerGet())   NotificationScreen_ButtonController();
 				  else{
-					  if(1==tos_LeftButton_Listenner_For_MenuControl()){
+					  if(1==leftBtn){
 						  if(item>ITEM_MIN)item--;
 						  else {
 							  	MenuS_TaskController=false;
 							  	tos_Set_Current_Screen();
 						  }
 					  }
-					  if(1==tos_RightButton_Listenner_For_MenuControl()){
+					  if(1==rightBtn){
 						  if(item<ITEM_MAX)item++;
 						  else{
 							  	MenuS_TaskController=false;
@@ -69,8 +71,12 @@ void tos_Menu_Controller(void){
 				  MenuScreen_ItemController(item);
 				  befItem=item;
 				}
+					rightBtn=tos_RightButton_Listenner_For_MenuControl();
+					leftBtn=tos_LeftButton_Listenner_For_MenuControl();
+					enterBtn= tos_EnterButton_Listenner_For_MenuControl();
 
 			  }
+
 	}
 }
 
@@ -149,21 +155,21 @@ void MenuScreen_OpenMenu(uint8_t item){
 
 void MenuScreen_ItemController(uint8_t item){
 		switch(item){
-		case ITEM0:	MenuScreen_MenuItem("STEPS AND KCALS", &tos75x75); break;
+		case ITEM0:	MenuScreen_MenuItem("STEPS AND KCALS", &stepsAndKcals120x120); break;
 
-		case ITEM1: MenuScreen_MenuItem("STOPWATCH", &tos75x75); break;
+		case ITEM1: MenuScreen_MenuItem("STOPWATCH", &stopWatch120x120); break;
 
-		case ITEM2: MenuScreen_MenuItem("RUN MODE", &tos75x75); break;
+		case ITEM2: MenuScreen_MenuItem("RUN MODE", &runMode120x120); break;
 
-		case ITEM3: MenuScreen_MenuItem("MUSIC PLAYER", &tos75x75); break;
+		case ITEM3: MenuScreen_MenuItem("MUSIC PLAYER", &musicPlayer120x120); break;
 
-		case ITEM4: MenuScreen_MenuItem("NOTIFICATIONS", &tos75x75); break;
+		case ITEM4: MenuScreen_MenuItem("NOTIFICATIONS", &notification120x120); break;
 
-		case ITEM5: MenuScreen_MenuItem("HAND LANTERN", &tos75x75); break;
+		case ITEM5: MenuScreen_MenuItem("HAND LANTERN", &handLatern120x120); break;
 
-		case ITEM6: MenuScreen_MenuItem("THEME SETTINGS", &tos75x75); break;
+		case ITEM6: MenuScreen_MenuItem("THEME SETTINGS", &themeSettings120x120); break;
 
-		case ITEM7: MenuScreen_MenuItem("SYSTEM SETTINGS", &tos75x75); break;
+		case ITEM7: MenuScreen_MenuItem("SYSTEM SETTINGS", &systemSettings120x120); break;
 		default: return;
 		}
 }
@@ -172,13 +178,13 @@ void MenuScreen_MenuItem(char * itemTitle,const void * itemImg){
 	lv_obj_clean(lv_scr_act());
 		lv_obj_t * img1 = lv_img_create(lv_scr_act(), NULL);
 		lv_img_set_src(img1, itemImg);
-		lv_obj_align(img1, NULL, LV_ALIGN_CENTER, 0, -20);
+		lv_obj_align(img1, NULL, LV_ALIGN_CENTER, 0, -15);
 
 		lv_obj_t * tosLbl =lv_label_create(lv_scr_act(), NULL);
 	 	lv_label_set_style(tosLbl, LV_LABEL_STYLE_MAIN, &style_screen);
 	   	snprintf(menuBuffer, 20, "%s", itemTitle);
 	 	lv_label_set_text(tosLbl,menuBuffer);
-	 	lv_obj_align(tosLbl, NULL, LV_ALIGN_CENTER, 0, 50);
+	 	lv_obj_align(tosLbl, NULL, LV_ALIGN_CENTER, 0, 65);
 }
 //Setter And Getter Functions
 bool MenuScreen_TaskControllerGet(void){
