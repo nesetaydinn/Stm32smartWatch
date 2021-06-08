@@ -9,10 +9,10 @@ lvgl/src/lv_draw/lv_img_decoder.o: ../lvgl/src/lv_draw/lv_img_decoder.c \
  ../lvgl/src/lv_draw/../lv_misc/lv_area.h \
  ../lvgl/src/lv_draw/../lv_core/lv_style.h \
  ../lvgl/src/lv_draw/../lv_core/../lv_font/lv_font.h \
- ../lvgl/src/lv_draw/../lv_core/../lv_font/../../../lv_conf.h \
+ c:\users\nesat\documents\github\stm32smartwatch\lv_conf.h \
  ../lvgl/src/lv_draw/../lv_core/../lv_font/lv_symbol_def.h \
  ../lvgl/src/lv_draw/../lv_core/../lv_misc/lv_color.h \
- ../lvgl/src/lv_draw/../lv_core/../lv_misc/../../../lv_conf.h \
+ c:\users\nesat\documents\github\stm32smartwatch\lv_conf.h \
  ../lvgl/src/lv_draw/../lv_core/../lv_misc/lv_area.h \
  ../lvgl/src/lv_draw/../lv_core/../lv_misc/lv_anim.h \
  ../lvgl/src/lv_draw/../lv_draw/lv_draw_img.h \
@@ -20,7 +20,7 @@ lvgl/src/lv_draw/lv_img_decoder.o: ../lvgl/src/lv_draw/lv_img_decoder.c \
  ../lvgl/src/lv_draw/../lv_draw/../../../lv_conf.h \
  ../lvgl/src/lv_draw/../lv_draw/../lv_core/lv_style.h \
  ../lvgl/src/lv_draw/../lv_draw/../lv_misc/lv_txt.h \
- ../lvgl/src/lv_draw/../lv_draw/../lv_misc/../../../lv_conf.h \
+ c:\users\nesat\documents\github\stm32smartwatch\lv_conf.h \
  ../lvgl/src/lv_draw/../lv_draw/../lv_misc/lv_area.h \
  ../lvgl/src/lv_draw/../lv_draw/../lv_misc/../lv_font/lv_font.h \
  ../lvgl/src/lv_draw/../lv_draw/lv_img_decoder.h \
@@ -61,13 +61,13 @@ lvgl/src/lv_draw/lv_img_decoder.o: ../lvgl/src/lv_draw/lv_img_decoder.c \
 
 ../lvgl/src/lv_draw/../lv_core/../lv_font/lv_font.h:
 
-../lvgl/src/lv_draw/../lv_core/../lv_font/../../../lv_conf.h:
+c:\users\nesat\documents\github\stm32smartwatch\lv_conf.h:
 
 ../lvgl/src/lv_draw/../lv_core/../lv_font/lv_symbol_def.h:
 
 ../lvgl/src/lv_draw/../lv_core/../lv_misc/lv_color.h:
 
-../lvgl/src/lv_draw/../lv_core/../lv_misc/../../../lv_conf.h:
+c:\users\nesat\documents\github\stm32smartwatch\lv_conf.h:
 
 ../lvgl/src/lv_draw/../lv_core/../lv_misc/lv_area.h:
 
@@ -83,7 +83,7 @@ lvgl/src/lv_draw/lv_img_decoder.o: ../lvgl/src/lv_draw/lv_img_decoder.c \
 
 ../lvgl/src/lv_draw/../lv_draw/../lv_misc/lv_txt.h:
 
-../lvgl/src/lv_draw/../lv_draw/../lv_misc/../../../lv_conf.h:
+c:\users\nesat\documents\github\stm32smartwatch\lv_conf.h:
 
 ../lvgl/src/lv_draw/../lv_draw/../lv_misc/lv_area.h:
 

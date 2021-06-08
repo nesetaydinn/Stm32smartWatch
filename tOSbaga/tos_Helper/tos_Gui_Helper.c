@@ -22,6 +22,7 @@ bool isScreenCounterEnable;
 static bool isWorkingSystem=false;
 static uint16_t sleepCounter;
 uint8_t currentScreen,TGEnterBtnListenner,TGRightBtnListenner,TGLeftBtnListenner;
+bool firstGyroYValTick;
 
 bool isOpenSleepScreen;
 extern task2Mutex;
@@ -33,7 +34,6 @@ void tos_Screen_Create(void);
 
 void tos_Screen_Init(void){
 	TGEnterBtnListenner=0,TGRightBtnListenner=0,TGLeftBtnListenner=0;
-
 }
 void tos_Screen_Create(void){
 	isScreenCounterEnable=true;
@@ -46,7 +46,6 @@ void tos_Screen_Create(void){
 	isWorkingSystem=true;
 	ST7789_UnSelect();
 	tos_StartScreen_Init();
-
 }
 void tos_firstScreen_Update(void){
 	if(isScreenCounterEnable){
@@ -55,7 +54,6 @@ void tos_firstScreen_Update(void){
 			tos_Gui_Init();
 		}
 	}
-
 }
 
 void tos_Gui_Init(void){
@@ -80,7 +78,6 @@ void tos_ScreenController(void){
 			if(!screenStatu){screenStatu=true;	ST7789_UnSelect(); return;}
 			else if(1==currentScreen){currentScreen=0; tos_Screen_Chooser(currentScreen);	return;}
 		}
-
 		if(1==TGLeftBtnListenner){ sleepCounter=0;
 			MenuScreen_SetItem(7); currentScreen=2; tos_Screen_Chooser(currentScreen);
 			GuiHelperOpen=false; 	return;
@@ -89,8 +86,6 @@ void tos_ScreenController(void){
 			MenuScreen_SetItem(0); currentScreen=2; tos_Screen_Chooser(currentScreen);
 			GuiHelperOpen=false; 	return;
 		}
-
-
 		if(isOpenSleepScreen && screenStatu ){isOpenSleepScreen=false; sleepCounter=0; currentScreen=TOS_SCREEN_SLEEPMODE_;  tos_Screen_Chooser(currentScreen);
 		vTaskDelay(5);}
 		else if(isOpenSleepScreen && !screenStatu){isOpenSleepScreen=false; sleepCounter=0; ST7789_Select();}
@@ -101,7 +96,7 @@ void tos_ScreenController(void){
 }
 
 MPUScaledData_Def getgyroScale;
-float gyroYnow,gyroYbef,gyroYtotal;
+float gyroYnow,gyroYbef,gyroYtotal,firstGyroYVal;
 void tos_Read_Gyro(void){
 	if(isWorkingSystem && TOS_SCREEN_SLEEPMODE_==currentScreen){
 	uint32_t t1,t2,dt;
@@ -109,9 +104,10 @@ void tos_Read_Gyro(void){
 	MPU6050_Read_ScaledGyro_Val();
 	getgyroScale=MPU6050_getGyroScaleVals();
 	gyroYnow=getgyroScale.y;
+	if(!firstGyroYValTick){firstGyroYVal=gyroYnow; firstGyroYValTick=true;}
 	gyroYtotal=gyroYnow-gyroYbef;
-	if(gyroYtotal>90.0f){ST7789_UnSelect(); screenStatu=true;}
-	if(gyroYtotal<-90.0f){ST7789_Select(); screenStatu=false;}
+	if(gyroYtotal>90.0f+firstGyroYVal){ST7789_UnSelect(); screenStatu=true;}
+	if(gyroYtotal<-90.0f+firstGyroYVal){ST7789_Select(); screenStatu=false;}
 	gyroYbef=gyroYnow;
 	t2=HAL_GetTick();
 	dt=t2-t1;
@@ -121,7 +117,7 @@ void tos_Read_Gyro(void){
 
 /*This function using for set new screen*/
 void tos_Screen_Chooser(uint8_t currentScreen){
-
+	firstGyroYValTick=false;
 	xSemaphoreTake(task2Mutex,portMAX_DELAY);
 	SleepModeScreen_TaskControllerSet(false);
 	MainScreen_TaskControllerSet(false);
@@ -146,7 +142,7 @@ void tos_Screen_Variables_Getter(uint8_t Screen){
 	uint8_t battVal=tos_getRealbatValue();
 	  tos_RTC_GetTime(ScreenRtc,Screen);
 	  tos_getBatteryVAl(battVal,Screen);
-	  tos_StepsAndKcalsSetVal(Screen);
+	  tos_StepsAndKcalsSetVal();
 
 }
 void tos_Get_Rtc(RTC_HandleTypeDef *hrtc){

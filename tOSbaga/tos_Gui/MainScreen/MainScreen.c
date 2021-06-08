@@ -529,10 +529,9 @@ void bluetoothStatusUpdater(void){
 We use here set hours 
 */
 void hours_angle_loader(void)
-{	/*saat 12 veya 0 olduğunda saat çubuğu ilerlemiyor çöz*/
-		uint8_t hoursTmpVal=hours;
+{		uint8_t hoursTmpVal=hours;
 		if(hours>=12)hoursTmpVal=hours%12;
-		double hoursTemp = tos_Ratio(hoursTmpVal*60, 0, 11*60,0, 359);
+		double hoursTemp = tos_Ratio(hoursTmpVal, 0, 12,0, 359)+tos_Ratio(minutes, 0, 60,0, 359/12);
 		if(hoursTemp < 180) lv_arc_set_angles(hoursArc, 180-hoursTemp ,180);
 		    else lv_arc_set_angles(hoursArc, 540-hoursTemp ,180);
 }
@@ -541,7 +540,7 @@ We use here set minutes
 */
 void minutes_angle_loader(void)
 {
-	double minutesTemp = tos_Ratio(minutes*60, 0, 59*60, 0, 359);
+	double minutesTemp = tos_Ratio(minutes, 0, 60, 0, 359)+tos_Ratio(seconds, 0, 60,0, 359/60);
 		if(minutesTemp < 180) lv_arc_set_angles(minutesArc, 180-minutesTemp ,180);
 		    else lv_arc_set_angles(minutesArc, 540-minutesTemp ,180);
 

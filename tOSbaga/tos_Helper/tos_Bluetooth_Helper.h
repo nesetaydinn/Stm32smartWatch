@@ -16,15 +16,23 @@
 
 
 typedef struct{
-	uint16_t hours;
-	uint16_t minutes;
-	uint16_t seconds;
-	uint16_t days;
-	uint16_t months;
-	uint16_t years;
+	uint8_t bt_rxBuffer[256];
+	uint8_t bt_txBuffer[256];
+	RTC_HandleTypeDef *bt_rtc_Handle;
+	uint8_t bt_rxGetByte;
+	bool bt_Enable;
+	bool bt_isConnected;
+	bool bt_ImportantFlag;
+	bool bt_ResponseFlag;
+}tos_Bluetooth;
 
-	bool isClockSet;
-	bool isDateSet;
+typedef struct{
+	uint8_t hours;
+	uint8_t minutes;
+	uint8_t seconds;
+	uint8_t days;
+	uint8_t months;
+	uint8_t years;
 
 }tos_Time;
 
@@ -36,14 +44,12 @@ extern UART_HandleTypeDef TOS_BLUETOOTH_PORT;
 #define bluetooth_Enable() HAL_GPIO_WritePin(BluetoothEnable_GPIO_Port, BluetoothEnable_Pin, GPIO_PIN_SET)
 #define bluetooth_Disable() HAL_GPIO_WritePin(BluetoothEnable_GPIO_Port, BluetoothEnable_Pin, GPIO_PIN_RESET)
 
-void tos_BluetoothGetStatusVAl(bool isBluetoothEnable,uint8_t Screen);
-void tos_BluetoothReceiverAndTransmitter(RTC_HandleTypeDef *hrtc);
-void tos_Bluetooth_NotificationItemInit(void);
+void tos_Bluetooth_ItemInit(RTC_HandleTypeDef *hrtc);
+void tos_BluetoothController(void);
+void tos_BluetoothTransmitter(void);
+void tos_Bluetooth_ReceiveData(void);
+void tos_Bluetooth_Receive_IT(UART_HandleTypeDef *callBackHandle);
+
 bool tos_BluetoothGetEnableVal(void);
 void tos_BluetoothSetEnableVal(bool enable);
-uint8_t tos_BluetoothGetBatteryVal(void);
-void tos_BluetoothSetBatteryVal(uint8_t batteryVal);
-uint16_t tos_BluetoothGetStepsVal(void);
-void tos_BluetoothSetStepsVal(uint8_t steps,bool unitType);
-
 #endif /* TOS_HELPER_TOS_BLUETOOTH_HELPER_H_ */

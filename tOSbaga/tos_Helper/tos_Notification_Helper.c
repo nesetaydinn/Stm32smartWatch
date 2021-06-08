@@ -1,6 +1,5 @@
 #include "tos_Notification_Helper.h"
-
-
+#include "FreeRTOS.h"
 
 tos_Notification *  tos_Notification_CreateRoot(tos_Notification * root){
 	root=NULL;
@@ -15,7 +14,7 @@ tos_Notification *  tos_Notification_SetFirstNode(tos_Notification * root,tos_No
 
 tos_Notification * tos_Notification_CreateNode(uint16_t index){
 	tos_Notification * node;
-	node=(tos_Notification *)malloc(sizeof(tos_Notification));
+	node=(tos_Notification *)pvPortMalloc(sizeof(tos_Notification));
 	if(node){
 		node->index=index;
 		node->next=NULL;
@@ -31,7 +30,7 @@ void tos_Notification_RemoveNode(tos_Notification *previous,tos_Notification *no
 	if(previous){
 		previous->next=node->next;
 	}
-	free(node);
+	vPortFree(node);
 	return;
 }
 
@@ -67,11 +66,16 @@ tos_Notification *tos_NotificationGetItem(tos_Notification * root,uint16_t itemI
 }
 
 
-tos_Notification * tos_NotificationPushItem(tos_Notification * node,char *appName,char *notification){
+tos_Notification * tos_NotificationPushItem(tos_Notification * node,char appName[],uint8_t appNameSize,char notification[],uint8_t notSize){
 		tos_Notification * tmp;
 		tmp=tos_Notification_CreateNode(tos_NotificationGetSize(node));
-		if(appName!=NULL)sscanf(appName,"%s",tmp->appName);
-		if(notification!=NULL)sscanf(notification,"%s",tmp->appNot);
+		if(appName!=NULL)
+			for(uint8_t c=0;c<appNameSize;c++)
+			tmp->appName[c]=appName[c];
+
+		if(notification!=NULL)
+			for(uint8_t c=0;c<notSize;c++)
+				tmp->appNot[c]=notification[c];
         node->next=tmp;
         node=node->next;
         return node;

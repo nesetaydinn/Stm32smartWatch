@@ -91,8 +91,8 @@ all: main-build
 main-build: smartWatchF407.elf secondary-outputs
 
 # Tool invocations
-smartWatchF407.elf: $(OBJS) $(USER_OBJS) F:\Users\pc\STM32CubeIDE\workspace_1.5.0\smartWatchF407\STM32F407VGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "smartWatchF407.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"F:\Users\pc\STM32CubeIDE\workspace_1.5.0\smartWatchF407\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="smartWatchF407.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+smartWatchF407.elf: $(OBJS) $(USER_OBJS) C:\Users\nesat\Documents\GitHub\Stm32smartWatch\STM32F407VGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "smartWatchF407.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\nesat\Documents\GitHub\Stm32smartWatch\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="smartWatchF407.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

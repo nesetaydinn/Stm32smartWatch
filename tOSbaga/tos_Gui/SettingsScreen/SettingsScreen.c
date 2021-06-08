@@ -62,6 +62,7 @@ void tos_SettingsScreen_Init(bool theme,RTC_HandleTypeDef *hrtc){
 			S_hrtc=hrtc;
 
 		 	SbluetoothStatu=tos_BluetoothGetEnableVal();
+		 	SunitType=tos_StepsAndKcalsGetUnitType();
 
 			SettingsScreen_clockInit(theme);
 			SettingsScreen_dateInit(theme);
@@ -469,6 +470,7 @@ void SettingsScreen_SetNewValues(void){
 	  tos_RTC_SetTime(S_hrtc,Shours,Sminutes,Sseconds);
 	  tos_RTC_SetDate(S_hrtc,(Syears-2000),Smonths,Sdates);
 	  tos_BluetoothSetEnableVal(SbluetoothStatu);
+	  tos_StepsAndKcalsSetUnitType(SunitSetVal);
 }
 
 void SettingsScreen_SetTime(uint8_t getHours, uint8_t getMinutes, uint8_t getSeconds) {

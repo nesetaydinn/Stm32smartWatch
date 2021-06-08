@@ -3,7 +3,7 @@ lvgl/src/lv_core/lv_disp.o: ../lvgl/src/lv_core/lv_disp.c \
  ../lvgl/src/lv_core/../lv_hal/lv_hal_disp.h \
  ../lvgl/src/lv_core/../lv_hal/lv_hal.h \
  ../lvgl/src/lv_core/../lv_hal/../lv_misc/lv_color.h \
- ../lvgl/src/lv_core/../lv_hal/../lv_misc/../../../lv_conf.h \
+ c:\users\nesat\documents\github\stm32smartwatch\lv_conf.h \
  ../lvgl/src/lv_core/../lv_hal/../lv_misc/lv_area.h \
  ../lvgl/src/lv_core/../lv_hal/../lv_misc/lv_ll.h \
  ../lvgl/src/lv_core/../lv_hal/../lv_misc/lv_mem.h \
@@ -37,7 +37,7 @@ lvgl/src/lv_core/lv_disp.o: ../lvgl/src/lv_core/lv_disp.c \
 
 ../lvgl/src/lv_core/../lv_hal/../lv_misc/lv_color.h:
 
-../lvgl/src/lv_core/../lv_hal/../lv_misc/../../../lv_conf.h:
+c:\users\nesat\documents\github\stm32smartwatch\lv_conf.h:
 
 ../lvgl/src/lv_core/../lv_hal/../lv_misc/lv_area.h:
 

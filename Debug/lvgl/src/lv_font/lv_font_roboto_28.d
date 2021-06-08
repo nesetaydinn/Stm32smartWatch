@@ -12,7 +12,7 @@ lvgl/src/lv_font/lv_font_roboto_28.o: \
  ../lvgl/src/lv_font/../../src/lv_hal/lv_hal_disp.h \
  ../lvgl/src/lv_font/../../src/lv_hal/lv_hal.h \
  ../lvgl/src/lv_font/../../src/lv_hal/../lv_misc/lv_color.h \
- f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
+ c:\users\nesat\documents\github\stm32smartwatch\lv_conf.h \
  ../lvgl/src/lv_font/../../src/lv_hal/../lv_misc/lv_area.h \
  ../lvgl/src/lv_font/../../src/lv_hal/../lv_misc/lv_ll.h \
  ../lvgl/src/lv_font/../../src/lv_hal/../lv_misc/lv_task.h \
@@ -23,12 +23,12 @@ lvgl/src/lv_font/lv_font_roboto_28.o: \
  ../lvgl/src/lv_font/../../src/lv_core/../../../lv_conf.h \
  ../lvgl/src/lv_font/../../src/lv_core/lv_style.h \
  ../lvgl/src/lv_font/../../src/lv_core/../lv_font/lv_font.h \
- f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
+ c:\users\nesat\documents\github\stm32smartwatch\lv_conf.h \
  ../lvgl/src/lv_font/../../src/lv_core/../lv_font/lv_symbol_def.h \
  ../lvgl/src/lv_font/../../src/lv_core/../lv_misc/lv_color.h \
  ../lvgl/src/lv_font/../../src/lv_core/../lv_misc/lv_area.h \
  ../lvgl/src/lv_font/../../src/lv_core/../lv_misc/lv_anim.h \
- f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
+ c:\users\nesat\documents\github\stm32smartwatch\lv_conf.h \
  ../lvgl/src/lv_font/../../src/lv_core/../lv_misc/lv_types.h \
  ../lvgl/src/lv_font/../../src/lv_core/../lv_misc/lv_mem.h \
  ../lvgl/src/lv_font/../../src/lv_core/../lv_misc/lv_ll.h \
@@ -39,7 +39,7 @@ lvgl/src/lv_font/lv_font_roboto_28.o: \
  ../lvgl/src/lv_font/../../src/lv_core/lv_refr.h \
  ../lvgl/src/lv_font/../../src/lv_core/lv_disp.h \
  ../lvgl/src/lv_font/../../src/lv_themes/lv_theme.h \
- ../lvgl/src/lv_font/../../src/lv_themes/../../../lv_conf.h \
+ c:\users\nesat\documents\github\stm32smartwatch\lv_conf.h \
  ../lvgl/src/lv_font/../../src/lv_themes/../lv_core/lv_style.h \
  ../lvgl/src/lv_font/../../src/lv_themes/../lv_core/lv_group.h \
  ../lvgl/src/lv_font/../../src/lv_themes/lv_theme_templ.h \
@@ -66,12 +66,12 @@ lvgl/src/lv_font/lv_font_roboto_28.o: \
  ../lvgl/src/lv_font/../../src/lv_objx/lv_btn.h \
  ../lvgl/src/lv_font/../../src/lv_objx/../lv_draw/lv_draw_img.h \
  ../lvgl/src/lv_font/../../src/lv_objx/../lv_draw/lv_draw.h \
- f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
+ c:\users\nesat\documents\github\stm32smartwatch\lv_conf.h \
  ../lvgl/src/lv_font/../../src/lv_objx/../lv_draw/../lv_core/lv_style.h \
  ../lvgl/src/lv_font/../../src/lv_objx/../lv_draw/../lv_misc/lv_txt.h \
- f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h \
+ c:\users\nesat\documents\github\stm32smartwatch\lv_conf.h \
  ../lvgl/src/lv_font/../../src/lv_objx/../lv_draw/../lv_misc/lv_area.h \
- ../lvgl/src/lv_font/../../src/lv_objx/../lv_draw/../lv_misc/../lv_font/lv_font.h \
+ c:\users\nesat\documents\github\stm32smartwatch\lvgl\src\lv_font\lv_font.h \
  ../lvgl/src/lv_font/../../src/lv_objx/../lv_draw/lv_img_decoder.h \
  ../lvgl/src/lv_font/../../src/lv_objx/../lv_draw/../lv_misc/lv_fs.h \
  ../lvgl/src/lv_font/../../src/lv_objx/../lv_draw/../lv_misc/lv_mem.h \
@@ -164,7 +164,7 @@ lvgl/src/lv_font/lv_font_roboto_28.o: \
 
 ../lvgl/src/lv_font/../../src/lv_hal/../lv_misc/lv_color.h:
 
-f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
+c:\users\nesat\documents\github\stm32smartwatch\lv_conf.h:
 
 ../lvgl/src/lv_font/../../src/lv_hal/../lv_misc/lv_area.h:
 
@@ -186,7 +186,7 @@ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
 
 ../lvgl/src/lv_font/../../src/lv_core/../lv_font/lv_font.h:
 
-f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
+c:\users\nesat\documents\github\stm32smartwatch\lv_conf.h:
 
 ../lvgl/src/lv_font/../../src/lv_core/../lv_font/lv_symbol_def.h:
 
@@ -196,7 +196,7 @@ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
 
 ../lvgl/src/lv_font/../../src/lv_core/../lv_misc/lv_anim.h:
 
-f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
+c:\users\nesat\documents\github\stm32smartwatch\lv_conf.h:
 
 ../lvgl/src/lv_font/../../src/lv_core/../lv_misc/lv_types.h:
 
@@ -218,7 +218,7 @@ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
 
 ../lvgl/src/lv_font/../../src/lv_themes/lv_theme.h:
 
-../lvgl/src/lv_font/../../src/lv_themes/../../../lv_conf.h:
+c:\users\nesat\documents\github\stm32smartwatch\lv_conf.h:
 
 ../lvgl/src/lv_font/../../src/lv_themes/../lv_core/lv_style.h:
 
@@ -272,17 +272,17 @@ f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
 
 ../lvgl/src/lv_font/../../src/lv_objx/../lv_draw/lv_draw.h:
 
-f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
+c:\users\nesat\documents\github\stm32smartwatch\lv_conf.h:
 
 ../lvgl/src/lv_font/../../src/lv_objx/../lv_draw/../lv_core/lv_style.h:
 
 ../lvgl/src/lv_font/../../src/lv_objx/../lv_draw/../lv_misc/lv_txt.h:
 
-f:\users\pc\stm32cubeide\workspace_1.5.0\smartwatchf407\lv_conf.h:
+c:\users\nesat\documents\github\stm32smartwatch\lv_conf.h:
 
 ../lvgl/src/lv_font/../../src/lv_objx/../lv_draw/../lv_misc/lv_area.h:
 
-../lvgl/src/lv_font/../../src/lv_objx/../lv_draw/../lv_misc/../lv_font/lv_font.h:
+c:\users\nesat\documents\github\stm32smartwatch\lvgl\src\lv_font\lv_font.h:
 
 ../lvgl/src/lv_font/../../src/lv_objx/../lv_draw/lv_img_decoder.h:
 

@@ -72,9 +72,9 @@ typedef int16_t lv_coord_t;
 /* Automatically defrag. on free. Defrag. means joining the adjacent free cells. */
 #  define LV_MEM_AUTO_DEFRAG  1
 #else       /*LV_MEM_CUSTOM*/
-#  define LV_MEM_CUSTOM_INCLUDE <stdlib.h>
-#  define LV_MEM_CUSTOM_ALLOC   malloc
-#  define LV_MEM_CUSTOM_FREE    free
+#  define LV_MEM_CUSTOM_INCLUDE <FreeRTOS.h>
+#  define LV_MEM_CUSTOM_ALLOC   pvPortMalloc
+#  define LV_MEM_CUSTOM_FREE    vPortFree
 #endif     /*LV_MEM_CUSTOM*/
 
 /* Garbage Collector settings

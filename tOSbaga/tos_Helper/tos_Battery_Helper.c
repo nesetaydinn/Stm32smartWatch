@@ -12,19 +12,17 @@
 uint8_t realbatValue;
 bool isCharging;
 
-char * tos_BatteryVal_Sym_Helper(uint8_t batteryVal,uint8_t batteryValueTemp);
+char * tos_BatteryVal_Sym_Helper(uint8_t batteryVal);
 lv_color_t tos_BatteryVal_SymColor_Helper(uint8_t batteryVal);
 
 void tos_getBatteryVAl(uint8_t batteryVal,uint8_t Screen){
 	static uint8_t batteryValueTemp = 255;
 	if (batteryVal != batteryValueTemp){
-	char * batterySym= tos_BatteryVal_Sym_Helper(batteryVal,batteryValueTemp);
+	char * batterySym= tos_BatteryVal_Sym_Helper(batteryVal);
 	lv_color_t batteryClr = tos_BatteryVal_SymColor_Helper(batteryVal);
 	switch(Screen){
 	case TOS_SCREEN_MAIN_:  	MainScreen_SetBatteryVal(batterySym, batteryClr); break;
 	case TOS_SCREEN_SLEEPMODE_:  SleepModeScreen_SetBatteryVal(batterySym, batteryClr); break;
-	/*case TOS_SCREEN_STOPWATCH_: tos_MainScreen_Init(1,1);break;
-	case TOS_SCREEN_NOTIFICATIONS_: break;*/
 	default: return;
 	}
 
@@ -47,7 +45,7 @@ void tos_BatteryRead(ADC_HandleTypeDef *battery){
 	  isCharging=BATTERY_IS_CHARGING;
 }
 
-char * tos_BatteryVal_Sym_Helper(uint8_t batteryVal,uint8_t batteryValueTemp){
+char * tos_BatteryVal_Sym_Helper(uint8_t batteryVal){
 		if(!isCharging){
 			if (batteryVal < 10 && batteryVal >= 0) return LV_SYMBOL_BATTERY_EMPTY;
 			else if (batteryVal >= 10 && batteryVal < 25) return LV_SYMBOL_BATTERY_1;
@@ -72,4 +70,4 @@ lv_color_t tos_BatteryVal_SymColor_Helper(uint8_t batteryVal){
 
 			return LV_COLOR_BLUE;
 }
-uint8_t tos_getRealbatValue(void){return realbatValue;};
+uint8_t tos_getRealbatValue(void){return realbatValue;}
